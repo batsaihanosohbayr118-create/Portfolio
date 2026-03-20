@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Python",
+    "icon": "/skills/Python.jpg",
+    "level": 90,
+    "color": "from-amber-500 to-amber-500"
+  },
+  {
+    "name": "React",
+    "icon": "/skills/react.jpg",
+    "level": 95,
+    "color": "from-blue-500 to-blue-500"
+  },
+  {
+    "name": "Javascript",
+    "icon": "/skills/javascript.jpg",
+    "level": 89,
+    "color": "from-violet-500 to-violet-500"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "/skills/mongoDB.png",
+    "level": 96,
+    "color": "from-red-500 to-red-500"
+  },
+  {
+    "name": "Vite",
+    "icon": "/skills/vite.png",
+    "level": 90,
+    "color": "from-cyan-500 to-cyan-500"
+  },
+  {
+    "name": "Node",
+    "icon": "/skills/node.webp",
+    "level": 93,
+    "color": "from-green-500 to-green-500"
+  },
+  {
+    "name": "Tailwind",
+    "icon": "/skills/tailwind.jpg",
+    "level": 85,
+    "color": "from-teal-500 to-teal-500"
+  },
+  {
+    "name": "Figma",
+    "icon": "/skills/figma.png",
+    "level": 92,
+    "color": "from-orange-500 to-orange-500"
+  }
+]
