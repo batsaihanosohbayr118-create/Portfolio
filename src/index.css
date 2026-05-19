@@ -27,3 +27,35 @@ html {
     39% 35%
   );
 }
+
+.project-carousel-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
+
+.project-marquee-track {
+  will-change: transform;
+}
+
+.animate-project-flow {
+  animation: project-flow var(--project-flow-duration, 36s) linear infinite;
+}
+
+.animate-project-flow:hover {
+  animation-play-state: paused;
+}
+
+@keyframes project-flow {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
+}

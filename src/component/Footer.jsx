@@ -25,9 +25,9 @@ const Footer = ({ darkMode }) => {
     <footer
       style={{
         background: darkMode
-          ? "linear-gradient(to bottom, #000000, #111827)"
+          ? "linear-gradient(to bottom, #111827, #0d182e)"
           : "linear-gradient(to bottom, #f3f4f6, #e5e7eb)",
-        borderColor: darkMode ? "#374151" : "#d1d5db",
+        borderColor: darkMode ? "#243044" : "#d1d5db",
       }}
       className="border-t"
     >

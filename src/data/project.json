@@ -14,13 +14,6 @@
         "tags": ["React", "HTML", "Tailwind CSS"]
     },
     {
-        "id": 3,
-        "title": "Portfolio",
-        "description": "made with React, Html, CSS",
-        "image": "./images/project3.png",
-        "tags": ["React", "HTML", "CSS"]
-    },
-    {
         "id": 4,
         "title": "Sleep",
         "description": "made with React, JavaScript, Tailwind CSS",
@@ -40,6 +33,20 @@
         "description": "made with React, Tailwind CSS",
         "image": "./images/project6.png",
         "tags": ["React", "Tailwind CSS"]
+    },
+    {
+        "id": 7,
+        "title": "HotelHub",
+        "description": "made with React, Next.js, PostgreSQL, Tailwind CSS",
+        "image": "./images/project7.png",
+        "tags": ["React", "Next.js", "PostgreSQL", "Tailwind CSS"]
+    },
+    {
+        "id": 8,
+        "title": "Hospital Management System",
+        "description": "made with React, Node.js, Express, MongoDB, Tailwind CSS",
+        "image": "./images/project8.png",
+        "tags": ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"]
     }
 
 ]
