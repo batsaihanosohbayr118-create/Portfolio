@@ -25,28 +25,15 @@ const cardVariants = {
   }),
 };
 
-const getProjectTags = () =>
-  projects.reduce((tags, project) => {
-    project.tags.forEach((tag) => {
-      if (!tags.includes(tag)) tags.push(tag);
-    });
-
-    return tags;
-  }, ["All", "Favourites"]);
-
 const Projects = ({ darkMode }) => {
   const [filter, setFilter] = useState("All");
   const [favorites, setFavorites] = useLocalStorage("favourite", []);
 
-  const allTags = getProjectTags();
-
+  const filterOptions = ["All", "Favourites"];
   const filteredProjects =
-    filter === "All"
-      ? projects
-      : filter === "Favourites"
-        ? projects.filter((project) => favorites.includes(project.id))
-        : projects.filter((project) => project.tags.includes(filter));
-
+    filter === "Favourites"
+      ? projects.filter((project) => favorites.includes(project.id))
+      : projects;
   const shouldAnimate = filteredProjects.length > 3;
   const carouselProjects = shouldAnimate
     ? [...filteredProjects, ...filteredProjects]
@@ -57,10 +44,6 @@ const Projects = ({ darkMode }) => {
     setFavorites((prev) =>
       prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
     );
-  };
-
-  const handleFilterChange = (tag) => {
-    setFilter(tag);
   };
 
   const renderProjectCard = (project, index) => {
@@ -186,7 +169,7 @@ const Projects = ({ darkMode }) => {
     <section
       id="projects"
       style={{ backgroundColor: darkMode ? "#111827" : "#f9fafb" }}
-      className="relative py-20 transition-colors duration-300 scroll-mt-24"
+      className="relative pt-10 pb-20 transition-colors duration-300 scroll-mt-24"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
@@ -213,23 +196,29 @@ const Projects = ({ darkMode }) => {
             data-aos-delay="200"
             className="flex flex-wrap justify-center gap-2 mt-6 mb-8"
           >
-            {allTags.map((tag) => (
+            {filterOptions.map((option) => (
               <button
-                key={tag}
-                onClick={() => handleFilterChange(tag)}
+                key={option}
+                onClick={() => setFilter(option)}
                 style={{
                   background:
-                    filter === tag
+                    filter === option
                       ? "linear-gradient(to right, #f97316, #f59e0b)"
                       : darkMode
                         ? "#374151"
                         : "#e5e7eb",
                   color:
-                    filter === tag ? "white" : darkMode ? "#d1d5db" : "#4b5563",
+                    filter === option
+                      ? "white"
+                      : darkMode
+                        ? "#d1d5db"
+                        : "#4b5563",
                 }}
                 className="px-4 py-1.5 rounded-full text-sm font-medium transition-all transform hover:scale-105 shadow-sm active:scale-95"
               >
-                {tag === "Favourites" ? `Favourites (${favorites.length})` : tag}
+                {option === "Favourites"
+                  ? `Favourites (${favorites.length})`
+                  : option}
               </button>
             ))}
           </div>

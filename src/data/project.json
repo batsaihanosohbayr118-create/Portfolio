@@ -44,9 +44,9 @@
     {
         "id": 8,
         "title": "Hospital Management System",
-        "description": "made with React, Node.js, Express, MongoDB, Tailwind CSS",
+        "description": "made with React, Node.js, Express, MongoDB",
         "image": "./images/project8.png",
-        "tags": ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"]
+        "tags": ["React", "Node.js", "Express", "MongoDB"]
     }
 
 ]
