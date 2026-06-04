@@ -47,6 +47,13 @@
         "description": "made with React, Node.js, Express, MongoDB",
         "image": "./images/project8.png",
         "tags": ["React", "Node.js", "Express", "MongoDB"]
+    },
+    {
+        "id": 9,
+        "title": "School Management System",
+        "description": "made with Next.js, Node.js, Express, Supabase",
+        "image": "./images/project9.png",
+        "tags": ["React", "Node.js", "Express", "Supabase"]
     }
 
 ]
