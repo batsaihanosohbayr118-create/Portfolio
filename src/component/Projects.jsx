@@ -32,6 +32,9 @@ const Projects = () => {
         key={`${project.id}-${index}`}
         custom={index}
         variants={cardVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
         whileHover={{
           y: -10,
           scale: 1.02,
@@ -148,9 +151,6 @@ const Projects = () => {
 
         <div className="project-carousel-mask -mx-4 overflow-hidden px-4 py-3">
           <Motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.16 }}
             className={`flex gap-6 ${
               shouldAnimate
                 ? "project-marquee-track w-max animate-project-flow"
