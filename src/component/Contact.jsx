@@ -1,22 +1,21 @@
 import emailjs from "emailjs-com";
 import { useRef, useState } from "react";
-import contactImg from "../assets/contact.png";
+import contactImg from "../assets/about.jpg";
 
 const inputBaseClass =
   "w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all";
 
-const getFieldStyles = (darkMode) => ({
-  backgroundColor: darkMode ? "#374151" : "#faede3",
-  borderColor: darkMode ? "#4b5563" : "#d1d5db",
-  color: darkMode ? "white" : "#1f2937",
-});
+const fieldStyles = {
+  backgroundColor: "#374151",
+  borderColor: "#4b5563",
+  color: "white",
+};
 
-const Contact = ({ darkMode }) => {
+const Contact = () => {
   const form = useRef(null);
   const [status, setStatus] = useState("idle");
 
   const isLoading = status === "loading";
-  const fieldStyles = getFieldStyles(darkMode);
 
   const resetStatusAfterDelay = () => {
     setTimeout(() => setStatus("idle"), 4000);
@@ -49,52 +48,28 @@ const Contact = ({ darkMode }) => {
   return (
     <section
       id="contact"
-      style={{ backgroundColor: darkMode ? "#111827" : "#f9fafb" }}
-      className="py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      style={{ backgroundColor: "#111827" }}
+      className="pt-20 sm:pt-24 pb-12 sm:pb-16 md:pb-20 lg:pb-24 overflow-hidden scroll-mt-24"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12" data-aos="fade-up">
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3"
-            style={{ color: darkMode ? "white" : "#1f2937" }}
-          >
-            Get in{" "}
-            <span
-              style={{
-                background: "linear-gradient(to right, #f97316, #f59e0b)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              Touch
-            </span>
-          </h2>
-          <p
-            className="text-base sm:text-lg md:text-xl"
-            style={{ color: darkMode ? "#d1d5db" : "#6b7280" }}
-          >
-            Let's discuss your project
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:items-stretch">
           <div className="flex justify-center order-2 lg:order-1" data-aos="fade-right">
-            <img
-              src={contactImg}
-              alt="Contact"
-              className="w-full max-w-xs sm:max-w-sm lg:max-w-md h-auto object-contain"
-            />
+            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-[3/4] lg:aspect-auto lg:h-full">
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-400 via-amber-500 to-orange-600 opacity-70 blur-md" />
+              <img
+                src={contactImg}
+                alt="Холбоо барих"
+                className="absolute inset-0 w-full h-full object-cover rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-orange-500/40"
+              />
+            </div>
           </div>
 
           <form
             ref={form}
             onSubmit={handleSubmit}
             style={{
-              background: darkMode
-                ? "linear-gradient(to right, #1f2937, #111827)"
-                : "linear-gradient(to right, #ffffff, #f9fafb)",
-              borderColor: darkMode ? "#374151" : "#e5e7eb",
+              background: "linear-gradient(to right, #1f2937, #111827)",
+              borderColor: "#374151",
             }}
             className="rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 border shadow-lg order-1 lg:order-2"
             data-aos="fade-left"
@@ -115,7 +90,7 @@ const Contact = ({ darkMode }) => {
               <input
                 type="text"
                 name="from_name"
-                placeholder="First Name"
+                placeholder="Нэр"
                 style={fieldStyles}
                 className={inputBaseClass}
                 required
@@ -124,7 +99,7 @@ const Contact = ({ darkMode }) => {
               <input
                 type="text"
                 name="last_name"
-                placeholder="Last Name"
+                placeholder="Овог"
                 style={fieldStyles}
                 className={inputBaseClass}
                 required
@@ -134,7 +109,7 @@ const Contact = ({ darkMode }) => {
             <input
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="И-мэйл хаяг"
               style={fieldStyles}
               className={`${inputBaseClass} mb-3 sm:mb-4`}
               required
@@ -143,7 +118,7 @@ const Contact = ({ darkMode }) => {
             <input
               type="tel"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="Утасны дугаар"
               style={fieldStyles}
               className={`${inputBaseClass} mb-3 sm:mb-4`}
               required
@@ -151,7 +126,7 @@ const Contact = ({ darkMode }) => {
 
             <textarea
               name="message"
-              placeholder="Type your message..."
+              placeholder="Мессежээ бичнэ үү..."
               style={fieldStyles}
               className={`${inputBaseClass} mb-3 sm:mb-6 resize-none`}
               required
@@ -163,7 +138,7 @@ const Contact = ({ darkMode }) => {
               style={{ background: "linear-gradient(to right, #f97316, #f29e0b)" }}
               className="w-full py-2 sm:py-3 text-white font-semibold rounded-lg text-sm sm:text-base hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02] transition-all disabled:opacity-60"
             >
-              {isLoading ? "Sending..." : "Send Message"}
+              {isLoading ? "Илгээж байна..." : "Илгээх"}
             </button>
           </form>
         </div>

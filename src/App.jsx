@@ -1,7 +1,9 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import About from "./component/About";
+import AboutPage from "./component/AboutPage";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
 import Hero from "./component/Hero";
@@ -9,8 +11,33 @@ import Navbar from "./component/Navbar";
 import Projects from "./component/Projects";
 import Skills from "./component/Skills";
 
+const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sectionId = location.state?.scrollTo;
+    if (!sectionId) return;
+
+    const timer = setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location.state]);
+
+  return (
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+    </>
+  );
+};
+
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     AOS.init({
@@ -21,33 +48,24 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
+    if (!location.state?.scrollTo) {
+      window.scrollTo({ top: 0 });
+    }
     AOS.refresh();
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
+  }, [location.pathname]);
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-500 ${
-        darkMode
-          ? "bg-linear-to-br from-gray-900 via-[#0d182e] to-gray-900"
-          : "bg-linear-to-br from-gray-50 to-blue-50"
-      }`}
-    >
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-[#0d182e] to-gray-900">
+      <Navbar />
 
       <main>
-        <Hero darkMode={darkMode} />
-        <About darkMode={darkMode} />
-        <Skills darkMode={darkMode} />
-        <Projects darkMode={darkMode} />
-        <Contact darkMode={darkMode} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
       </main>
 
-      <Footer darkMode={darkMode} />
+      <Footer />
     </div>
   );
 };

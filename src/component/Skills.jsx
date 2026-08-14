@@ -19,18 +19,11 @@ const cardVariants = {
   },
 };
 
-const getCardShadow = (darkMode) =>
-  darkMode
-    ? "0 20px 45px rgba(249, 115, 22, 0.18)"
-    : "0 20px 45px rgba(249, 115, 22, 0.22)";
+const cardShadow = "0 20px 45px rgba(249, 115, 22, 0.18)";
 
-const Skills = ({ darkMode }) => {
+const Skills = () => {
   return (
-    <section
-      id="skills"
-      style={{ backgroundColor: darkMode ? "#111827" : "#f9fafb" }}
-      className="py-20 relative overflow-hidden"
-    >
+    <section id="skills" style={{ backgroundColor: "#111827" }} className="py-20 relative overflow-hidden">
       <div className="container px-5 mx-auto">
         <Motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,11 +32,8 @@ const Skills = ({ darkMode }) => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <h1
-            className="text-4xl font-bold"
-            style={{ color: darkMode ? "white" : "#1f2937" }}
-          >
-            My{" "}
+          <h1 className="text-4xl font-bold text-white">
+            Миний{" "}
             <span
               style={{
                 background: "linear-gradient(to right, #f97316, #f59e0b)",
@@ -51,7 +41,7 @@ const Skills = ({ darkMode }) => {
                 color: "transparent",
               }}
             >
-              Skills
+              Ур чадвар
             </span>
           </h1>
         </Motion.div>
@@ -72,12 +62,10 @@ const Skills = ({ darkMode }) => {
               className="p-4 lg:w-1/4 md:w-1/2 w-full"
             >
               <Motion.div
-                whileHover={{ boxShadow: getCardShadow(darkMode) }}
+                whileHover={{ boxShadow: cardShadow }}
                 style={{
-                  background: darkMode
-                    ? "linear-gradient(to bottom right, #1f2937, #111827)"
-                    : "linear-gradient(to bottom right, #ffffff, #f3f4f6)",
-                  borderColor: darkMode ? "#374151" : "#e5e7eb",
+                  background: "linear-gradient(to bottom right, #1f2937, #111827)",
+                  borderColor: "#374151",
                 }}
                 className="h-full p-6 rounded-2xl border-2 hover:border-orange-500/50 transition-all duration-300 shadow-md hover:shadow-xl"
               >
@@ -91,7 +79,7 @@ const Skills = ({ darkMode }) => {
                       delay: index * 0.12,
                     }}
                     whileHover={{ rotate: 10, scale: 1.12 }}
-                    className="w-16 h-16 rounded-xl p-3 flex items-center justify-center bg-gray-200 dark:bg-gray-700"
+                    className="w-16 h-16 rounded-xl p-3 flex items-center justify-center bg-gray-700"
                   >
                     <img
                       src={skill.icon}
@@ -100,24 +88,17 @@ const Skills = ({ darkMode }) => {
                     />
                   </Motion.div>
 
-                  <h3
-                    className="text-2xl font-bold ml-4"
-                    style={{ color: darkMode ? "white" : "#1f2937" }}
-                  >
-                    {skill.name}
-                  </h3>
+                  <h3 className="text-2xl font-bold ml-4 text-white">{skill.name}</h3>
                 </div>
 
                 <div className="flex justify-between mb-2">
-                  <span style={{ color: darkMode ? "#d1d5db" : "#6b7280" }}>
-                    Proficiency
-                  </span>
+                  <span className="text-gray-300">Чадамж</span>
                   <span className="font-bold text-orange-500">{skill.level}%</span>
                 </div>
 
                 <div
                   className="w-full rounded-full h-3 overflow-hidden relative"
-                  style={{ backgroundColor: darkMode ? "#374151" : "#e5e7eb" }}
+                  style={{ backgroundColor: "#374151" }}
                 >
                   <Motion.div
                     initial={{ width: 0 }}

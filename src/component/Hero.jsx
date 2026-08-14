@@ -2,9 +2,8 @@ import { DownloadIcon, Mail } from "lucide-react";
 import CV from "../assets/CV.png";
 import Facebook from "../assets/facebook.svg";
 import Github from "../assets/github.png";
-import Hi from "../assets/hi.png";
 import Instagram from "../assets/instagram.svg";
-import PortfolioImage from "../assets/portfolio.png";
+import PortfolioImage from "../assets/portfolio.jpg";
 import Tiktok from "../assets/tiktok.png";
 
 const socialIcons = [
@@ -18,34 +17,14 @@ const socialIcons = [
   { icon: Facebook, alt: "Facebook", link: "https://www.facebook.com/osgoo.b" },
 ];
 
-const themes = {
-  dark: {
-    textPrimary: "text-white",
-    textSecondary: "text-gray-300",
-    buttonSecondary: "text-white border-2 border-orange-500 hover:bg-orange-600",
-    decorativeCircle: "bg-orange-500 opacity-10",
-  },
-  light: {
-    textPrimary: "text-gray-900",
-    textSecondary: "text-gray-700",
-    buttonSecondary:
-      "text-gray-800 border-2 border-orange-500 hover:bg-orange-500 hover:text-white",
-    decorativeCircle: "bg-orange-400 opacity-20",
-  },
-};
-
-const Hero = ({ darkMode }) => {
-  const theme = darkMode ? themes.dark : themes.light;
-
+const Hero = () => {
   const handleScrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="relative overflow-visible flex flex-col">
-      <div
-        className={`pointer-events-none absolute z-[70] -top-20 -left-20 h-64 w-64 ${theme.decorativeCircle} rounded-full mix-blend-multiply filter blur-3xl animate-pulse hidden sm:block`}
-      />
+      <div className="pointer-events-none absolute z-[70] -top-20 -left-20 h-64 w-64 bg-orange-500 opacity-10 rounded-full mix-blend-multiply filter blur-3xl animate-pulse hidden sm:block" />
 
       <section
         id="home"
@@ -68,30 +47,28 @@ const Hero = ({ darkMode }) => {
                   <img
                     src={social.icon}
                     alt={social.alt}
-                    className={`w-8 h-8 sm:w-10 sm:h-10 object-contain ${
-                      darkMode ? "" : "filter brightness-75"
-                    }`}
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
                 </a>
               ))}
             </div>
 
             <h1
-              className={`title-font text-3xl sm:text-4xl lg:text-5xl mb-4 font-bold ${theme.textPrimary}`}
+              className="title-font text-3xl sm:text-4xl lg:text-5xl mb-4 font-bold text-white"
               data-aos="fade-up"
               data-aos-delay="500"
             >
-              Hi, I'm Developer
+              Сайн байна уу, Би Өсөхбаяр
             </h1>
 
             <p
-              className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg ${theme.textSecondary}`}
+              className="mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg text-gray-300"
               data-aos="fade-up"
               data-aos-delay="600"
             >
-              My name is Osokhbayr. I am responsible and punctual, and I value
-              continuous self-development. I adapt quickly to new environments and
-              work effectively both independently and as part of a team.
+              Намайг Өсөхбаяр гэдэг. Би хариуцлагатай, цагийг үнэлдэг бөгөөд
+              тасралтгүй хөгжлийг эрхэмлэдэг хүн. Шинэ орчинд хурдан дасан
+              зохицож, бие даан болон багаар үр дүнтэй ажиллах чадвартай.
             </p>
 
             <div
@@ -105,15 +82,15 @@ const Hero = ({ darkMode }) => {
                 className="inline-flex items-center justify-center text-white bg-gradient-to-r from-orange-500 to-amber-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]"
               >
                 <DownloadIcon className="w-5 h-5 mr-2" />
-                Download CV
+                CV татах
               </a>
 
               <button
                 onClick={handleScrollToContact}
-                className={`inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)] ${theme.buttonSecondary}`}
+                className="inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)] text-white border-2 border-orange-500 hover:bg-orange-600"
               >
                 <Mail className="w-5 h-5 mr-2" />
-                Contact Me
+                Холбоо барих
               </button>
             </div>
           </div>
@@ -124,16 +101,11 @@ const Hero = ({ darkMode }) => {
             data-aos-delay="400"
           >
             <div className="relative w-[300px] sm:w-[350px] lg:w-[400px]">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-orange-400 via-amber-500 to-orange-600 opacity-80 blur-md" />
               <img
                 src={PortfolioImage}
                 alt="portfolio"
-                className="w-full h-full rounded-full object-cover transform hover:scale-105 transition-transform duration-500"
-              />
-
-              <img
-                src={Hi}
-                alt="hi"
-                className="absolute -top-4 left-6 sm:left-16 w-16 h-16 sm:w-20 sm:h-20 object-contain animate-bounce opacity-90"
+                className="relative w-full h-full rounded-full object-cover ring-4 ring-white/90 shadow-2xl shadow-orange-500/40 transform hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>

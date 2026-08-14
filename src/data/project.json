@@ -1,59 +1,55 @@
 [
     {
         "id": 1,
-        "title": "Legal",
-        "description": "made with React, Html, CSS",
+        "title": "Сонор",
+        "description": "Мэдээллийн вебсайт — эдийн засаг, улс төр, нийгмийн мэдээ, онцлох контентыг цаг тухайд нь хүргэдэг мэдээллийн платформ",
         "image": "./images/project1.png",
-        "tags": ["React", "HTML", "CSS"]
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/sonor.mn",
+        "demoUrl": "https://www.sonornews.mn/",
+        "tags": ["Next.js", "Tailwind CSS", "PostgreSQL"]
     },
     {
         "id": 2,
         "title": "Auriga",
-        "description": "made with React, Html, Tailwind CSS",
+        "description": "React ашиглан Auriga вебсайтыг pixel-perfect clone хийсэн — UI/UX ур чадвараа дадлагажуулах зорилготой төсөл",
         "image": "./images/project2.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Clone-biy-daalt-React",
         "tags": ["React", "HTML", "Tailwind CSS"]
     },
     {
-        "id": 4,
-        "title": "Sleep",
-        "description": "made with React, JavaScript, Tailwind CSS",
-        "image": "./images/project4.png",
-        "tags": ["React", "JavaScript", "Tailwind CSS"]
-    },
-    {
-        "id": 5,
-        "title": "Wine Store",
-        "description": "made with Figma, Html, CSS",
-        "image": "./images/project5.png",
-        "tags": ["Figma", "HTML", "CSS"]
-    },
-    {
-        "id": 6,
-        "title": "Yucca",
-        "description": "made with React, Tailwind CSS",
-        "image": "./images/project6.png",
-        "tags": ["React", "Tailwind CSS"]
+        "id": 3,
+        "title": "Ангижрал",
+        "description": "Бариа заслын сургалтын төвийн танилцуулга вебсайт — үйлчилгээ, бариачдын мэдээлэл болон цаг захиалгын боломжтой",
+        "image": "./images/project3.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Angijarl",
+        "demoUrl": "https://angijarl.vercel.app/",
+        "tags": ["Next.js", "Tailwind CSS", "Neon PostgreSQL"]
     },
     {
         "id": 7,
-        "title": "HotelHub",
-        "description": "made with React, Next.js, PostgreSQL, Tailwind CSS",
+        "title": "Hotel Booking Platform",
+        "description": "Зочид буудлын захиалгын платформ — байршлаар нь буудал хайж, өөрт таарсан буудлаа сонгон, өрөөгөө сонгож захиалах боломжтой",
         "image": "./images/project7.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/hotel-system",
+        "demoUrl": "https://cyber-nexus-hub-pied.vercel.app/",
         "tags": ["React", "Next.js", "PostgreSQL", "Tailwind CSS"]
     },
     {
         "id": 8,
         "title": "Hospital Management System",
-        "description": "made with React, Node.js, Express, MongoDB",
+        "description": "Эмнэлгийн удирдлагын систем — өвчтөний бүртгэл, эмчийн цаг захиалга, эмчилгээний мэдээллийг нэг дороос удирддаг платформ",
         "image": "./images/project8.png",
-        "tags": ["React", "Node.js", "Express", "MongoDB"]
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/hospital_biy_daalt",
+        "demoUrl": "https://hospitalbiydaalt.vercel.app/",
+        "tags": ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"]
     },
     {
         "id": 9,
-        "title": "School Management System",
-        "description": "made with Next.js, Node.js, Express, Supabase",
+        "title": "Nova Mind Academy",
+        "description": "Сургуулийн удирдлагын систем — React Native ашиглан мобайл аппыг, Next.js ашиглан вебсайтыг нь хийсэн (Node.js, Express, Supabase backend-тэй)",
         "image": "./images/project9.png",
-        "tags": ["React", "Node.js", "Express", "Supabase"]
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/school-managment-system",
+        "demoUrl": "https://www.nova-edu.mn/",
+        "tags": ["React Native", "Next.js", "Node.js", "Express", "Supabase"]
     }
-
 ]

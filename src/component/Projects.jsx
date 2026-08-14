@@ -1,13 +1,6 @@
 import { motion as Motion } from "framer-motion";
-import { useState } from "react";
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-  FaHeart,
-  FaRegHeart,
-} from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import projects from "../data/project.json";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const DEFAULT_CODE_URL = "https://github.com/batsaihanosohbayr118-create";
 
@@ -25,29 +18,12 @@ const cardVariants = {
   }),
 };
 
-const Projects = ({ darkMode }) => {
-  const [filter, setFilter] = useState("All");
-  const [favorites, setFavorites] = useLocalStorage("favourite", []);
+const shouldAnimate = projects.length > 3;
+const carouselProjects = shouldAnimate ? [...projects, ...projects] : projects;
+const animationDuration = `${Math.max(projects.length * 4.5, 28)}s`;
 
-  const filterOptions = ["All", "Favourites"];
-  const filteredProjects =
-    filter === "Favourites"
-      ? projects.filter((project) => favorites.includes(project.id))
-      : projects;
-  const shouldAnimate = filteredProjects.length > 3;
-  const carouselProjects = shouldAnimate
-    ? [...filteredProjects, ...filteredProjects]
-    : filteredProjects;
-  const animationDuration = `${Math.max(filteredProjects.length * 4.5, 28)}s`;
-
-  const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
-    );
-  };
-
+const Projects = () => {
   const renderProjectCard = (project, index) => {
-    const isFavorite = favorites.includes(project.id);
     const codeUrl = project.codeUrl || project.githubUrl || DEFAULT_CODE_URL;
     const demoUrl = project.demoUrl || project.liveUrl || project.image;
 
@@ -59,14 +35,12 @@ const Projects = ({ darkMode }) => {
         whileHover={{
           y: -10,
           scale: 1.02,
-          boxShadow: darkMode
-            ? "0 22px 45px rgba(249, 115, 22, 0.18)"
-            : "0 22px 45px rgba(249, 115, 22, 0.22)",
+          boxShadow: "0 22px 45px rgba(249, 115, 22, 0.18)",
         }}
         transition={{ type: "spring", stiffness: 240, damping: 20 }}
         style={{
-          background: darkMode ? "#1f2937" : "#ffffff",
-          borderColor: darkMode ? "#374151" : "#e5e7eb",
+          background: "#1f2937",
+          borderColor: "#374151",
         }}
         className="group relative w-[300px] shrink-0 overflow-hidden rounded-xl border shadow-sm transition-all hover:border-orange-500/50 sm:w-[360px] lg:w-[390px]"
       >
@@ -77,20 +51,6 @@ const Projects = ({ darkMode }) => {
           style={{ transformOrigin: "left" }}
           className="absolute inset-x-0 top-0 z-10 h-1 bg-gradient-to-r from-orange-500 to-amber-400"
         />
-
-        <Motion.button
-          whileHover={{ scale: 1.18, rotate: 8 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => toggleFavorite(project.id)}
-          className="absolute top-3 right-3 z-20 p-2 rounded-full bg-black/40 backdrop-blur-md transition-all"
-          aria-label={isFavorite ? "Remove favorite" : "Add favorite"}
-        >
-          {isFavorite ? (
-            <FaHeart className="text-red-500" />
-          ) : (
-            <FaRegHeart className="text-white" />
-          )}
-        </Motion.button>
 
         <div className="h-48 overflow-hidden relative">
           <Motion.img
@@ -104,17 +64,11 @@ const Projects = ({ darkMode }) => {
         </div>
 
         <div className="p-5">
-          <h3
-            className="text-xl font-bold mb-2"
-            style={{ color: darkMode ? "white" : "#1f2937" }}
-          >
+          <h3 className="text-xl font-bold mb-2" style={{ color: "white" }}>
             {project.title}
           </h3>
 
-          <p
-            className="text-sm mb-4"
-            style={{ color: darkMode ? "#d1d5db" : "#6b7280" }}
-          >
+          <p className="text-sm mb-4" style={{ color: "#d1d5db" }}>
             {project.description}
           </p>
 
@@ -123,8 +77,8 @@ const Projects = ({ darkMode }) => {
               <span
                 key={tag}
                 style={{
-                  backgroundColor: darkMode ? "#374151" : "#f3f4f6",
-                  color: darkMode ? "#d1d5db" : "#4b5563",
+                  backgroundColor: "#374151",
+                  color: "#d1d5db",
                 }}
                 className="px-3 py-1 text-xs rounded-full font-medium"
               >
@@ -141,9 +95,9 @@ const Projects = ({ darkMode }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-sm rounded-lg bg-gray-500/10 hover:bg-gray-500/20 transition-all font-semibold"
-              style={{ color: darkMode ? "white" : "#374151" }}
+              style={{ color: "white" }}
             >
-              <FaGithub /> Code
+              <FaGithub /> Код
             </Motion.a>
 
             <Motion.a
@@ -157,7 +111,7 @@ const Projects = ({ darkMode }) => {
                 background: "linear-gradient(to right, #f97316, #f59e0b)",
               }}
             >
-              <FaExternalLinkAlt /> Demo
+              <FaExternalLinkAlt /> Жишээ
             </Motion.a>
           </div>
         </div>
@@ -168,7 +122,7 @@ const Projects = ({ darkMode }) => {
   return (
     <section
       id="projects"
-      style={{ backgroundColor: darkMode ? "#111827" : "#f9fafb" }}
+      style={{ backgroundColor: "#111827" }}
       className="relative pt-10 pb-20 transition-colors duration-300 scroll-mt-24"
     >
       <div className="container mx-auto px-4">
@@ -176,9 +130,9 @@ const Projects = ({ darkMode }) => {
           <Motion.h2
             data-aos="fade-up"
             className="text-3xl sm:text-4xl font-bold mb-3"
-            style={{ color: darkMode ? "white" : "#1f2937" }}
+            style={{ color: "white" }}
           >
-            My{" "}
+            Миний{" "}
             <span
               style={{
                 background: "linear-gradient(to right, #f97316, #f59e0b)",
@@ -187,71 +141,29 @@ const Projects = ({ darkMode }) => {
                 color: "transparent",
               }}
             >
-              Projects
+              Төслүүд
             </span>
           </Motion.h2>
-
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="flex flex-wrap justify-center gap-2 mt-6 mb-8"
-          >
-            {filterOptions.map((option) => (
-              <button
-                key={option}
-                onClick={() => setFilter(option)}
-                style={{
-                  background:
-                    filter === option
-                      ? "linear-gradient(to right, #f97316, #f59e0b)"
-                      : darkMode
-                        ? "#374151"
-                        : "#e5e7eb",
-                  color:
-                    filter === option
-                      ? "white"
-                      : darkMode
-                        ? "#d1d5db"
-                        : "#4b5563",
-                }}
-                className="px-4 py-1.5 rounded-full text-sm font-medium transition-all transform hover:scale-105 shadow-sm active:scale-95"
-              >
-                {option === "Favourites"
-                  ? `Favourites (${favorites.length})`
-                  : option}
-              </button>
-            ))}
-          </div>
         </div>
 
         <div className="project-carousel-mask -mx-4 overflow-hidden px-4 py-3">
-          {filteredProjects.length > 0 ? (
-            <Motion.div
-              key={filter}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.16 }}
-              className={`flex gap-6 ${
-                shouldAnimate
-                  ? "project-marquee-track w-max animate-project-flow"
-                  : "mx-auto flex-wrap justify-center"
-              }`}
-              style={
-                shouldAnimate
-                  ? { "--project-flow-duration": animationDuration }
-                  : undefined
-              }
-            >
-              {carouselProjects.map(renderProjectCard)}
-            </Motion.div>
-          ) : (
-            <p
-              className="py-12 text-center text-sm"
-              style={{ color: darkMode ? "#d1d5db" : "#6b7280" }}
-            >
-              No projects found.
-            </p>
-          )}
+          <Motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.16 }}
+            className={`flex gap-6 ${
+              shouldAnimate
+                ? "project-marquee-track w-max animate-project-flow"
+                : "mx-auto flex-wrap justify-center"
+            }`}
+            style={
+              shouldAnimate
+                ? { "--project-flow-duration": animationDuration }
+                : undefined
+            }
+          >
+            {carouselProjects.map(renderProjectCard)}
+          </Motion.div>
         </div>
       </div>
     </section>
