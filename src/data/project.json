@@ -26,6 +26,15 @@
         "tags": ["Next.js", "Tailwind CSS", "Neon PostgreSQL"]
     },
     {
+        "id": 4,
+        "title": "NovaShop",
+        "description": "Технологийн бүтээгдэхүүн худалдаалдаг онлайн дэлгүүрийн вебсайт — HTML, CSS, JavaScript ашиглан хийсэн",
+        "image": "./images/project4.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/novashop",
+        "demoUrl": "https://batsaihanosohbayr118-create.github.io/novashop/index.html",
+        "tags": ["HTML", "CSS", "JavaScript"]
+    },
+    {
         "id": 7,
         "title": "Hotel Booking Platform",
         "description": "Зочид буудлын захиалгын платформ — байршлаар нь буудал хайж, өөрт таарсан буудлаа сонгон, өрөөгөө сонгож захиалах боломжтой",
