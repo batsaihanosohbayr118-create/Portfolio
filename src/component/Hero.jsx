@@ -1,10 +1,12 @@
-import { DownloadIcon, Mail } from "lucide-react";
-import CV from "../assets/CV.png";
+import { Eye, Mail } from "lucide-react";
+import { useState } from "react";
+import CV from "../assets/CV.pdf";
 import Facebook from "../assets/facebook.svg";
 import Github from "../assets/github.png";
 import Instagram from "../assets/instagram.svg";
 import PortfolioImage from "../assets/portfolio.jpg";
 import Tiktok from "../assets/tiktok.png";
+import CVPreviewModal from "./CVPreviewModal";
 
 const socialIcons = [
   { icon: Instagram, alt: "Instagram", link: "https://www.instagram.com/osgoo_b" },
@@ -18,13 +20,15 @@ const socialIcons = [
 ];
 
 const Hero = () => {
+  const [isCvOpen, setIsCvOpen] = useState(false);
+
   const handleScrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="relative overflow-visible flex flex-col">
-      <div className="pointer-events-none absolute z-[70] -top-20 -left-20 h-64 w-64 bg-orange-500 opacity-10 rounded-full mix-blend-multiply filter blur-3xl animate-pulse hidden sm:block" />
+      <div className="pointer-events-none absolute z-[70] -top-20 -left-20 h-64 w-64 bg-pink-500 opacity-10 rounded-full mix-blend-multiply filter blur-3xl animate-pulse hidden sm:block" />
 
       <section
         id="home"
@@ -72,22 +76,21 @@ const Hero = () => {
             </p>
 
             <div
-              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
+              className="flex flex-col sm:flex-row sm:flex-wrap justify-center lg:justify-start gap-4"
               data-aos="fade-up"
               data-aos-delay="700"
             >
-              <a
-                href={CV}
-                download
-                className="inline-flex items-center justify-center text-white bg-gradient-to-r from-orange-500 to-amber-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)]"
+              <button
+                onClick={() => setIsCvOpen(true)}
+                className="inline-flex items-center justify-center text-white bg-gradient-to-r from-pink-500 to-purple-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)]"
               >
-                <DownloadIcon className="w-5 h-5 mr-2" />
-                CV татах
-              </a>
+                <Eye className="w-5 h-5 mr-2" />
+                CV харах
+              </button>
 
               <button
                 onClick={handleScrollToContact}
-                className="inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)] text-white border-2 border-orange-500 hover:bg-orange-600"
+                className="inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)] text-white border-2 border-pink-500 hover:bg-pink-600"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Холбоо барих
@@ -101,17 +104,24 @@ const Hero = () => {
             data-aos-delay="400"
           >
             <div className="relative w-[300px] sm:w-[350px] lg:w-[400px]">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-orange-400 via-amber-500 to-orange-600 opacity-80 blur-md" />
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-80 blur-md" />
               <img
                 src={PortfolioImage}
                 alt="portfolio"
-                className="relative w-full h-full rounded-full object-cover ring-4 ring-white/90 shadow-2xl shadow-orange-500/40 transform hover:scale-105 transition-transform duration-500"
+                className="relative w-full h-full rounded-full object-cover ring-4 ring-white/90 shadow-2xl shadow-pink-500/40 transform hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
         </div>
 
       </section>
+
+      <CVPreviewModal
+        isOpen={isCvOpen}
+        onClose={() => setIsCvOpen(false)}
+        cvUrl={CV}
+        fileName="Osohbayr-CV.pdf"
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import contactImg from "../assets/about.jpg";
 
 const inputBaseClass =
-  "w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all";
+  "w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all";
 
 const fieldStyles = {
   backgroundColor: "#374151",
@@ -55,11 +55,11 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:items-stretch">
           <div className="flex justify-center order-2 lg:order-1" data-aos="fade-right">
             <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-[3/4] lg:aspect-auto lg:h-full">
-              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-400 via-amber-500 to-orange-600 opacity-70 blur-md" />
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-70 blur-md" />
               <img
                 src={contactImg}
                 alt="Холбоо барих"
-                className="absolute inset-0 w-full h-full object-cover rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-orange-500/40"
+                className="absolute inset-0 w-full h-full object-cover rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-pink-500/40"
               />
             </div>
           </div>
@@ -135,8 +135,8 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isLoading}
-              style={{ background: "linear-gradient(to right, #f97316, #f29e0b)" }}
-              className="w-full py-2 sm:py-3 text-white font-semibold rounded-lg text-sm sm:text-base hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02] transition-all disabled:opacity-60"
+              style={{ background: "linear-gradient(to right, #ec4899, #8b5cf6)" }}
+              className="w-full py-2 sm:py-3 text-white font-semibold rounded-lg text-sm sm:text-base hover:shadow-lg hover:shadow-pink-500/25 hover:scale-[1.02] transition-all disabled:opacity-60"
             >
               {isLoading ? "Илгээж байна..." : "Илгээх"}
             </button>

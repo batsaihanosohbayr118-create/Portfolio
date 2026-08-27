@@ -11,7 +11,7 @@ const navItems = [
   { name: "Холбоо барих", id: "contact" },
 ];
 
-const gradientButton = "bg-gradient-to-r from-orange-500 to-amber-500";
+const gradientButton = "bg-gradient-to-r from-pink-500 to-purple-500";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -40,7 +40,7 @@ const Navbar = () => {
         <Motion.div whileHover={{ scale: 1.05 }}>
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold text-white">
-              Портфолио<span className="text-orange-500">.</span>
+              Портфолио<span className="text-pink-500">.</span>
             </span>
           </Link>
         </Motion.div>
@@ -58,7 +58,7 @@ const Navbar = () => {
                 <Motion.span
                   whileHover={{ scale: 1.05 }}
                   className={`font-medium transition-colors duration-300 ${
-                    isActive ? "text-orange-400" : "text-gray-300 hover:text-orange-400"
+                    isActive ? "text-pink-400" : "text-gray-300 hover:text-pink-400"
                   }`}
                 >
                   {item.name}
@@ -120,7 +120,7 @@ const Navbar = () => {
                   >
                     <span
                       className={`font-medium ${
-                        isActive ? "text-orange-400" : "text-gray-300"
+                        isActive ? "text-pink-400" : "text-gray-300"
                       }`}
                     >
                       {item.name}

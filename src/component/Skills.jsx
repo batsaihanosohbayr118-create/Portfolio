@@ -19,7 +19,7 @@ const cardVariants = {
   },
 };
 
-const cardShadow = "0 20px 45px rgba(249, 115, 22, 0.18)";
+const cardShadow = "0 20px 45px rgba(236, 72, 153, 0.18)";
 
 const Skills = () => {
   return (
@@ -36,7 +36,7 @@ const Skills = () => {
             Миний{" "}
             <span
               style={{
-                background: "linear-gradient(to right, #f97316, #f59e0b)",
+                background: "linear-gradient(to right, #ec4899, #8b5cf6)",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
               }}
@@ -67,7 +67,7 @@ const Skills = () => {
                   background: "linear-gradient(to bottom right, #1f2937, #111827)",
                   borderColor: "#374151",
                 }}
-                className="h-full p-6 rounded-2xl border-2 hover:border-orange-500/50 transition-all duration-300 shadow-md hover:shadow-xl"
+                className="h-full p-6 rounded-2xl border-2 hover:border-pink-500/50 transition-all duration-300 shadow-md hover:shadow-xl"
               >
                 <div className="flex items-center mb-6">
                   <Motion.div
@@ -93,7 +93,7 @@ const Skills = () => {
 
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-300">Чадамж</span>
-                  <span className="font-bold text-orange-500">{skill.level}%</span>
+                  <span className="font-bold text-pink-500">{skill.level}%</span>
                 </div>
 
                 <div

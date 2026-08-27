@@ -43,14 +43,14 @@ const About = () => {
         <figure className="flex justify-center relative order-2 lg:order-1">
           <div className="relative w-75 h-75 lg:w-96 lg:h-96">
             <div
-              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-400 via-amber-500 to-orange-600 opacity-80 blur-md"
+              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-80 blur-md"
               data-aos="zoom-in"
               data-aos-delay="600"
             />
             <img
               src={about}
               alt="about"
-              className="relative w-full h-full object-cover object-bottom rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-orange-500/40 transition-all duration-300"
+              className="relative w-full h-full object-cover object-bottom rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-pink-500/40 transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="400"
             />
@@ -59,7 +59,7 @@ const About = () => {
 
         <article className="text-center lg:text-left relative order-1 lg:order-2">
           <h1
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-orange-400 to-orange-600 text-transparent bg-clip-text"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-pink-500 to-purple-600 text-transparent bg-clip-text"
             data-aos="fade-up"
             data-aos-delay="400"
           >
@@ -67,7 +67,7 @@ const About = () => {
           </h1>
 
           <p
-            className="text-sm sm:text-base lg:text-lg xl:text-xl mb-6 sm:mb-8 leading-relaxed p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-sm text-gray-300 bg-orange-900/10"
+            className="text-sm sm:text-base lg:text-lg xl:text-xl mb-6 sm:mb-8 leading-relaxed p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-sm text-gray-300 bg-pink-900/10"
             data-aos="fade-up"
             data-aos-delay="500"
           >
@@ -88,7 +88,7 @@ const About = () => {
                 data-aos="zoom-in"
                 data-aos-delay="600"
               >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-pink-400">
                   {animateStats ? (
                     <CountUp start={0} end={stat.end} duration={stat.duration} />
                   ) : (
@@ -105,7 +105,7 @@ const About = () => {
 
           <Link
             to="/about"
-            className="w-full sm:w-auto border-2 border-orange-500 inline-flex items-center justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform text-white bg-orange-500/10"
+            className="w-full sm:w-auto border-2 border-pink-500 inline-flex items-center justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform text-white bg-pink-500/10"
             data-aos="fade-up"
             data-aos-delay="800"
           >

@@ -46,7 +46,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-all hover:bg-linear-to-r hover:from-orange-500 hover:to-amber-500 hover:text-white bg-[#374151] text-white"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-all hover:bg-linear-to-r hover:from-pink-500 hover:to-purple-500 hover:text-white bg-[#374151] text-white"
               >
                 {link.icon}
               </a>
@@ -56,7 +56,7 @@ const Footer = () => {
           <div className="text-center md:text-right">
             <p className="text-sm flex items-center justify-end gap-1" style={{ color: "#9ca3af" }}>
               © {currentYear} Бүх эрх хуулиар хамгаалагдсан —
-              <span className="text-[#f97316]">Хөгжүүлэгч</span>
+              <span className="text-[#ec4899]">Хөгжүүлэгч</span>
             </p>
           </div>
         </div>

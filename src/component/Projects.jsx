@@ -38,21 +38,21 @@ const Projects = () => {
         whileHover={{
           y: -10,
           scale: 1.02,
-          boxShadow: "0 22px 45px rgba(249, 115, 22, 0.18)",
+          boxShadow: "0 22px 45px rgba(236, 72, 153, 0.18)",
         }}
         transition={{ type: "spring", stiffness: 240, damping: 20 }}
         style={{
           background: "#1f2937",
           borderColor: "#374151",
         }}
-        className="group relative w-[300px] shrink-0 overflow-hidden rounded-xl border shadow-sm transition-all hover:border-orange-500/50 sm:w-[360px] lg:w-[390px]"
+        className="group relative w-[300px] shrink-0 overflow-hidden rounded-xl border shadow-sm transition-all hover:border-pink-500/50 sm:w-[360px] lg:w-[390px]"
       >
         <Motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{ transformOrigin: "left" }}
-          className="absolute inset-x-0 top-0 z-10 h-1 bg-gradient-to-r from-orange-500 to-amber-400"
+          className="absolute inset-x-0 top-0 z-10 h-1 bg-gradient-to-r from-pink-500 to-purple-400"
         />
 
         <div className="h-48 overflow-hidden relative">
@@ -111,7 +111,7 @@ const Projects = () => {
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-white text-sm rounded-lg transition-all font-semibold"
               style={{
-                background: "linear-gradient(to right, #f97316, #f59e0b)",
+                background: "linear-gradient(to right, #ec4899, #8b5cf6)",
               }}
             >
               <FaExternalLinkAlt /> Жишээ
@@ -138,7 +138,7 @@ const Projects = () => {
             Миний{" "}
             <span
               style={{
-                background: "linear-gradient(to right, #f97316, #f59e0b)",
+                background: "linear-gradient(to right, #ec4899, #8b5cf6)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
