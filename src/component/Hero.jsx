@@ -1,12 +1,13 @@
 import { Eye, Mail } from "lucide-react";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import CV from "../assets/CV.pdf";
 import Facebook from "../assets/facebook.svg";
 import Github from "../assets/github.png";
 import Instagram from "../assets/instagram.svg";
 import PortfolioImage from "../assets/portfolio.jpg";
 import Tiktok from "../assets/tiktok.png";
-import CVPreviewModal from "./CVPreviewModal";
+
+const CVPreviewModal = lazy(() => import("./CVPreviewModal"));
 
 const socialIcons = [
   { icon: Instagram, alt: "Instagram", link: "https://www.instagram.com/osgoo_b" },
@@ -24,6 +25,15 @@ const Hero = () => {
 
   const handleScrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleViewCV = () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) {
+      window.open(CV, "_blank", "noopener,noreferrer");
+      return;
+    }
+    setIsCvOpen(true);
   };
 
   return (
@@ -81,7 +91,7 @@ const Hero = () => {
               data-aos-delay="700"
             >
               <button
-                onClick={() => setIsCvOpen(true)}
+                onClick={handleViewCV}
                 className="inline-flex items-center justify-center text-white bg-gradient-to-r from-pink-500 to-purple-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)]"
               >
                 <Eye className="w-5 h-5 mr-2" />
@@ -116,12 +126,16 @@ const Hero = () => {
 
       </section>
 
-      <CVPreviewModal
-        isOpen={isCvOpen}
-        onClose={() => setIsCvOpen(false)}
-        cvUrl={CV}
-        fileName="Osohbayr-CV.pdf"
-      />
+      {isCvOpen && (
+        <Suspense fallback={null}>
+          <CVPreviewModal
+            isOpen={isCvOpen}
+            onClose={() => setIsCvOpen(false)}
+            cvUrl={CV}
+            fileName="Osohbayr-CV.pdf"
+          />
+        </Suspense>
+      )}
     </div>
   );
 };

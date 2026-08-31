@@ -1,7 +1,67 @@
 import { AnimatePresence, motion as Motion } from "framer-motion";
-import { Download, ExternalLink, X } from "lucide-react";
+import { Download, ExternalLink, Loader2, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import * as pdfjsLib from "pdfjs-dist";
+import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
 const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
+  const containerRef = useRef(null);
+  const [status, setStatus] = useState("loading");
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    let cancelled = false;
+
+    const render = async () => {
+      setStatus("loading");
+      try {
+        const pdf = await pdfjsLib.getDocument({ url: cvUrl }).promise;
+        if (cancelled || !containerRef.current) return;
+
+        containerRef.current.innerHTML = "";
+
+        for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+          if (cancelled) return;
+
+          const page = await pdf.getPage(pageNumber);
+          const containerWidth = containerRef.current.clientWidth || 800;
+          const baseViewport = page.getViewport({ scale: 1 });
+          const scale = (containerWidth / baseViewport.width) * 2;
+          const viewport = page.getViewport({ scale });
+
+          const canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          canvas.style.width = "100%";
+          canvas.style.height = "auto";
+          canvas.style.display = "block";
+          canvas.style.marginBottom = "12px";
+          canvas.style.borderRadius = "8px";
+
+          const context = canvas.getContext("2d");
+          await page.render({ canvasContext: context, viewport }).promise;
+
+          if (cancelled) return;
+          containerRef.current.appendChild(canvas);
+        }
+
+        if (!cancelled) setStatus("ready");
+      } catch (error) {
+        console.error("CV PDF render error:", error);
+        if (!cancelled) setStatus("error");
+      }
+    };
+
+    render();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isOpen, cvUrl]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -62,12 +122,27 @@ const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
               </div>
             </div>
 
-            <div className="flex-1 min-h-0" style={{ backgroundColor: "#0d182e" }}>
-              <iframe
-                src={`${cvUrl}#toolbar=0&view=FitH`}
-                title="CV preview"
-                className="w-full h-full"
-              />
+            <div
+              className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-6 py-4"
+              style={{ backgroundColor: "#0d182e" }}
+            >
+              {status === "loading" && (
+                <div className="h-full flex flex-col items-center justify-center gap-3 text-gray-400">
+                  <Loader2 className="w-8 h-8 animate-spin" />
+                  <span className="text-sm">Ачааллаж байна...</span>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="h-full flex flex-col items-center justify-center gap-3 text-gray-400 text-center px-4">
+                  <span className="text-sm">
+                    CV-г урьдчилан харуулж чадсангүй. Доорх товчоор шинэ
+                    цонхонд нээж эсвэл татаж үзнэ үү.
+                  </span>
+                </div>
+              )}
+
+              <div ref={containerRef} className={status === "ready" ? "" : "hidden"} />
             </div>
 
             <p
