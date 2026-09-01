@@ -56,10 +56,28 @@
     {
         "id": 9,
         "title": "Nova Mind Academy",
-        "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. PostgreSQL өгөгдлийн сан, custom JWT auth, push notification (Firebase/FCM), 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем. Vercel дээр deploy хийгдсэн, Google Play болон Apple App Store-д илгээгдсэн.",
+        "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. PostgreSQL өгөгдлийн сан, custom JWT auth, push notification (Firebase/FCM), 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем.",
         "image": "./images/project9.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/school-managment-system",
         "demoUrl": "https://www.nova-edu.mn/",
         "tags": ["React Native", "Next.js", "Expo", "PostgreSQL", "Vercel", "Firebase"]
+    }, 
+    {
+        "id": 10,
+        "title": "Amralt.mn",
+        "description": "Монгол орны амралтын газруудыг олох, харьцуулах, мэдээлэл авахад зориулсан цогц платформ. Хэрэглэгчид байршил, үнэ, тав тухаараа шүүж хайх, амралтын газруудыг харьцуулах, AI-аар өдөр бүрийн аяллын төлөвлөгөө гаргуулах боломжтой.",
+        "image": "./images/project10.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Amralt",
+        "demoUrl": "https://amralt.vercel.app/",
+        "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "NextAuth", "Google maps API", "Cloudinary", "Vercel"]
+    }, 
+    {
+        "id": 11,
+        "title": "Happy optical",
+        "description": "Нүдний шилний дэлгүүрийн танилцуулга вебсайт — бүтээгдэхүүний каталог, ангилал, зургийн галерей, компанийн мэдээлэл, холбоо барих мэдээллийг харуулдаг бөгөөд эзэмшигч нь админ панелээр дамжуулан бараа, зураг, тохиргоогоо шууд удирдах боломжтой.",
+        "image": "./images/project11.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Eyewear",
+        "demoUrl": "https://eyewear-five.vercel.app/",
+        "tags": ["Next.js", "TypeScript", "Prisma", "Vercel blob", "Tailwind CSS", "JWT Auth", "Vercel"]
     }
 ]
