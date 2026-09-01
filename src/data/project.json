@@ -6,7 +6,7 @@
         "image": "./images/project1.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/sonor.mn",
         "demoUrl": "https://www.sonornews.mn/",
-        "tags": ["Next.js", "Tailwind CSS", "PostgreSQL"]
+        "tags": ["Next.js", "CSS", "Neon PostgreSQL", "Vercel", "Cloudinary"]
     },
     {
         "id": 2,
@@ -14,6 +14,7 @@
         "description": "React ашиглан Auriga вебсайтыг pixel-perfect clone хийсэн — UI/UX ур чадвараа дадлагажуулах зорилготой төсөл",
         "image": "./images/project2.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/Clone-biy-daalt-React",
+        "demoUrl": "https://auriga-clone.vercel.app/",
         "tags": ["React", "HTML", "Tailwind CSS"]
     },
     {
@@ -23,7 +24,7 @@
         "image": "./images/project3.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/Angijarl",
         "demoUrl": "https://angijarl.vercel.app/",
-        "tags": ["Next.js", "Tailwind CSS", "Neon PostgreSQL"]
+        "tags": ["Next.js", "Tailwind CSS", "CSS", "Neon PostgreSQL"]
     },
     {
         "id": 4,
@@ -36,29 +37,29 @@
     },
     {
         "id": 7,
-        "title": "Hotel Booking Platform",
-        "description": "Зочид буудлын захиалгын платформ — байршлаар нь буудал хайж, өөрт таарсан буудлаа сонгон, өрөөгөө сонгож захиалах боломжтой",
+        "title": "AI-Powered Hotel Booking & Management Platform",
+        "description": "Зочдод зориулсан хайлт-захиалгаас эхлээд admin/owner-д зориулсан бүрэн удирдлага хүртэлх AI-тай зочид буудлын платформ. QPay төлбөр, AI туслах, дүрд суурилсан эрхийн систем.",
         "image": "./images/project7.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/hotel-system",
         "demoUrl": "https://cyber-nexus-hub-pied.vercel.app/",
-        "tags": ["React", "Next.js", "PostgreSQL", "Tailwind CSS"]
+        "tags": ["Next.js", "PostgreSQL", "Tailwind CSS", "Docker", "Vercel"]
     },
     {
         "id": 8,
         "title": "Hospital Management System",
-        "description": "Эмнэлгийн удирдлагын систем — өвчтөний бүртгэл, эмчийн цаг захиалга, эмчилгээний мэдээллийг нэг дороос удирддаг платформ",
+        "description": "Эмч/өвчтөн/админ гурван эрхтэй, онлайн цаг захиалга, дижитал жор, үзлэгийн бичлэгийг нэг платформ дээр удирддаг веб систем.",
         "image": "./images/project8.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/hospital_biy_daalt",
         "demoUrl": "https://hospitalbiydaalt.vercel.app/",
-        "tags": ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"]
+        "tags": ["React", "Node.js", "Express", "MySQL", "CSS", "Vercel", "Render", "Prisma ORM", "JWT Auth", "Google OAuth"]
     },
     {
         "id": 9,
         "title": "Nova Mind Academy",
-        "description": "Сургуулийн удирдлагын систем — React Native ашиглан мобайл аппыг, Next.js ашиглан вебсайтыг нь хийсэн (Node.js, Express, Supabase backend-тэй)",
+        "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. PostgreSQL өгөгдлийн сан, custom JWT auth, push notification (Firebase/FCM), 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем. Vercel дээр deploy хийгдсэн, Google Play болон Apple App Store-д илгээгдсэн.",
         "image": "./images/project9.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/school-managment-system",
         "demoUrl": "https://www.nova-edu.mn/",
-        "tags": ["React Native", "Next.js", "Node.js", "Express", "Supabase"]
+        "tags": ["React Native", "Next.js", "Expo", "PostgreSQL", "Vercel", "Firebase"]
     }
 ]
