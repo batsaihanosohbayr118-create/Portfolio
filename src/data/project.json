@@ -64,7 +64,7 @@
     }, 
     {
         "id": 10,
-        "title": "Amralt.mn",
+        "title": "Vayora",
         "description": "Монгол орны амралтын газруудыг олох, харьцуулах, мэдээлэл авахад зориулсан цогц платформ. Хэрэглэгчид байршил, үнэ, тав тухаараа шүүж хайх, амралтын газруудыг харьцуулах, AI-аар өдөр бүрийн аяллын төлөвлөгөө гаргуулах боломжтой.",
         "image": "./images/project10.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/Amralt",
@@ -73,11 +73,29 @@
     }, 
     {
         "id": 11,
-        "title": "Happy optical",
+        "title": "HEX",
         "description": "Нүдний шилний дэлгүүрийн танилцуулга вебсайт — бүтээгдэхүүний каталог, ангилал, зургийн галерей, компанийн мэдээлэл, холбоо барих мэдээллийг харуулдаг бөгөөд эзэмшигч нь админ панелээр дамжуулан бараа, зураг, тохиргоогоо шууд удирдах боломжтой.",
         "image": "./images/project11.png",
         "codeUrl": "https://github.com/batsaihanosohbayr118-create/Eyewear",
         "demoUrl": "https://eyewear-five.vercel.app/",
         "tags": ["Next.js", "TypeScript", "Prisma", "Vercel blob", "Tailwind CSS", "JWT Auth", "Vercel"]
+    },
+    {
+        "id": 12,
+        "title": "Velora",
+        "description": "Fine dining рестораны бүрэн вэбсайт. Хэрэглэгч меню, галерей үзэж, ширээ захиалж, сэтгэгдэл үлдээнэ. Админ панелиас меню, зураг, захиалга, сэтгэгдлийг удирдана.",
+        "image": "./images/project12.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/restaurant",
+        "demoUrl": "https://vayora-five.vercel.app/",
+        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Vercel", "NextAuth"]
+    },
+    {
+        "id": 13,
+        "title": "Super Cars",
+        "description": "Супер машинуудын cinematic танилцуулга вэбсайт. Хэрэглэгч машинуудыг үзэж, хайж, шүүж, 2–3 машиныг хажуу хажууд нь харьцуулж, дуртайгаа хадгална. Админ панелаар машин, брэнд, зураг, хэрэглэгчийг шууд удирдана.",
+        "image": "./images/project13.png",
+        "codeUrl": "https://github.com/batsaihanosohbayr118-create/super-cars",
+        "demoUrl": "https://super-cars-omega.vercel.app/",
+        "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Vercel", "Neon", "Auth.js", "Google OAuth", "Cloudinary"] 
     }
 ]
