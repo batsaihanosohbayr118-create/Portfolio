@@ -2,14 +2,9 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLanguage } from "../i18n/LanguageContext";
 
-const navItems = [
-  { name: "Нүүр", id: "home" },
-  { name: "Миний тухай", id: "about" },
-  { name: "Ур чадвар", id: "skills" },
-  { name: "Төслүүд", id: "projects" },
-  { name: "Холбоо барих", id: "contact" },
-];
+const navIds = ["home", "about", "skills", "projects", "contact"];
 
 const gradientButton = "bg-gradient-to-r from-pink-500 to-purple-500";
 
@@ -18,6 +13,34 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { lang, t, toggleLang } = useLanguage();
+  const navItems = navIds.map((id) => ({ id, name: t.nav[id] }));
+
+  const langToggle = (
+    <button
+      onClick={toggleLang}
+      aria-label={t.nav.switchLang}
+      title={t.nav.switchLang}
+      className="relative flex items-center rounded-full bg-gray-700 p-1 text-xs font-bold cursor-pointer"
+    >
+      {["mn", "en"].map((code) => (
+        <span
+          key={code}
+          className={`relative z-10 px-2.5 py-1 uppercase transition-colors ${
+            lang === code ? "text-white" : "text-gray-400"
+          }`}
+        >
+          {lang === code && (
+            <Motion.span
+              layoutId="lang-pill"
+              className={`absolute inset-0 -z-10 rounded-full ${gradientButton}`}
+            />
+          )}
+          {code}
+        </span>
+      ))}
+    </button>
+  );
 
   const handleNavClick = (id) => {
     setActiveSection(id);
@@ -40,7 +63,7 @@ const Navbar = () => {
         <Motion.div whileHover={{ scale: 1.05 }}>
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold text-white">
-              Портфолио<span className="text-pink-500">.</span>
+              {t.nav.logo}<span className="text-pink-500">.</span>
             </span>
           </Link>
         </Motion.div>
@@ -76,17 +99,19 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-2 lg:space-x-4">
+          {langToggle}
+
           <Motion.button
             onClick={() => handleNavClick("contact")}
             className={`hidden lg:inline-flex px-6 py-2 font-semibold rounded-full ${gradientButton} text-white shadow-md transition-transform active:scale-95`}
           >
-            Холбоо барих
+            {t.nav.contact}
           </Motion.button>
 
           <Motion.button
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="lg:hidden p-2 rounded-lg bg-gray-700"
-            aria-label="Toggle navigation menu"
+            aria-label={t.nav.toggleMenu}
           >
             {isMenuOpen ? (
               <X className="w-5 h-5 text-white" />
@@ -133,7 +158,7 @@ const Navbar = () => {
                 onClick={() => handleNavClick("contact")}
                 className={`w-full py-3 px-4 text-center font-semibold rounded-lg cursor-pointer ${gradientButton} text-white shadow-md`}
               >
-                Холбоо барих
+                {t.nav.contact}
               </button>
             </div>
           </Motion.div>

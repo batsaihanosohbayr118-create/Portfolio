@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const socialLinks = [
   {
@@ -20,6 +21,7 @@ const socialLinks = [
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer
@@ -32,9 +34,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-2 text-white">Портфолио</h3>
+            <h3 className="text-2xl font-bold mb-2 text-white">{t.footer.title}</h3>
             <p className="text-sm" style={{ color: "#9ca3af" }}>
-              Full Stack хөгжүүлэгч & UI/UX дизайнер
+              {t.footer.role}
             </p>
           </div>
 
@@ -55,8 +57,8 @@ const Footer = () => {
 
           <div className="text-center md:text-right">
             <p className="text-sm flex items-center justify-end gap-1" style={{ color: "#9ca3af" }}>
-              © {currentYear} Бүх эрх хуулиар хамгаалагдсан —
-              <span className="text-[#ec4899]">Хөгжүүлэгч</span>
+              © {currentYear} {t.footer.rights}
+              <span className="text-[#ec4899]">{t.footer.dev}</span>
             </p>
           </div>
         </div>

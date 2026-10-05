@@ -3,12 +3,14 @@ import { Download, ExternalLink, Loader2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import { useLanguage } from "../i18n/LanguageContext";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
 const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
   const containerRef = useRef(null);
   const [status, setStatus] = useState("loading");
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -96,8 +98,8 @@ const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
                   href={cvUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Шинэ цонхонд нээх"
-                  title="Шинэ цонхонд нээх"
+                  aria-label={t.cv.openNew}
+                  title={t.cv.openNew}
                   className="w-9 h-9 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
@@ -109,12 +111,12 @@ const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
                   className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 hover:shadow-[0_0_20px_rgb(236,72,153,0.5)] transition-all"
                 >
                   <Download className="w-4 h-4" />
-                  <span className="hidden sm:inline">Татах</span>
+                  <span className="hidden sm:inline">{t.cv.download}</span>
                 </a>
 
                 <button
                   onClick={onClose}
-                  aria-label="Хаах"
+                  aria-label={t.cv.close}
                   className="w-9 h-9 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white transition-colors"
                 >
                   <X className="w-5 h-5" />
@@ -129,16 +131,13 @@ const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
               {status === "loading" && (
                 <div className="h-full flex flex-col items-center justify-center gap-3 text-gray-400">
                   <Loader2 className="w-8 h-8 animate-spin" />
-                  <span className="text-sm">Ачааллаж байна...</span>
+                  <span className="text-sm">{t.cv.loading}</span>
                 </div>
               )}
 
               {status === "error" && (
                 <div className="h-full flex flex-col items-center justify-center gap-3 text-gray-400 text-center px-4">
-                  <span className="text-sm">
-                    CV-г урьдчилан харуулж чадсангүй. Доорх товчоор шинэ
-                    цонхонд нээж эсвэл татаж үзнэ үү.
-                  </span>
+                  <span className="text-sm">{t.cv.failed}</span>
                 </div>
               )}
 
@@ -149,9 +148,8 @@ const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
               className="text-center text-xs py-2 shrink-0"
               style={{ color: "#9ca3af" }}
             >
-              Файл харагдахгүй бол дээрх{" "}
-              <ExternalLink className="w-3 h-3 inline -mt-0.5" /> товч дээр дарж
-              шинэ цонхонд нээнэ үү
+              {t.cv.hintA}{" "}
+              <ExternalLink className="w-3 h-3 inline -mt-0.5" /> {t.cv.hintB}
             </p>
           </Motion.div>
         </Motion.div>

@@ -1,19 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
-import about from "../assets/contact.jpg";
+import about from "../assets/contact.webp";
 import projects from "../data/project.json";
 import skills from "../data/skill.json";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const stats = [
-  { label: "Боловсрол", end: 2, duration: 2 },
-  { label: "Ур чадвар", end: skills.length, duration: 2.5 },
-  { label: "Төслүүд", end: projects.length, duration: 3 },
+  { end: 2, duration: 2 },
+  { end: skills.length, duration: 2.5 },
+  { end: projects.length, duration: 3 },
 ];
 
 const About = () => {
   const [animateStats, setAnimateStats] = useState(false);
   const statsRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const statsElement = statsRef.current;
@@ -63,7 +65,7 @@ const About = () => {
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            Миний тухай
+            {t.about.title}
           </h1>
 
           <p
@@ -71,19 +73,16 @@ const About = () => {
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            Би цагийг
-            баримталдаг, нарийвчлалд анхаардаг, өндөр чанартай ажил гүйцэтгэхийг
-            зорьдог. Урт хугацааны үнэ цэнийг бий болгохын тулд шинэ ур чадвар
-            сурч, шинэ сорилтуудыг үргэлж хүлээж авдаг.
+            {t.about.body}
           </p>
 
           <div
             ref={statsRef}
             className="grid grid-cols-3 gap-4 w-full max-w-md mb-6 sm:mb-8"
           >
-            {stats.map((stat) => (
+            {stats.map((stat, i) => (
               <div
-                key={stat.label}
+                key={i}
                 className="text-center flex flex-col items-center"
                 data-aos="zoom-in"
                 data-aos-delay="600"
@@ -97,7 +96,7 @@ const About = () => {
                   +
                 </div>
                 <div className="whitespace-nowrap text-gray-300">
-                  {stat.label}
+                  {t.about.stats[i]}
                 </div>
               </div>
             ))}
@@ -109,7 +108,7 @@ const About = () => {
             data-aos="fade-up"
             data-aos-delay="800"
           >
-            Дэлгэрэнгүй
+            {t.about.more}
           </Link>
         </article>
       </div>

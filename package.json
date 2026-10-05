@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.18",
     "aos": "^2.3.4",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.33.0",
     "lucide-react": "^0.563.0",
     "pdfjs-dist": "^6.2.108",

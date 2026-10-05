@@ -1,5 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import skills from "../data/skill.json";
+import { useLanguage } from "../i18n/LanguageContext";
+import { assetPath } from "../utils/assetPath";
 
 const containerVariants = {
   hidden: {},
@@ -22,6 +24,8 @@ const cardVariants = {
 const cardShadow = "0 20px 45px rgba(236, 72, 153, 0.18)";
 
 const Skills = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" style={{ backgroundColor: "#111827" }} className="py-20 relative overflow-hidden">
       <div className="container px-5 mx-auto">
@@ -33,7 +37,7 @@ const Skills = () => {
           className="text-center mb-14"
         >
           <h1 className="text-4xl font-bold text-white">
-            Миний{" "}
+            {t.skills.titleA}{" "}
             <span
               style={{
                 background: "linear-gradient(to right, #ec4899, #8b5cf6)",
@@ -41,7 +45,7 @@ const Skills = () => {
                 color: "transparent",
               }}
             >
-              Ур чадвар
+              {t.skills.titleB}
             </span>
           </h1>
         </Motion.div>
@@ -82,7 +86,7 @@ const Skills = () => {
                     className="w-16 h-16 rounded-xl p-3 flex items-center justify-center bg-gray-700"
                   >
                     <img
-                      src={skill.icon}
+                      src={assetPath(skill.icon)}
                       alt={skill.name}
                       className="w-full h-full object-contain"
                     />
@@ -92,7 +96,7 @@ const Skills = () => {
                 </div>
 
                 <div className="flex justify-between mb-2">
-                  <span className="text-gray-300">Чадамж</span>
+                  <span className="text-gray-300">{t.skills.level}</span>
                   <span className="font-bold text-pink-500">{skill.level}%</span>
                 </div>
 

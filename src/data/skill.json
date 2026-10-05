@@ -1,15 +1,21 @@
 [
   {
-    "name": "Python",
-    "icon": "./skills/Python.jpg",
-    "level": 90,
-    "color": "from-purple-500 to-purple-500"
-  },
-  {
     "name": "React",
     "icon": "./skills/react.jpg",
     "level": 95,
     "color": "from-blue-500 to-blue-500"
+  },
+  {
+    "name": "Next.js",
+    "icon": "./skills/nextjs.svg",
+    "level": 88,
+    "color": "from-slate-400 to-slate-400"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "./skills/typescript.svg",
+    "level": 85,
+    "color": "from-sky-500 to-sky-500"
   },
   {
     "name": "JavaScript",
@@ -18,28 +24,46 @@
     "color": "from-violet-500 to-violet-500"
   },
   {
-    "name": "MongoDB",
-    "icon": "./skills/mongoDB.png",
-    "level": 96,
-    "color": "from-red-500 to-red-500"
-  },
-  {
-    "name": "Vite",
-    "icon": "./skills/vite.png",
-    "level": 90,
-    "color": "from-cyan-500 to-cyan-500"
-  },
-  {
     "name": "Node",
     "icon": "./skills/node.webp",
     "level": 93,
     "color": "from-green-500 to-green-500"
   },
   {
+    "name": "Python",
+    "icon": "./skills/Python.jpg",
+    "level": 90,
+    "color": "from-purple-500 to-purple-500"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "./skills/postgresql.svg",
+    "level": 84,
+    "color": "from-blue-600 to-blue-600"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "./skills/mongoDB.png",
+    "level": 96,
+    "color": "from-red-500 to-red-500"
+  },
+  {
+    "name": "Prisma",
+    "icon": "./skills/prisma.svg",
+    "level": 82,
+    "color": "from-indigo-500 to-indigo-500"
+  },
+  {
     "name": "Tailwind",
     "icon": "./skills/tailwind.jpg",
     "level": 85,
     "color": "from-teal-500 to-teal-500"
+  },
+  {
+    "name": "Vite",
+    "icon": "./skills/vite.png",
+    "level": 90,
+    "color": "from-cyan-500 to-cyan-500"
   },
   {
     "name": "Figma",

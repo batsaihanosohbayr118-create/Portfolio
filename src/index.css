@@ -44,3 +44,54 @@ html {
     transform: translateX(calc(-50% - 12px));
   }
 }
+.intro-shimmer {
+  background-size: 200% auto;
+  animation: intro-shimmer 3s linear infinite;
+}
+
+@keyframes intro-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.intro-blob {
+  animation: intro-drift 8s ease-in-out infinite alternate;
+}
+
+.intro-blob-alt {
+  animation-direction: alternate-reverse;
+}
+
+@keyframes intro-drift {
+  to {
+    transform: translate(60px, 40px) scale(1.15);
+  }
+}
+
+.intro-particle {
+  opacity: 0;
+  animation: intro-rise linear infinite;
+}
+
+@keyframes intro-rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-shimmer,
+  .intro-blob,
+  .intro-particle {
+    animation: none;
+  }
+}

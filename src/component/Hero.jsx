@@ -6,6 +6,7 @@ import Github from "../assets/github.png";
 import Instagram from "../assets/instagram.svg";
 import PortfolioImage from "../assets/portfolio.jpg";
 import Tiktok from "../assets/tiktok.png";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const CVPreviewModal = lazy(() => import("./CVPreviewModal"));
 
@@ -22,6 +23,7 @@ const socialIcons = [
 
 const Hero = () => {
   const [isCvOpen, setIsCvOpen] = useState(false);
+  const { t } = useLanguage();
 
   const handleScrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -72,7 +74,7 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="500"
             >
-              Сайн байна уу, Би Өсөхбаяр
+              {t.hero.title}
             </h1>
 
             <p
@@ -80,9 +82,7 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="600"
             >
-              Намайг Өсөхбаяр гэдэг. Би хариуцлагатай, цагийг үнэлдэг бөгөөд
-              тасралтгүй хөгжлийг эрхэмлэдэг хүн. Шинэ орчинд хурдан дасан
-              зохицож, бие даан болон багаар үр дүнтэй ажиллах чадвартай.
+              {t.hero.body}
             </p>
 
             <div
@@ -95,7 +95,7 @@ const Hero = () => {
                 className="inline-flex items-center justify-center text-white bg-gradient-to-r from-pink-500 to-purple-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)]"
               >
                 <Eye className="w-5 h-5 mr-2" />
-                CV харах
+                {t.hero.viewCv}
               </button>
 
               <button
@@ -103,7 +103,7 @@ const Hero = () => {
                 className="inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)] text-white border-2 border-pink-500 hover:bg-pink-600"
               >
                 <Mail className="w-5 h-5 mr-2" />
-                Холбоо барих
+                {t.hero.contact}
               </button>
             </div>
           </div>

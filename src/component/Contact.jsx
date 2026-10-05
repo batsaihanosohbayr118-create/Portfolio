@@ -1,6 +1,7 @@
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
-import contactImg from "../assets/about.jpg";
+import contactImg from "../assets/about.webp";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const inputBaseClass =
   "w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all";
@@ -14,6 +15,7 @@ const fieldStyles = {
 const Contact = () => {
   const form = useRef(null);
   const [status, setStatus] = useState("idle");
+  const { t } = useLanguage();
 
   const isLoading = status === "loading";
 
@@ -23,22 +25,30 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Honeypot: real visitors never see this field, bots usually fill it in.
+    if (form.current?.elements.namedItem("website")?.value) {
+      setStatus("success");
+      form.current.reset();
+      resetStatusAfterDelay();
+      return;
+    }
+
     setStatus("loading");
 
     emailjs
-      .sendForm(
-        "service_g4ebu8c",
-        "template_4yrsjae",
-        form.current,
-        "La2k8Z4wLXYaTyNhk"
-      )
+      .sendForm("service_g4ebu8c", "template_4yrsjae", form.current, {
+        publicKey: "La2k8Z4wLXYaTyNhk",
+        limitRate: { id: "portfolio-contact", throttle: 10000 },
+      })
       .then(
         () => {
           setStatus("success");
           form.current?.reset();
           resetStatusAfterDelay();
         },
-        () => {
+        (error) => {
+          console.error("EmailJS send failed:", error);
           setStatus("error");
           resetStatusAfterDelay();
         }
@@ -58,7 +68,7 @@ const Contact = () => {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-70 blur-md" />
               <img
                 src={contactImg}
-                alt="Холбоо барих"
+                alt={t.contact.imageAlt}
                 className="absolute inset-0 w-full h-full object-cover rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-pink-500/40"
               />
             </div>
@@ -76,21 +86,30 @@ const Contact = () => {
           >
             {status === "success" && (
               <div className="mb-4 p-3 rounded-lg bg-green-100 border border-green-400 text-green-700 text-sm sm:text-base">
-                Таны хүсэлт амжилттай илгээгдлээ!
+                {t.contact.success}
               </div>
             )}
 
             {status === "error" && (
               <div className="mb-4 p-3 rounded-lg bg-red-100 border border-red-400 text-red-700 text-sm sm:text-base">
-                Илгээгдсэнгүй. ID эсвэл мэдээллээ шалгаад дахин оролдоно уу.
+                {t.contact.error}
               </div>
             )}
+
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-0 w-0 opacity-0"
+            />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
               <input
                 type="text"
                 name="from_name"
-                placeholder="Нэр"
+                placeholder={t.contact.firstName}
                 style={fieldStyles}
                 className={inputBaseClass}
                 required
@@ -99,7 +118,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="last_name"
-                placeholder="Овог"
+                placeholder={t.contact.lastName}
                 style={fieldStyles}
                 className={inputBaseClass}
                 required
@@ -109,7 +128,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
-              placeholder="И-мэйл хаяг"
+              placeholder={t.contact.email}
               style={fieldStyles}
               className={`${inputBaseClass} mb-3 sm:mb-4`}
               required
@@ -118,7 +137,7 @@ const Contact = () => {
             <input
               type="tel"
               name="phone"
-              placeholder="Утасны дугаар"
+              placeholder={t.contact.phone}
               style={fieldStyles}
               className={`${inputBaseClass} mb-3 sm:mb-4`}
               required
@@ -126,7 +145,7 @@ const Contact = () => {
 
             <textarea
               name="message"
-              placeholder="Мессежээ бичнэ үү..."
+              placeholder={t.contact.message}
               style={fieldStyles}
               className={`${inputBaseClass} mb-3 sm:mb-6 resize-none`}
               required
@@ -138,7 +157,7 @@ const Contact = () => {
               style={{ background: "linear-gradient(to right, #ec4899, #8b5cf6)" }}
               className="w-full py-2 sm:py-3 text-white font-semibold rounded-lg text-sm sm:text-base hover:shadow-lg hover:shadow-pink-500/25 hover:scale-[1.02] transition-all disabled:opacity-60"
             >
-              {isLoading ? "Илгээж байна..." : "Илгээх"}
+              {isLoading ? t.contact.sending : t.contact.send}
             </button>
           </form>
         </div>

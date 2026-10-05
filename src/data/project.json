@@ -1,101 +1,328 @@
 [
-    {
-        "id": 1,
-        "title": "Сонор",
-        "description": "Мэдээллийн вебсайт — эдийн засаг, улс төр, нийгмийн мэдээ, онцлох контентыг цаг тухайд нь хүргэдэг мэдээллийн платформ",
-        "image": "./images/project1.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/sonor.mn",
-        "demoUrl": "https://www.sonornews.mn/",
-        "tags": ["Next.js", "CSS", "Neon PostgreSQL", "Vercel", "Cloudinary"]
-    },
-    {
-        "id": 2,
-        "title": "Auriga",
-        "description": "React ашиглан Auriga вебсайтыг pixel-perfect clone хийсэн — UI/UX ур чадвараа дадлагажуулах зорилготой төсөл",
-        "image": "./images/project2.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Clone-biy-daalt-React",
-        "demoUrl": "https://auriga-clone.vercel.app/",
-        "tags": ["React", "HTML", "Tailwind CSS"]
-    },
-    {
-        "id": 3,
-        "title": "Ангижрал",
-        "description": "Бариа заслын сургалтын төвийн танилцуулга вебсайт — үйлчилгээ, бариачдын мэдээлэл болон цаг захиалгын боломжтой",
-        "image": "./images/project3.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Angijarl",
-        "demoUrl": "https://angijarl.vercel.app/",
-        "tags": ["Next.js", "Tailwind CSS", "CSS", "Neon PostgreSQL"]
-    },
-    {
-        "id": 4,
-        "title": "NovaShop",
-        "description": "Технологийн бүтээгдэхүүн худалдаалдаг онлайн дэлгүүрийн вебсайт — HTML, CSS, JavaScript ашиглан хийсэн",
-        "image": "./images/project4.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/novashop",
-        "demoUrl": "https://batsaihanosohbayr118-create.github.io/novashop/index.html",
-        "tags": ["HTML", "CSS", "JavaScript"]
-    },
-    {
-        "id": 7,
-        "title": "AI-Powered Hotel Booking & Management Platform",
-        "description": "Зочдод зориулсан хайлт-захиалгаас эхлээд admin/owner-д зориулсан бүрэн удирдлага хүртэлх AI-тай зочид буудлын платформ. QPay төлбөр, AI туслах, дүрд суурилсан эрхийн систем.",
-        "image": "./images/project7.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/hotel-system",
-        "demoUrl": "https://cyber-nexus-hub-pied.vercel.app/",
-        "tags": ["Next.js", "PostgreSQL", "Tailwind CSS", "Docker", "Vercel"]
-    },
-    {
-        "id": 8,
-        "title": "Hospital Management System",
-        "description": "Эмч/өвчтөн/админ гурван эрхтэй, онлайн цаг захиалга, дижитал жор, үзлэгийн бичлэгийг нэг платформ дээр удирддаг веб систем.",
-        "image": "./images/project8.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/hospital_biy_daalt",
-        "demoUrl": "https://hospitalbiydaalt.vercel.app/",
-        "tags": ["React", "Node.js", "Express", "MySQL", "CSS", "Vercel", "Render", "Prisma ORM", "JWT Auth", "Google OAuth"]
-    },
-    {
-        "id": 9,
-        "title": "Nova Mind Academy",
-        "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. PostgreSQL өгөгдлийн сан, custom JWT auth, push notification (Firebase/FCM), 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем.",
-        "image": "./images/project9.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/school-managment-system",
-        "demoUrl": "https://www.nova-edu.mn/",
-        "tags": ["React Native", "Next.js", "Expo", "PostgreSQL", "Vercel", "Firebase"]
-    }, 
-    {
-        "id": 10,
-        "title": "Vayora",
-        "description": "Монгол орны амралтын газруудыг олох, харьцуулах, мэдээлэл авахад зориулсан цогц платформ. Хэрэглэгчид байршил, үнэ, тав тухаараа шүүж хайх, амралтын газруудыг харьцуулах, AI-аар өдөр бүрийн аяллын төлөвлөгөө гаргуулах боломжтой.",
-        "image": "./images/project10.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Amralt",
-        "demoUrl": "https://amralt.vercel.app/",
-        "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "NextAuth", "Google maps API", "Cloudinary", "Vercel"]
-    }, 
-    {
-        "id": 11,
-        "title": "HEX",
-        "description": "Нүдний шилний дэлгүүрийн танилцуулга вебсайт — бүтээгдэхүүний каталог, ангилал, зургийн галерей, компанийн мэдээлэл, холбоо барих мэдээллийг харуулдаг бөгөөд эзэмшигч нь админ панелээр дамжуулан бараа, зураг, тохиргоогоо шууд удирдах боломжтой.",
-        "image": "./images/project11.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/Eyewear",
-        "demoUrl": "https://eyewear-five.vercel.app/",
-        "tags": ["Next.js", "TypeScript", "Prisma", "Vercel blob", "Tailwind CSS", "JWT Auth", "Vercel"]
-    },
-    {
-        "id": 12,
-        "title": "Velora",
-        "description": "Fine dining рестораны бүрэн вэбсайт. Хэрэглэгч меню, галерей үзэж, ширээ захиалж, сэтгэгдэл үлдээнэ. Админ панелиас меню, зураг, захиалга, сэтгэгдлийг удирдана.",
-        "image": "./images/project12.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/restaurant",
-        "demoUrl": "https://vayora-five.vercel.app/",
-        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Vercel", "NextAuth"]
-    },
-    {
-        "id": 13,
-        "title": "Super Cars",
-        "description": "Супер машинуудын cinematic танилцуулга вэбсайт. Хэрэглэгч машинуудыг үзэж, хайж, шүүж, 2–3 машиныг хажуу хажууд нь харьцуулж, дуртайгаа хадгална. Админ панелаар машин, брэнд, зураг, хэрэглэгчийг шууд удирдана.",
-        "image": "./images/project13.png",
-        "codeUrl": "https://github.com/batsaihanosohbayr118-create/super-cars",
-        "demoUrl": "https://super-cars-omega.vercel.app/",
-        "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Vercel", "Neon", "Auth.js", "Google OAuth", "Cloudinary"] 
-    }
+  {
+    "id": 1,
+    "title": "Сонор",
+    "titleEn": "Sonor",
+    "description": "Мэдээллийн вебсайт — эдийн засаг, улс төр, нийгмийн мэдээ, онцлох контентыг цаг тухайд нь хүргэдэг мэдээллийн платформ",
+    "descriptionEn": "News website — a media platform delivering timely economic, political and social news along with featured content.",
+    "features": [
+      "Эдийн засаг, улс төр, нийгмийн мэдээний ангилал",
+      "Онцлох мэдээний хэсэг",
+      "Cloudinary-д суурилсан зургийн удирдлага"
+    ],
+    "featuresEn": [
+      "Economy, politics and society news categories",
+      "Featured stories section",
+      "Cloudinary-based image management"
+    ],
+    "image": "./images/project1.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/sonor.mn",
+    "demoUrl": "https://www.sonornews.mn/",
+    "tags": [
+      "Next.js",
+      "CSS",
+      "Neon PostgreSQL",
+      "Vercel",
+      "Cloudinary"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Auriga",
+    "titleEn": "Auriga",
+    "description": "React ашиглан Auriga вебсайтыг pixel-perfect clone хийсэн — UI/UX ур чадвараа дадлагажуулах зорилготой төсөл",
+    "descriptionEn": "A pixel-perfect clone of the Auriga website built with React — a project for practicing UI/UX skills.",
+    "features": [
+      "Pixel-perfect UI",
+      "Responsive layout",
+      "Tailwind CSS-ээр хийсэн загвар"
+    ],
+    "featuresEn": [
+      "Pixel-perfect UI",
+      "Responsive layout",
+      "Styled with Tailwind CSS"
+    ],
+    "image": "./images/project2.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/Clone-biy-daalt-React",
+    "demoUrl": "https://auriga-clone.vercel.app/",
+    "tags": [
+      "React",
+      "HTML",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Ангижрал",
+    "titleEn": "Angijral",
+    "description": "Бариа заслын сургалтын төвийн танилцуулга вебсайт — үйлчилгээ, бариачдын мэдээлэл болон цаг захиалгын боломжтой",
+    "descriptionEn": "Website for a massage therapy training center — services, therapist profiles and online appointment booking.",
+    "features": [
+      "Үйлчилгээний танилцуулга",
+      "Бариачдын мэдээлэл",
+      "Цаг захиалга"
+    ],
+    "featuresEn": [
+      "Services overview",
+      "Therapist profiles",
+      "Appointment booking"
+    ],
+    "image": "./images/project3.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/Angijarl",
+    "demoUrl": "https://angijarl.vercel.app/",
+    "tags": [
+      "Next.js",
+      "Tailwind CSS",
+      "CSS",
+      "Neon PostgreSQL"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "NovaShop",
+    "titleEn": "NovaShop",
+    "description": "Технологийн бүтээгдэхүүн худалдаалдаг онлайн дэлгүүрийн вебсайт — HTML, CSS, JavaScript ашиглан хийсэн",
+    "descriptionEn": "An online store for tech products, built with HTML, CSS and JavaScript.",
+    "features": [
+      "Бүтээгдэхүүний каталог",
+      "Сагс",
+      "Цэвэр HTML, CSS, JavaScript"
+    ],
+    "featuresEn": [
+      "Product catalog",
+      "Shopping cart",
+      "Plain HTML, CSS and JavaScript"
+    ],
+    "image": "./images/project4.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/novashop",
+    "demoUrl": "https://batsaihanosohbayr118-create.github.io/novashop/index.html",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "AI-Powered Hotel Booking & Management Platform",
+    "titleEn": "AI-Powered Hotel Booking & Management Platform",
+    "description": "Зочдод зориулсан хайлт-захиалгаас эхлээд admin/owner-д зориулсан бүрэн удирдлага хүртэлх AI-тай зочид буудлын платформ. QPay төлбөр, AI туслах, дүрд суурилсан эрхийн систем.",
+    "descriptionEn": "An AI-powered hotel platform covering everything from guest search and booking to full management for admins and owners. QPay payments, an AI assistant and role-based access control.",
+    "features": [
+      "Буудал хайх, захиалах",
+      "QPay төлбөр",
+      "AI туслах",
+      "Admin/owner-д зориулсан удирдлага, дүрд суурилсан эрх"
+    ],
+    "featuresEn": [
+      "Hotel search and booking",
+      "QPay payments",
+      "AI assistant",
+      "Admin/owner management with role-based access"
+    ],
+    "image": "./images/project7.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/hotel-system",
+    "demoUrl": "https://cyber-nexus-hub-pied.vercel.app/",
+    "tags": [
+      "Next.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Docker",
+      "Vercel"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Hospital Management System",
+    "titleEn": "Hospital Management System",
+    "description": "Эмч/өвчтөн/админ гурван эрхтэй, онлайн цаг захиалга, дижитал жор, үзлэгийн бичлэгийг нэг платформ дээр удирддаг веб систем.",
+    "descriptionEn": "A web system with doctor, patient and admin roles that manages online appointments, digital prescriptions and examination records on one platform.",
+    "features": [
+      "Эмч / өвчтөн / админ гэсэн 3 эрх",
+      "Онлайн цаг захиалга",
+      "Дижитал жор",
+      "Үзлэгийн бичлэг",
+      "JWT болон Google OAuth нэвтрэлт"
+    ],
+    "featuresEn": [
+      "Three roles: doctor / patient / admin",
+      "Online appointments",
+      "Digital prescriptions",
+      "Examination records",
+      "JWT and Google OAuth sign-in"
+    ],
+    "image": "./images/project8.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/hospital_biy_daalt",
+    "demoUrl": "https://hospitalbiydaalt.vercel.app/",
+    "tags": [
+      "React",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "CSS",
+      "Vercel",
+      "Render",
+      "Prisma ORM",
+      "JWT Auth",
+      "Google OAuth"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Nova Mind Academy",
+    "titleEn": "Nova Mind Academy",
+    "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. PostgreSQL өгөгдлийн сан, custom JWT auth, push notification (Firebase/FCM), 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем.",
+    "descriptionEn": "A complete school management system combining a web app (Next.js) and a native mobile app (Expo/React Native, iOS & Android). PostgreSQL database, custom JWT auth, push notifications (Firebase/FCM) and permissions for 4 roles (admin/teacher/student/parent).",
+    "features": [
+      "Вэб болон iOS/Android мобайл апп",
+      "Админ / багш / сурагч / эцэг эх гэсэн 4 эрх",
+      "Push notification (Firebase/FCM)",
+      "Custom JWT нэвтрэлт"
+    ],
+    "featuresEn": [
+      "Web plus iOS/Android mobile app",
+      "Four roles: admin / teacher / student / parent",
+      "Push notifications (Firebase/FCM)",
+      "Custom JWT authentication"
+    ],
+    "image": "./images/project9.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/school-managment-system",
+    "demoUrl": "https://www.nova-edu.mn/",
+    "tags": [
+      "React Native",
+      "Next.js",
+      "Expo",
+      "PostgreSQL",
+      "Vercel",
+      "Firebase"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Vayora",
+    "titleEn": "Vayora",
+    "description": "Монгол орны амралтын газруудыг олох, харьцуулах, мэдээлэл авахад зориулсан цогц платформ. Хэрэглэгчид байршил, үнэ, тав тухаараа шүүж хайх, амралтын газруудыг харьцуулах, AI-аар өдөр бүрийн аяллын төлөвлөгөө гаргуулах боломжтой.",
+    "descriptionEn": "A platform for finding, comparing and learning about resorts across Mongolia. Users can filter by location, price and amenities, compare resorts side by side, and get an AI-generated day-by-day travel plan.",
+    "features": [
+      "Байршил, үнэ, тав тухаар шүүх",
+      "Амралтын газруудыг харьцуулах",
+      "AI-аар аяллын төлөвлөгөө гаргах",
+      "Google Maps газрын зураг"
+    ],
+    "featuresEn": [
+      "Filter by location, price and amenities",
+      "Side-by-side resort comparison",
+      "AI-generated travel itineraries",
+      "Google Maps integration"
+    ],
+    "image": "./images/project10.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/Amralt",
+    "demoUrl": "https://amralt.vercel.app/",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "NextAuth",
+      "Google maps API",
+      "Cloudinary",
+      "Vercel"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "HEX",
+    "titleEn": "HEX",
+    "description": "Нүдний шилний дэлгүүрийн танилцуулга вебсайт — бүтээгдэхүүний каталог, ангилал, зургийн галерей, компанийн мэдээлэл, холбоо барих мэдээллийг харуулдаг бөгөөд эзэмшигч нь админ панелээр дамжуулан бараа, зураг, тохиргоогоо шууд удирдах боломжтой.",
+    "descriptionEn": "A showcase website for an eyewear store — product catalog, categories, image gallery, company info and contact details, with an admin panel where the owner manages products, images and settings directly.",
+    "features": [
+      "Бүтээгдэхүүний каталог, ангилал",
+      "Зургийн галерей",
+      "Админ панел (бараа, зураг, тохиргоо)"
+    ],
+    "featuresEn": [
+      "Product catalog and categories",
+      "Image gallery",
+      "Admin panel for products, images and settings"
+    ],
+    "image": "./images/project11.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/Eyewear",
+    "demoUrl": "https://eyewear-five.vercel.app/",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Vercel blob",
+      "Tailwind CSS",
+      "JWT Auth",
+      "Vercel"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Velora",
+    "titleEn": "Velora",
+    "description": "Fine dining рестораны бүрэн вэбсайт. Хэрэглэгч меню, галерей үзэж, ширээ захиалж, сэтгэгдэл үлдээнэ. Админ панелиас меню, зураг, захиалга, сэтгэгдлийг удирдана.",
+    "descriptionEn": "A complete fine-dining restaurant website. Guests browse the menu and gallery, book a table and leave reviews. The admin panel manages the menu, images, bookings and reviews.",
+    "features": [
+      "Меню, галерей",
+      "Ширээ захиалга",
+      "Сэтгэгдэл үлдээх",
+      "Админ панел"
+    ],
+    "featuresEn": [
+      "Menu and gallery",
+      "Table reservations",
+      "Guest reviews",
+      "Admin panel"
+    ],
+    "image": "./images/project12.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/restaurant",
+    "demoUrl": "https://vayora-five.vercel.app/",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "Vercel",
+      "NextAuth"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Super Cars",
+    "titleEn": "Super Cars",
+    "description": "Супер машинуудын cinematic танилцуулга вэбсайт. Хэрэглэгч машинуудыг үзэж, хайж, шүүж, 2–3 машиныг хажуу хажууд нь харьцуулж, дуртайгаа хадгална. Админ панелаар машин, брэнд, зураг, хэрэглэгчийг шууд удирдана.",
+    "descriptionEn": "A cinematic showcase website for supercars. Users browse, search and filter cars, compare 2–3 cars side by side and save favorites. The admin panel manages cars, brands, images and users directly.",
+    "features": [
+      "Хайх, шүүх",
+      "2–3 машиныг хажуу хажууд харьцуулах",
+      "Дуртай машинаа хадгалах",
+      "Google OAuth нэвтрэлт",
+      "Админ панел"
+    ],
+    "featuresEn": [
+      "Search and filters",
+      "Compare 2–3 cars side by side",
+      "Save favorites",
+      "Google OAuth sign-in",
+      "Admin panel"
+    ],
+    "image": "./images/project13.png",
+    "codeUrl": "https://github.com/batsaihanosohbayr118-create/super-cars",
+    "demoUrl": "https://super-cars-omega.vercel.app/",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Vercel",
+      "Neon",
+      "Auth.js",
+      "Google OAuth",
+      "Cloudinary"
+    ]
+  }
 ]
