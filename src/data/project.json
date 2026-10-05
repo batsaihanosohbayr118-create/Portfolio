@@ -3,52 +3,144 @@
     "id": 1,
     "title": "Сонор",
     "titleEn": "Sonor",
-    "description": "Мэдээллийн вебсайт — эдийн засаг, улс төр, нийгмийн мэдээ, онцлох контентыг цаг тухайд нь хүргэдэг мэдээллийн платформ",
-    "descriptionEn": "News website — a media platform delivering timely economic, political and social news along with featured content.",
+    "description": "Улс төр, эдийн засаг, нийгмийн мэдээг нэг дор цуглуулдаг мэдээллийн платформ. Үндэсний статистикийн хорооны (1212.mn) бодит өгөгдөл, цаг агаар, валютын ханш шууд татагддаг бөгөөд мэдээллийг админ самбараар удирддаг.",
+    "descriptionEn": "A news platform that brings political, economic and social news together in one place. Live data from Mongolia's National Statistics Office (1212.mn), weather and exchange rates are pulled in automatically, and all content is managed from an admin dashboard.",
+    "overview": "Сонор бол Next.js дээр бүрэн stack-аар хийгдсэн, ажиллаж буй мэдээллийн сайт. Мэдээ, видео, УИХ-ын гишүүдийн мэдээлэл, баримт шалгалт, сурталчилгааг нэг админ самбараас удирдана. Нүүр хуудсанд гадны эх сурвалжаас бодит цагийн мэдээлэл автоматаар орж ирдэг: Үндэсний статистикийн хорооны мэдээ ба үзүүлэлтүүд, 21 аймгийн цаг агаар, 30 валютын ханш. Өгөгдлийн сангаар Neon PostgreSQL ашиглаж, Vercel дээр байршуулсан.",
+    "overviewEn": "Sonor is a live, full-stack news site built with Next.js. News, videos, profiles of members of parliament, fact-checks and ads are all managed from one admin dashboard. The home page pulls in real-time data from external sources automatically: news and indicators from the National Statistics Office, weather for all 21 provinces and exchange rates for 30 currencies. It uses Neon PostgreSQL as its database and is deployed on Vercel.",
     "features": [
-      "Эдийн засаг, улс төр, нийгмийн мэдээний ангилал",
-      "Онцлох мэдээний хэсэг",
-      "Cloudinary-д суурилсан зургийн удирдлага"
+      {
+        "title": "Ангилалтай мэдээ",
+        "body": "УИХ, Засгийн газар, Сонгууль, Гадаад харилцаа, Хууль, Намууд, Эдийн засаг, Орон нутаг гэсэн 8 ангилалтай. Онцлох мэдээ, холбоотой мэдээ гэсэн хэсгүүдтэй."
+      },
+      {
+        "title": "Эдийн засгийн самбар",
+        "body": "data.1212.mn-ийн PxWeb API-аас хүн ам, ДНБ, инфляц, ажил эрхлэлтийн сүүлийн 6 жилийн үзүүлэлтийг татаж, график болгон харуулна."
+      },
+      {
+        "title": "Албан ёсны мэдээний урсгал",
+        "body": "1212.mn-ийн мэдээллээс эдийн засгийн мэдээг монгол түлхүүр үгээр (regex) шүүж, ticker хэлбэрээр харуулна. 5 минутын кэштэй."
+      },
+      {
+        "title": "Цаг агаар",
+        "body": "Open-Meteo API ашиглан 21 аймаг болон Улаанбаатарын цаг агаарыг харуулна. D3.js-ээр зурсан Монголын интерактив газрын зурагтай (GeoJSON)."
+      },
+      {
+        "title": "Валютын ханш",
+        "body": "30 валютын төгрөгтэй харьцах ханшийг харуулна. API ажиллахгүй үед нөөц утгаа ашиглана."
+      },
+      {
+        "title": "Улс төрчдийн мэдээлэл",
+        "body": "УИХ-ын гишүүд болон элчин сайд нарын профайл."
+      },
+      {
+        "title": "Баримт шалгалт, видео, сурталчилгаа",
+        "body": "Баримт шалгах хэсэг, онцлох видео (YouTube embed), сурталчилгааны баннер."
+      },
+      {
+        "title": "Админ самбар",
+        "body": "Мэдээ, гишүүд, элчин сайд, сурталчилгаа, видео, баримт гэсэн 6 төрлийн контентыг бүрэн CRUD-аар удирдана. Зургийг Cloudinary руу upload хийнэ."
+      },
+      {
+        "title": "SEO",
+        "body": "Open Graph, Twitter Card, JSON-LD (Organization) мета өгөгдөл, автоматаар үүсдэг sitemap.xml, robots.txt."
+      },
+      {
+        "title": "Аюулгүй байдал",
+        "body": "HMAC-ээр гарын үсэг зурсан HttpOnly session cookie, HSTS, X-Frame-Options, Permissions-Policy зэрэг security header-ууд."
+      },
+      {
+        "title": "Responsive",
+        "body": "Гар утас, таблет, десктоп дээр зөв харагдана."
+      }
     ],
     "featuresEn": [
-      "Economy, politics and society news categories",
-      "Featured stories section",
-      "Cloudinary-based image management"
+      {
+        "title": "Categorized news",
+        "body": "8 categories: Parliament, Government, Elections, Foreign Affairs, Law, Parties, Economy and Local. Includes featured and related stories sections."
+      },
+      {
+        "title": "Economic dashboard",
+        "body": "Pulls the last 6 years of population, GDP, inflation and employment figures from the data.1212.mn PxWeb API and shows them as charts."
+      },
+      {
+        "title": "Official news feed",
+        "body": "Filters economic news from 1212.mn with Mongolian keyword regexes and shows it as a ticker, cached for 5 minutes."
+      },
+      {
+        "title": "Weather",
+        "body": "Weather for all 21 provinces and Ulaanbaatar via the Open-Meteo API, with an interactive map of Mongolia drawn in D3.js (GeoJSON)."
+      },
+      {
+        "title": "Exchange rates",
+        "body": "Rates for 30 currencies against the tögrög, with fallback values when the API is down."
+      },
+      {
+        "title": "Politician profiles",
+        "body": "Profiles of members of parliament and ambassadors."
+      },
+      {
+        "title": "Fact-checks, videos and ads",
+        "body": "A fact-check section, featured videos (YouTube embeds) and advertising banners."
+      },
+      {
+        "title": "Admin dashboard",
+        "body": "Full CRUD for 6 content types: news, members, ambassadors, ads, videos and fact-checks. Images upload to Cloudinary."
+      },
+      {
+        "title": "SEO",
+        "body": "Open Graph, Twitter Card and JSON-LD (Organization) metadata, plus an auto-generated sitemap.xml and robots.txt."
+      },
+      {
+        "title": "Security",
+        "body": "HMAC-signed HttpOnly session cookies and security headers such as HSTS, X-Frame-Options and Permissions-Policy."
+      },
+      {
+        "title": "Responsive",
+        "body": "Displays correctly on phone, tablet and desktop."
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Ерөнхий document store",
+        "body": "Бүх контентыг Postgres-ийн нэг store_documents хүснэгтэд JSONB хэлбэрээр хадгалдаг. Хүснэгт эхний хандалтаар автоматаар үүсч, хуучин JSON өгөгдлийг өөрөө шилжүүлдэг. DB тохируулаагүй үед локал JSON файл руу шилждэг тул хөгжүүлэлтийн үед DB шаардлагагүй (lib/db.ts)."
+      },
+      {
+        "title": "Өгөгдлийн сангийн шилжилт",
+        "body": "Анх JSON файлаас эхэлж, MongoDB руу, дараа нь Neon PostgreSQL руу шилжүүлсэн. Vercel дээр файл бичих боломжгүй (EROFS) асуудлыг шийдсэн."
+      },
+      {
+        "title": "Server-side rendering",
+        "body": "Бүх хуудас getServerSideProps-оор рендерлэгддэг."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "Generic document store",
+        "body": "All content lives as JSONB in a single Postgres table, store_documents. The table is created automatically on first access and migrates the old JSON data on its own. Without a configured database it falls back to local JSON files, so development needs no database (lib/db.ts)."
+      },
+      {
+        "title": "Database migration",
+        "body": "Started with JSON files, moved to MongoDB, then to Neon PostgreSQL, solving the read-only filesystem (EROFS) problem on Vercel."
+      },
+      {
+        "title": "Server-side rendering",
+        "body": "Every page is rendered with getServerSideProps."
+      }
     ],
     "image": "./images/project1.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/sonor.mn",
     "demoUrl": "https://www.sonornews.mn/",
     "tags": [
       "Next.js",
+      "TypeScript",
+      "React 18",
       "CSS",
       "Neon PostgreSQL",
-      "Vercel",
-      "Cloudinary"
-    ]
-  },
-  {
-    "id": 2,
-    "title": "Auriga",
-    "titleEn": "Auriga",
-    "description": "React ашиглан Auriga вебсайтыг pixel-perfect clone хийсэн — UI/UX ур чадвараа дадлагажуулах зорилготой төсөл",
-    "descriptionEn": "A pixel-perfect clone of the Auriga website built with React — a project for practicing UI/UX skills.",
-    "features": [
-      "Pixel-perfect UI",
-      "Responsive layout",
-      "Tailwind CSS-ээр хийсэн загвар"
-    ],
-    "featuresEn": [
-      "Pixel-perfect UI",
-      "Responsive layout",
-      "Styled with Tailwind CSS"
-    ],
-    "image": "./images/project2.png",
-    "codeUrl": "https://github.com/batsaihanosohbayr118-create/Clone-biy-daalt-React",
-    "demoUrl": "https://auriga-clone.vercel.app/",
-    "tags": [
-      "React",
-      "HTML",
-      "Tailwind CSS"
+      "D3.js",
+      "Open-Meteo API",
+      "1212.mn Open Data API",
+      "Cloudinary",
+      "Vercel"
     ]
   },
   {
@@ -171,49 +263,228 @@
     "id": 9,
     "title": "Nova Mind Academy",
     "titleEn": "Nova Mind Academy",
-    "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. PostgreSQL өгөгдлийн сан, custom JWT auth, push notification (Firebase/FCM), 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем.",
-    "descriptionEn": "A complete school management system combining a web app (Next.js) and a native mobile app (Expo/React Native, iOS & Android). PostgreSQL database, custom JWT auth, push notifications (Firebase/FCM) and permissions for 4 roles (admin/teacher/student/parent).",
+    "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. Neon PostgreSQL өгөгдлийн сан, custom auth (scrypt нууц үгийн hash + HMAC гарын үсэгтэй token), Expo Push (APNs + FCM)-ээр push notification, 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем.",
+    "descriptionEn": "A complete school management system combining a web app (Next.js) and a native mobile app (Expo/React Native, iOS & Android). Neon PostgreSQL database, custom auth (scrypt password hashing + HMAC-signed tokens), push notifications via Expo Push (APNs + FCM) and permissions for 4 roles (admin/teacher/student/parent).",
+    "role": "Ганцаараа хөгжүүлсэн: дизайн, вэб, мобайл, backend, release",
+    "roleEn": "Solo developer: design, web, mobile, backend, release",
+    "timeline": "2026 оны 5-р сар – 8-р сар",
+    "timelineEn": "May – August 2026",
     "features": [
-      "Вэб болон iOS/Android мобайл апп",
-      "Админ / багш / сурагч / эцэг эх гэсэн 4 эрх",
-      "Push notification (Firebase/FCM)",
-      "Custom JWT нэвтрэлт"
+      "Вэб dashboard болон native iOS/Android апп нэг API-г хуваалцдаг",
+      "Админ / багш / сурагч / эцэг эх гэсэн 4 эрх, хүн бүр зөвхөн өөрийн өгөгдлийг хардаг",
+      "Дүн, ирц, төлбөр, хичээлийн хуваарь, зарлал — нийт 12 resource",
+      "Багш ирц, дүнгээ утаснаасаа оруулдаг",
+      "Шинэ дүн, зарлал гарахад push notification (Expo Push)",
+      "Offline горим: интернетгүй үед апп cache-лсэн өгөгдлөө харуулдаг",
+      "Монгол, англи хэл; dark болон light горим",
+      "Бүртгэлийг зөвхөн админ үүсгэнэ, нээлттэй sign-up байхгүй"
     ],
     "featuresEn": [
-      "Web plus iOS/Android mobile app",
-      "Four roles: admin / teacher / student / parent",
-      "Push notifications (Firebase/FCM)",
-      "Custom JWT authentication"
+      "Web dashboard + native iOS/Android app sharing one API",
+      "Four roles (admin / teacher / student / parent), each sees only their own data",
+      "Grades, attendance, payments, timetable, announcements, 12 resources in total",
+      "Teachers enter attendance and grades from their phone",
+      "Push notifications on new grades and announcements (Expo Push)",
+      "Offline mode: the app shows cached data without internet",
+      "Mongolian and English, dark and light mode",
+      "Admin-only account creation, with no public sign-up"
+    ],
+    "challenges": [
+      {
+        "title": "Аюулгүй байдлын алдааг илрүүлж зассан",
+        "body": "Сурагч ангийнхаа хүүхдийн дүнг харах боломжтой байсан. Дүн, ирцийг зөвхөн хэрэглэгчийн өөрийн бичлэгээр хязгаарласан."
+      },
+      {
+        "title": "Вэб, мобайлд нэг эрхийн шалгалт",
+        "body": "Мобайл API нь вэбийн data layer-ийг дахин ашигладаг тул нэг удаа зассан дүрэм хаа сайгүй засагддаг."
+      },
+      {
+        "title": "Web wrapper биш, native",
+        "body": "Жинхэнэ push notification, offline cache, store-ын зөвшөөрлийн тулд Capacitor-ын оронд Expo-г сонгосон."
+      },
+      {
+        "title": "Supabase-ээс өөрийн auth руу",
+        "body": "Supabase-ийг Neon Postgres дээрх өөрөө хостолсон auth-аар сольсон."
+      },
+      {
+        "title": "Production schema drift",
+        "body": "Production дээрх schema зөрүүг аюулгүй migration-аар, өгөгдөл алдалгүй зассан."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Security bug found and fixed",
+        "body": "A student could see a classmate's grades. I restricted grades and attendance to the user's own records."
+      },
+      {
+        "title": "One authorization path for web and mobile",
+        "body": "The mobile API reuses the web's data layer, so a rule fixed once is fixed everywhere."
+      },
+      {
+        "title": "Native over web wrapper",
+        "body": "I chose Expo over Capacitor for real push notifications, offline caching and store approval."
+      },
+      {
+        "title": "Self-hosted auth",
+        "body": "Replaced Supabase with self-hosted auth on Neon Postgres."
+      },
+      {
+        "title": "Production schema drift",
+        "body": "Fixed production schema drift with safe migrations and no data loss."
+      }
     ],
     "image": "./images/project9.png",
-    "codeUrl": "https://github.com/batsaihanosohbayr118-create/school-managment-system",
+    "screenshots": [
+      "./mobile/mobile.jpg",
+      "./mobile/mobile2.jpg"
+    ],
+    "video": "./video/IMG_1820.MP4",
     "demoUrl": "https://www.nova-edu.mn/",
+    "appStoreUrl": "https://apps.apple.com/mn/app/nova-mind-academy/id6800562728",
     "tags": [
       "React Native",
-      "Next.js",
       "Expo",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
       "PostgreSQL",
-      "Vercel",
-      "Firebase"
+      "Neon",
+      "Expo Push",
+      "Firebase",
+      "Vercel"
     ]
   },
   {
     "id": 10,
     "title": "Vayora",
     "titleEn": "Vayora",
-    "description": "Монгол орны амралтын газруудыг олох, харьцуулах, мэдээлэл авахад зориулсан цогц платформ. Хэрэглэгчид байршил, үнэ, тав тухаараа шүүж хайх, амралтын газруудыг харьцуулах, AI-аар өдөр бүрийн аяллын төлөвлөгөө гаргуулах боломжтой.",
-    "descriptionEn": "A platform for finding, comparing and learning about resorts across Mongolia. Users can filter by location, price and amenities, compare resorts side by side, and get an AI-generated day-by-day travel plan.",
+    "description": "Vayora бол Монгол орны амралтын газруудыг нэг дороос хайх, харьцуулах, газрын зураг дээр харах, өөрт тохирох аяллаа төлөвлөх платформ. Хэрэглэгч байршил, үнэ, тав тухаараа шүүж хайна. Админ шинэ газрыг вэбсайтын линкээр нь автоматаар импортолж оруулдаг.",
+    "descriptionEn": "Vayora is a platform for searching, comparing, mapping and planning trips to resorts across Mongolia, all in one place. Users filter by location, price and amenities. Admins add new places by importing them automatically from the resort's website link.",
+    "role": "Full-stack хөгжүүлэлтийг дангаараа хийсэн: UI/UX дизайн, мэдээллийн сангийн бүтэц, API, нэвтрэлт, газрын зургийн интеграц, Vercel дээр байршуулалт.",
+    "roleEn": "Solo full-stack developer: UI/UX design, database schema, API, authentication, map integration and deployment on Vercel.",
+    "problem": "Монголын амралтын газруудын мэдээлэл Facebook хуудас, тусдаа сайтуудад тархсан байдаг. Үнэ, байршил, үйлчилгээг нь хооронд нь харьцуулах нэг газар байдаггүй.",
+    "problemEn": "Information about Mongolian resorts is scattered across Facebook pages and separate websites. There is no single place to compare their prices, locations and services.",
+    "solution": "Бүх газрын мэдээлэл, үнэ, байрны төрөл, үнэлгээ, байршлыг нэг стандарт бүтэцтэй болгож, ухаалаг хайлт, газрын зураг, харьцуулалт, аялал төлөвлөгчөөр дамжуулан хүргэдэг.",
+    "solutionEn": "Every place's details, prices, accommodation types, ratings and location are normalized into one standard structure and delivered through smart search, a map, comparison and a trip planner.",
     "features": [
-      "Байршил, үнэ, тав тухаар шүүх",
-      "Амралтын газруудыг харьцуулах",
-      "AI-аар аяллын төлөвлөгөө гаргах",
-      "Google Maps газрын зураг"
+      {
+        "title": "Нарийвчилсан хайлт ба шүүлтүүр",
+        "body": "Аймаг, ангилал, үнийн хязгаар, үнэлгээ, УБ-аас зай, зочдын тоо, байрны төрөл (гэр, гэр бүлийн байшин, VIP, майхан), үйлчилгээ (саун, бассейн, морь унах, загас барих г.м.)-гээр шүүнэ. 5 төрлөөр эрэмбэлнэ, хуудаслалттай."
+      },
+      {
+        "title": "Google Maps газрын зураг",
+        "body": "Маркеруудыг бүлэглэж (clustering) харуулна, аймгийн хил зурагдсан, газар бүрийн popup цонхтой."
+      },
+      {
+        "title": "Маршрут",
+        "body": "Улаанбаатар эсвэл хэрэглэгчийн одоогийн байршлаас (Geolocation) тухайн газар хүрэх замыг Google Maps-д нээнэ."
+      },
+      {
+        "title": "Харьцуулалт",
+        "body": "Хэд хэдэн газрыг сонгоод үнэ, үнэлгээ, үйлчилгээг хүснэгтээр харьцуулна."
+      },
+      {
+        "title": "Аялал төлөвлөгч",
+        "body": "Очих бүс, төсөв, хүний тоо, сонирхлоо оруулахад тохирох газрыг оноогоор эрэмбэлж сонгоно. Хүний тоонд тохирох байр, үйл ажиллагааны хуваарь, ойролцоо зардлыг гаргаж, хариуг stream хэлбэрээр шууд харуулна."
+      },
+      {
+        "title": "Үнэлгээ ба сэтгэгдэл",
+        "body": "Од өгөх, сэтгэгдэл бичих, үнэлгээний статистик."
+      },
+      {
+        "title": "Хэрэглэгчийн бүртгэл",
+        "body": "Имэйл/нууц үг болон Google-ээр нэвтрэх, нууц үг сэргээх имэйл (Resend), профайл (харшил, хоолны дэглэм, аяллын сонирхол), дуртай газрууд."
+      },
+      {
+        "title": "Админ самбар",
+        "body": "Газар нэмэх/засах, батлах/татгалзах (PENDING → APPROVED/REJECTED), байрны төрөл ба үнэ удирдах, хэрэглэгчийн эрх солих, Cloudinary-руу зураг хуулах."
+      },
+      {
+        "title": "Вэбсайтаас автомат импорт",
+        "body": "Админ амралтын газрын сайтын линкийг оруулахад нэр, тайлбар, утас, имэйл, хаяг, зураг, координатыг Cheerio ашиглан автоматаар уншиж маягтыг бөглөнө."
+      },
+      {
+        "title": "3 хэл",
+        "body": "Монгол, Англи, Хятад (next-intl). Мэдээллийн сангийн контент ч гэсэн 3 хэлээр хадгалагдана."
+      }
     ],
     "featuresEn": [
-      "Filter by location, price and amenities",
-      "Side-by-side resort comparison",
-      "AI-generated travel itineraries",
-      "Google Maps integration"
+      {
+        "title": "Advanced search and filters",
+        "body": "Filter by province, category, price range, rating, distance from Ulaanbaatar, number of guests, accommodation type (ger, family house, VIP, tent) and amenities (sauna, pool, horse riding, fishing, etc.). Five sort options, with pagination."
+      },
+      {
+        "title": "Google Maps",
+        "body": "Clustered markers, drawn province borders and a popup for every place."
+      },
+      {
+        "title": "Directions",
+        "body": "Opens the route to a place in Google Maps, starting from Ulaanbaatar or the user's current location (Geolocation)."
+      },
+      {
+        "title": "Comparison",
+        "body": "Pick several places and compare prices, ratings and amenities in a table."
+      },
+      {
+        "title": "Trip planner",
+        "body": "Enter a region, budget, group size and interests, and matching places are ranked by score. It picks accommodation for the group size, builds an activity schedule and estimates costs, streaming the result live."
+      },
+      {
+        "title": "Ratings and reviews",
+        "body": "Star ratings, written reviews and rating statistics."
+      },
+      {
+        "title": "User accounts",
+        "body": "Email/password and Google sign-in, password reset emails (Resend), a profile (allergies, diet, travel interests) and saved favorites."
+      },
+      {
+        "title": "Admin panel",
+        "body": "Add and edit places, approve or reject them (PENDING → APPROVED/REJECTED), manage accommodation types and prices, change user roles and upload images to Cloudinary."
+      },
+      {
+        "title": "Automatic import from websites",
+        "body": "An admin pastes a resort's website link, and Cheerio reads the name, description, phone, email, address, images and coordinates to fill in the form automatically."
+      },
+      {
+        "title": "Three languages",
+        "body": "Mongolian, English and Chinese (next-intl). Database content is stored in all three languages too."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Бүтэц нь өөр өөр сайтуудаас мэдээлэл задлах",
+        "body": "Хүмүүсийн бичсэн, бүтэц нь өөр өөр сайтуудаас мэдээлэл задлах. Lazy-load зураг (data-src), лого/icon шүүх, SEO plugin-ийн давхардсан гарчиг (“X – X”) цэвэрлэх, Монгол утасны дугаар (+976) танихыг шийдсэн."
+      },
+      {
+        "title": "Линкээр хуваалцах боломжтой хайлт",
+        "body": "Олон шүүлтүүрийг URL search params-аар удирдсан тул хайлтын үр дүнг линкээр хуваалцах боломжтой."
+      },
+      {
+        "title": "Олон хэлтэй контент",
+        "body": "Олон хэлтэй контентыг мэдээллийн сангийн түвшинд (name, nameEn, nameZh) зохион байгуулж, байхгүй орчуулгын үед үндсэн хэл рүү буцдаг болгосон."
+      },
+      {
+        "title": "Хайлтын хурд",
+        "body": "Хайлтын хурдыг нэмэхийн тулд Prisma schema-д үнэ, үнэлгээ, аймаг, статус дээр index тавьсан."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Scraping websites with inconsistent structure",
+        "body": "Extracting data from hand-built sites with very different markup. I handled lazy-loaded images (data-src), filtered out logos and icons, cleaned duplicated SEO-plugin titles (\"X – X\") and detected Mongolian phone numbers (+976)."
+      },
+      {
+        "title": "Shareable search via the URL",
+        "body": "All filters live in URL search params, so any search result can be shared as a link."
+      },
+      {
+        "title": "Multilingual content",
+        "body": "Translations are modeled at the database level (name, nameEn, nameZh) and fall back to the default language when a translation is missing."
+      },
+      {
+        "title": "Search performance",
+        "body": "Added indexes on price, rating, province and status in the Prisma schema to speed up search."
+      }
     ],
     "image": "./images/project10.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/Amralt",
@@ -227,6 +498,9 @@
       "NextAuth",
       "Google maps API",
       "Cloudinary",
+      "Cheerio",
+      "Resend",
+      "next-intl",
       "Vercel"
     ]
   },
@@ -234,28 +508,63 @@
     "id": 11,
     "title": "HEX",
     "titleEn": "HEX",
-    "description": "Нүдний шилний дэлгүүрийн танилцуулга вебсайт — бүтээгдэхүүний каталог, ангилал, зургийн галерей, компанийн мэдээлэл, холбоо барих мэдээллийг харуулдаг бөгөөд эзэмшигч нь админ панелээр дамжуулан бараа, зураг, тохиргоогоо шууд удирдах боломжтой.",
-    "descriptionEn": "A showcase website for an eyewear store — product catalog, categories, image gallery, company info and contact details, with an admin panel where the owner manages products, images and settings directly.",
+    "description": "Тансаг нүдний шилний бутикийн вэбсайт. Бүтээгдэхүүний каталог, ангилал, зургийн галерей, компанийн мэдээллийг харуулах ба эзэмшигч нь админ панелаар дамжуулан бараа, зураг, тохиргоогоо код бичихгүйгээр удирддаг.",
+    "descriptionEn": "A website for a luxury eyewear boutique. It showcases the product catalog, categories, an image gallery and company information, and the owner manages products, images and settings through an admin panel without writing any code.",
     "features": [
-      "Бүтээгдэхүүний каталог, ангилал",
-      "Зургийн галерей",
-      "Админ панел (бараа, зураг, тохиргоо)"
+      "Бүтээгдэхүүний каталог, ангиллаар шүүх",
+      "Зургийн галерей (том/жижиг зургийн уян хатан grid)",
+      "Админ панел: бараа, ангилал, галерей, сайтын тохиргоо",
+      "Нууц үгээр хамгаалагдсан админ нэвтрэлт (JWT session)",
+      "Зураг upload: том зургийг хөтөч дээр автоматаар жижигрүүлж (WebP), Vercel Blob-д хадгална",
+      "Утас, таблет, компьютерт бүрэн тохирсон responsive дизайн",
+      "Тансаг загвар: алтлаг өнгө, гөлгөр hover болон scroll анимаци"
     ],
     "featuresEn": [
-      "Product catalog and categories",
-      "Image gallery",
-      "Admin panel for products, images and settings"
+      "Product catalog with category filters",
+      "Image gallery (flexible grid of large and small images)",
+      "Admin panel: products, categories, gallery and site settings",
+      "Password-protected admin sign-in (JWT session)",
+      "Image upload: large images are resized to WebP in the browser and stored in Vercel Blob",
+      "Fully responsive design for phone, tablet and desktop",
+      "Luxury styling: gold accents, smooth hover and scroll animations"
+    ],
+    "challenges": [
+      {
+        "title": "Өгөгдөл алдагдах асуудал",
+        "body": "Vercel Blob-ийн CDN хуучин хувилбарыг кэшилж, дараалсан хадгалалтууд бие биенээ дарж байсныг файл бүрийг шинэ хувилбараар хадгалах аргаар бүрэн шийдсэн."
+      },
+      {
+        "title": "Хурд",
+        "body": "Хуудас шилжилтийг ~0.85 секундээс ~0.06 секунд болгосон (Next.js data cache, хадгалах үед шууд шинэчлэгдэнэ)."
+      },
+      {
+        "title": "Аюулгүй байдал",
+        "body": "Нэвтрэлтгүйгээр галерейг өөрчилж болох байсан API-г хамгаалсан."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Data loss",
+        "body": "Vercel Blob's CDN cached stale versions, so consecutive saves overwrote each other. I fixed it completely by saving every file as a new version."
+      },
+      {
+        "title": "Speed",
+        "body": "Cut page transitions from ~0.85 s to ~0.06 s with the Next.js data cache, which is refreshed immediately on save."
+      },
+      {
+        "title": "Security",
+        "body": "Secured an API that allowed the gallery to be changed without signing in."
+      }
     ],
     "image": "./images/project11.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/Eyewear",
     "demoUrl": "https://eyewear-five.vercel.app/",
     "tags": [
-      "Next.js",
+      "Next.js 14 (App Router)",
       "TypeScript",
-      "Prisma",
-      "Vercel blob",
       "Tailwind CSS",
-      "JWT Auth",
+      "Vercel Blob",
+      "JWT Auth (jose)",
       "Vercel"
     ]
   },
@@ -263,31 +572,153 @@
     "id": 12,
     "title": "Velora",
     "titleEn": "Velora",
-    "description": "Fine dining рестораны бүрэн вэбсайт. Хэрэглэгч меню, галерей үзэж, ширээ захиалж, сэтгэгдэл үлдээнэ. Админ панелиас меню, зураг, захиалга, сэтгэгдлийг удирдана.",
-    "descriptionEn": "A complete fine-dining restaurant website. Guests browse the menu and gallery, book a table and leave reviews. The admin panel manages the menu, images, bookings and reviews.",
+    "description": "Fine dining рестораны бүрэн stack вэбсайт. Зочид меню, галерей үзэж, ширээ захиалж, сэтгэгдэл үлдээнэ. Админ бүх контентоо нэг панелаас удирдана.",
+    "descriptionEn": "A full-stack website for a fine-dining restaurant. Guests browse the menu and gallery, book a table and leave reviews. The admin manages all content from a single panel.",
+    "overview": "Velora бол дээд зэрэглэлийн ресторанд зориулсан вэбсайт. Next.js 14 App Router дээр бүтээгдсэн бөгөөд хуудсууд Server Component-оор өгөгдлөө PostgreSQL-ээс шууд татна. Өгөгдөл өөрчлөх бүх үйлдлийг Server Actions гүйцэтгэдэг. Тиймээс тусдаа REST API бичих шаардлагагүй болсон. Админ контент өөрчлөхөд revalidatePath холбогдох хуудсуудыг шууд шинэчилнэ.",
+    "overviewEn": "Velora is a website for an upscale restaurant. It is built on the Next.js 14 App Router, and pages fetch their data straight from PostgreSQL in Server Components. Every data mutation runs through Server Actions, so no separate REST API was needed. When the admin changes content, revalidatePath refreshes the affected pages immediately.",
     "features": [
-      "Меню, галерей",
-      "Ширээ захиалга",
-      "Сэтгэгдэл үлдээх",
-      "Админ панел"
+      {
+        "title": "Меню, галерей",
+        "body": "Ангиллын шүүлтүүр, хоол бүрийн хуудас, lightbox галерей",
+        "points": [
+          "Ангиллаар шүүдэг меню: Starters, Main Course, Pasta, Seafood, Dessert, Drinks",
+          "Хоол бүр өөрийн хуудастай (/menu/[id]). Тухайн хуудсанд динамик SEO metadata болон ижил ангиллын санал болгох хоолнууд гарна",
+          "Нүүр хуудсанд \"Signature\" хоолнууд админы тогтоосон дарааллаар харагдана",
+          "Галерей бүтэн дэлгэцийн lightbox-оор нээгдэнэ. Гарын ← → товч болон Esc ажиллах ба портал ашиглан render хийгдэнэ"
+        ]
+      },
+      {
+        "title": "Ширээ захиалга",
+        "body": "Өөрөө бичсэн огноо/цаг сонгогч, өгөгдлийн санд шууд хадгална",
+        "points": [
+          "Огноо, цаг, зочдын тоог сонгох picker-үүдийг бэлэн сан ашиглалгүй өөрөө бичсэн",
+          "Захиалга Server Action-оор өгөгдлийн санд хадгалагдана. Амжилттай болсны дараа баталгаажуулах дэлгэц рүү автоматаар гүйлгэнэ"
+        ]
+      },
+      {
+        "title": "Нэвтрэлт ба сэтгэгдэл",
+        "body": "Нэвтэрсэн хэрэглэгч 1–5 од өгч, сэтгэгдлээ засаж устгана",
+        "points": [
+          "NextAuth (Credentials + JWT) ашиглан бүртгүүлж нэвтэрнэ. Нууц үгийг bcrypt-ээр hash хийдэг",
+          "Нэвтэрсэн хэрэглэгч 1–5 одоор үнэлж сэтгэгдэл бичнэ. Нэг хэрэглэгч нэг л сэтгэгдэлтэй байх тул upsert ашиглана. Хэрэглэгч сэтгэгдлээ засах, устгах боломжтой",
+          "Сэтгэгдлийг шалгадаг: урт нь 5–500 тэмдэгт, үнэлгээ 1–5 байх ёстой"
+        ]
+      },
+      {
+        "title": "Админ панел",
+        "body": "Role-based хамгаалалттай CRUD панел, статистик dashboard",
+        "points": [
+          "Dashboard дээр меню, зураг, сэтгэгдэл, захиалгын тоо харагдана",
+          "Меню, галерей, сэтгэгдлийг бүрэн CRUD-аар удирдана. Захиалгыг харах, устгах боломжтой",
+          "Хамгаалалт хоёр түвшинтэй. Middleware нь /admin руу зөвхөн ADMIN эрхтэй хэрэглэгчийг нэвтрүүлнэ. Server Action бүр дотроо requireAdmin()-аар эрхийг дахин шалгана",
+          "Устгахын өмнө баталгаажуулах цонх гарна"
+        ]
+      }
     ],
     "featuresEn": [
-      "Menu and gallery",
-      "Table reservations",
-      "Guest reviews",
-      "Admin panel"
+      {
+        "title": "Menu and gallery",
+        "body": "Category filters, a page for every dish and a lightbox gallery",
+        "points": [
+          "Menu filtered by category: Starters, Main Course, Pasta, Seafood, Dessert, Drinks",
+          "Every dish has its own page (/menu/[id]) with dynamic SEO metadata and suggested dishes from the same category",
+          "\"Signature\" dishes appear on the home page in the order the admin sets",
+          "The gallery opens in a full-screen lightbox with ← → and Esc keyboard support, rendered through a portal"
+        ]
+      },
+      {
+        "title": "Table reservations",
+        "body": "Hand-built date/time pickers, saved straight to the database",
+        "points": [
+          "Date, time and party-size pickers written from scratch, with no picker library",
+          "Reservations are saved to the database through a Server Action, then the page scrolls to a confirmation screen automatically"
+        ]
+      },
+      {
+        "title": "Sign-in and reviews",
+        "body": "Signed-in users rate 1–5 stars and can edit or delete their review",
+        "points": [
+          "Sign-up and sign-in with NextAuth (Credentials + JWT); passwords are hashed with bcrypt",
+          "Signed-in users leave a 1–5 star review. Each user has only one review, enforced with an upsert, and can edit or delete it",
+          "Reviews are validated: 5–500 characters and a rating of 1–5"
+        ]
+      },
+      {
+        "title": "Admin panel",
+        "body": "Role-protected CRUD panel with a statistics dashboard",
+        "points": [
+          "The dashboard shows counts of menu items, images, reviews and reservations",
+          "Full CRUD for the menu, gallery and reviews; reservations can be viewed and deleted",
+          "Two layers of protection: middleware only lets ADMIN users into /admin, and every Server Action re-checks the role with requireAdmin()",
+          "A confirmation dialog appears before anything is deleted"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Server Components + Server Actions",
+        "body": "Өгөгдлийг API давхаргагүйгээр, type-safe байдлаар татаж өөрчилнө."
+      },
+      {
+        "title": "Prisma schema",
+        "body": "User, MenuItem, GalleryImage, Review, Reservation гэсэн 5 model, 3 enum, migration-уудтай. Хэрэглэгч устахад onDelete: SetNull тохиргооны ачаар түүний сэтгэгдэл, захиалга устахгүй үлдэнэ."
+      },
+      {
+        "title": "Role-based access",
+        "body": "JWT token дотор role хадгалж, NextAuth-ийн type-уудыг өргөтгөсөн."
+      },
+      {
+        "title": "Анимаци",
+        "body": "Гадны сан ашиглаагүй. Scroll reveal болон typewriter эффектийг IntersectionObserver ашиглан өөрөө бичсэн."
+      },
+      {
+        "title": "SEO",
+        "body": "Хуудас бүр metadata-тай, хоолны хуудаснууд generateMetadata ашигладаг."
+      },
+      {
+        "title": "Дизайн",
+        "body": "Cormorant Garamond ба Karla фонт, алтлаг өнгө бүхий тансаг стиль, бүрэн responsive."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "Server Components + Server Actions",
+        "body": "Data is fetched and mutated type-safely, with no API layer in between."
+      },
+      {
+        "title": "Prisma schema",
+        "body": "5 models (User, MenuItem, GalleryImage, Review, Reservation), 3 enums and migrations. With onDelete: SetNull, a user's reviews and reservations are kept when the user is deleted."
+      },
+      {
+        "title": "Role-based access",
+        "body": "The role is stored in the JWT, with NextAuth's types extended to carry it."
+      },
+      {
+        "title": "Animations",
+        "body": "No animation library: scroll-reveal and typewriter effects are hand-written with IntersectionObserver."
+      },
+      {
+        "title": "SEO",
+        "body": "Every page has metadata, and dish pages use generateMetadata."
+      },
+      {
+        "title": "Design",
+        "body": "Cormorant Garamond and Karla fonts, a luxurious gold-accented style, fully responsive."
+      }
     ],
     "image": "./images/project12.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/restaurant",
     "demoUrl": "https://vayora-five.vercel.app/",
     "tags": [
-      "Next.js",
+      "Next.js 14",
       "TypeScript",
       "Tailwind CSS",
       "Prisma",
-      "PostgreSQL",
-      "Vercel",
-      "NextAuth"
+      "PostgreSQL (Neon)",
+      "NextAuth",
+      "bcrypt",
+      "Lucide",
+      "Vercel"
     ]
   },
   {
@@ -295,20 +726,104 @@
     "title": "Super Cars",
     "titleEn": "Super Cars",
     "description": "Супер машинуудын cinematic танилцуулга вэбсайт. Хэрэглэгч машинуудыг үзэж, хайж, шүүж, 2–3 машиныг хажуу хажууд нь харьцуулж, дуртайгаа хадгална. Админ панелаар машин, брэнд, зураг, хэрэглэгчийг шууд удирдана.",
-    "descriptionEn": "A cinematic showcase website for supercars. Users browse, search and filter cars, compare 2–3 cars side by side and save favorites. The admin panel manages cars, brands, images and users directly.",
+    "descriptionEn": "A cinematic showcase of the world's greatest supercars. Browse, search and filter real cars, compare up to three side by side, and save favorites, with an admin panel for managing cars, brands, images and users.",
+    "role": "Full-stack: дизайн, frontend, backend, өгөгдлийн сангийн бүтэц, нэвтрэлт, deploy бүгдийг дангаараа хийсэн.",
+    "roleEn": "Full-stack: I handled design, frontend, backend, database schema, authentication and deployment on my own.",
     "features": [
-      "Хайх, шүүх",
-      "2–3 машиныг хажуу хажууд харьцуулах",
-      "Дуртай машинаа хадгалах",
-      "Google OAuth нэвтрэлт",
-      "Админ панел"
+      {
+        "title": "Машины каталог ба шүүлтүүр",
+        "body": "15 брэндийн 20 супер машиныг бодит үзүүлэлттэй нь харуулна. Брэнд, ангилал, түлшний төрлөөр болон HP, үнэ, дээд хурд, 0-100 хурдатгал, үйлдвэрлэсэн оноор шүүнэ. Шүүлтүүрүүд URL-д хадгалагддаг тул холбоосыг нь хуваалцахад яг ижил үр дүн гарна."
+      },
+      {
+        "title": "Машин харьцуулах",
+        "body": "2–3 машиныг хажуу хажууд нь тавьж хүч, эргэлтийн момент, хурдатгал, жинг animated bar-аар харьцуулна. Ангилал бүрт аль машин илүү гарсныг тодруулж харуулна. Tablet болон desktop дээр scroll хийлгүй бүтнээрээ багтана, утсан дээр хуруугаараа хажуу тийш гүйлгэнэ."
+      },
+      {
+        "title": "Машины дэлгэрэнгүй хуудас",
+        "body": "Зургийг ангиллаар нь (гадна, дотор, урд, хажуу) шүүдэг gallery. Lightbox-д гар болон swipe-аар шилжинэ. YouTube видео болон хулганы хөдөлгөөнөөр эргэдэг 3D харагдац бий. Хайлтын системд зориулсан бүтэцлэгдсэн өгөгдөл (JSON-LD) нэмсэн."
+      },
+      {
+        "title": "Нэвтрэлт ба аюулгүй байдал",
+        "body": "Email/нууц үгээр эсвэл Google-ээр нэвтэрнэ. Нууц үгийг bcrypt-ээр шифрлэнэ. Нууц үг сэргээх холбоос хэрэглэгчийн имэйл рүү жинхэнээр илгээгдэнэ. Бүртгүүлэхэд нууц үгийн хүчийг шууд харуулна."
+      },
+      {
+        "title": "Дуртай машинаа хадгалах",
+        "body": "Нэвтэрсэн хэрэглэгч машинуудыг дуртай жагсаалтдаа нэмнэ. Жагсаалт өгөгдлийн санд хадгалагдах тул өөр төхөөрөмжөөс нэвтэрсэн ч хэвээр байна."
+      },
+      {
+        "title": "Админ панел",
+        "body": "Машин, брэндийг нэмэх, засах, устгах боломжтой. Хэрэглэгчдэд админ эрх олгоно. Зургийг drag & drop-оор Cloudinary руу шууд оруулна. Утсан дээр хүснэгт нь хажуу тийш гүйдэг карт болж хувирна."
+      },
+      {
+        "title": "Responsive дизайн",
+        "body": "Утас, tablet, desktop гурвуулан дээр тусад нь тааруулсан. Утсан дээр keyboard гарч ирэхэд бичиж буй талбар халхлагдахгүй."
+      },
+      {
+        "title": "Cinematic UI",
+        "body": "Framer Motion-оор хийсэн хөдөлгөөнүүд, нэвтрэх картын хүрээгээр гүйдэг гэрлийн эффект, хар өнгөт luxury загвар."
+      }
     ],
     "featuresEn": [
-      "Search and filters",
-      "Compare 2–3 cars side by side",
-      "Save favorites",
-      "Google OAuth sign-in",
-      "Admin panel"
+      {
+        "title": "Catalog & filters",
+        "body": "20 supercars from 15 brands with real specs. Filter by brand, category, fuel, horsepower, price, top speed, 0-100 and year. Filters live in the URL so results can be shared."
+      },
+      {
+        "title": "Car comparison",
+        "body": "Put 2–3 cars side by side with animated stat bars and the winner of each metric highlighted."
+      },
+      {
+        "title": "Car detail pages",
+        "body": "Gallery filtered by angle, lightbox with keyboard and swipe navigation, YouTube videos, an interactive 3D tilt view, and JSON-LD structured data."
+      },
+      {
+        "title": "Authentication",
+        "body": "Email/password (bcrypt) or Google sign-in, real password-reset emails, and a live password strength meter."
+      },
+      {
+        "title": "Favorites",
+        "body": "Saved to the database, so they sync across devices."
+      },
+      {
+        "title": "Admin panel",
+        "body": "Full CRUD for cars and brands, role management, and drag & drop image upload to Cloudinary."
+      },
+      {
+        "title": "Responsive",
+        "body": "Tuned separately for phone, tablet and desktop, with focused fields kept visible above the mobile keyboard."
+      },
+      {
+        "title": "Cinematic UI",
+        "body": "Framer Motion animations and an animated light-beam border on the auth card."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Google нэвтрэлт өгөгдлийн сангүй session-тэй",
+        "body": "Session-ыг JWT-ээр хадгалдаг тул Google-ээр нэвтэрсэн хэрэглэгчийг email-ээр нь хайж, байхгүй бол үүсгэдэг болгосон. Ингэснээр email-ээр бүртгүүлсэн, Google-ээр нэвтэрсэн хоёр нэг account болно."
+      },
+      {
+        "title": "iPhone дээр keyboard input-ийг халхлах",
+        "body": "Android-д viewport-ын interactive-widget тохиргоо хангалттай. Харин Safari үүнийг ойлгодоггүй тул focus хийсэн талбарыг keyboard гарч дууссаны дараа дэлгэцийн голд гүйлгэдэг component бичсэн."
+      },
+      {
+        "title": "Олон баганатай хүснэгтийг tablet-д багтаах",
+        "body": "Тогтмол өргөнтэй багануудыг байгаа зайгаа хуваадаг болгосон. Зөвхөн утсан дээр хажуу тийш гүйлгэдэг үлдээсэн."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Google sign-in with database-less sessions",
+        "body": "Sessions are stored as JWTs, so a Google sign-in looks up the user by email and creates one if none exists. That way, an email sign-up and a Google sign-in with the same address become one account."
+      },
+      {
+        "title": "The keyboard covering inputs on iPhone",
+        "body": "On Android, the viewport's interactive-widget setting is enough. Safari ignores it, so I wrote a component that scrolls the focused field to the middle of the screen once the keyboard has finished opening."
+      },
+      {
+        "title": "Fitting wide tables on tablets",
+        "body": "Fixed-width columns now share the available space, and horizontal scrolling is kept only for phones."
+      }
     ],
     "image": "./images/project13.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/super-cars",
@@ -322,7 +837,9 @@
       "Neon",
       "Auth.js",
       "Google OAuth",
-      "Cloudinary"
+      "bcrypt",
+      "Cloudinary",
+      "Framer Motion"
     ]
   }
 ]
