@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import projects from "../data/project.json";
 import { localized, useLanguage } from "../i18n/LanguageContext";
+import { hexToRgba, useAccent } from "../theme/AccentContext";
 import { assetPath } from "../utils/assetPath";
 
 const cardVariants = {
@@ -21,6 +22,7 @@ const cardVariants = {
 
 const Projects = () => {
   const { lang, t } = useLanguage();
+  const { accent } = useAccent();
   const shouldAnimate = projects.length > 3;
   const carouselProjects = shouldAnimate ? [...projects, ...projects] : projects;
   const animationDuration = `${Math.max(projects.length * 4.5, 28)}s`;
@@ -39,7 +41,7 @@ const Projects = () => {
         whileHover={{
           y: -10,
           scale: 1.02,
-          boxShadow: "0 22px 45px rgba(236, 72, 153, 0.18)",
+          boxShadow: `0 22px 45px ${hexToRgba(accent.a, 0.18)}`,
         }}
         transition={{ type: "spring", stiffness: 240, damping: 20 }}
         style={{
@@ -119,7 +121,7 @@ const Projects = () => {
             {t.projects.titleA}{" "}
             <span
               style={{
-                background: "linear-gradient(to right, #ec4899, #8b5cf6)",
+                background: "linear-gradient(to right, var(--accent-1, #ec4899), var(--accent-2, #8b5cf6))",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",

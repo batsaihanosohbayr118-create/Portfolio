@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="text-center md:text-right">
             <p className="text-sm flex items-center justify-end gap-1" style={{ color: "#9ca3af" }}>
               © {currentYear} {t.footer.rights}
-              <span className="text-[#ec4899]">{t.footer.dev}</span>
+              <span className="text-[var(--accent-1,#ec4899)]">{t.footer.dev}</span>
             </p>
           </div>
         </div>

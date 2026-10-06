@@ -3,72 +3,259 @@
     "name": "React",
     "icon": "./skills/react.jpg",
     "level": 95,
-    "color": "from-blue-500 to-blue-500"
+    "color": "from-blue-500 to-blue-500",
+    "category": "frontend"
   },
   {
     "name": "Next.js",
     "icon": "./skills/nextjs.svg",
-    "level": 88,
-    "color": "from-slate-400 to-slate-400"
+    "level": 90,
+    "color": "from-slate-400 to-slate-400",
+    "category": "frontend"
   },
   {
-    "name": "TypeScript",
-    "icon": "./skills/typescript.svg",
-    "level": 85,
-    "color": "from-sky-500 to-sky-500"
+    "name": "HTML & CSS",
+    "si": "SiHtml5",
+    "iconColor": "#e34f26",
+    "level": 95,
+    "color": "from-orange-500 to-orange-500",
+    "category": "frontend"
   },
   {
-    "name": "JavaScript",
-    "icon": "./skills/javascript.jpg",
-    "level": 89,
-    "color": "from-violet-500 to-violet-500"
+    "name": "Tailwind",
+    "icon": "./skills/tailwind.jpg",
+    "level": 90,
+    "color": "from-teal-500 to-teal-500",
+    "category": "frontend"
+  },
+  {
+    "name": "Framer Motion",
+    "si": "SiFramer",
+    "iconColor": "#ffffff",
+    "level": 90,
+    "color": "from-slate-300 to-slate-300",
+    "category": "frontend"
+  },
+  {
+    "name": "Redux Toolkit",
+    "si": "SiRedux",
+    "iconColor": "#764abc",
+    "level": 90,
+    "color": "from-violet-600 to-violet-600",
+    "category": "frontend"
+  },
+  {
+    "name": "TanStack Query",
+    "si": "SiReactquery",
+    "iconColor": "#ff4154",
+    "level": 90,
+    "color": "from-red-500 to-red-500",
+    "category": "frontend"
   },
   {
     "name": "Node",
     "icon": "./skills/node.webp",
     "level": 93,
-    "color": "from-green-500 to-green-500"
+    "color": "from-green-500 to-green-500",
+    "category": "backend"
   },
   {
-    "name": "Python",
-    "icon": "./skills/Python.jpg",
+    "name": "Express",
+    "si": "SiExpress",
+    "iconColor": "#ffffff",
     "level": 90,
-    "color": "from-purple-500 to-purple-500"
+    "color": "from-gray-400 to-gray-400",
+    "category": "backend"
+  },
+  {
+    "name": "GraphQL",
+    "si": "SiGraphql",
+    "iconColor": "#e10098",
+    "level": 87,
+    "color": "from-[#e10098] to-[#e10098]",
+    "category": "backend"
+  },
+  {
+    "name": "Prisma",
+    "icon": "./skills/prisma.svg",
+    "level": 90,
+    "color": "from-[#6366f1] to-[#6366f1]",
+    "category": "backend"
+  },
+  {
+    "name": "JWT & OAuth",
+    "si": "SiJsonwebtokens",
+    "iconColor": "#ffffff",
+    "level": 90,
+    "color": "from-amber-500 to-amber-500",
+    "category": "backend"
   },
   {
     "name": "PostgreSQL",
     "icon": "./skills/postgresql.svg",
-    "level": 84,
-    "color": "from-blue-600 to-blue-600"
+    "level": 90,
+    "color": "from-blue-600 to-blue-600",
+    "category": "database"
+  },
+  {
+    "name": "MySQL",
+    "si": "SiMysql",
+    "iconColor": "#4479a1",
+    "level": 90,
+    "color": "from-sky-600 to-sky-600",
+    "category": "database"
   },
   {
     "name": "MongoDB",
     "icon": "./skills/mongoDB.png",
     "level": 96,
-    "color": "from-red-500 to-red-500"
+    "color": "from-red-500 to-red-500",
+    "category": "database"
   },
   {
-    "name": "Prisma",
-    "icon": "./skills/prisma.svg",
-    "level": 82,
-    "color": "from-indigo-500 to-indigo-500"
+    "name": "Supabase",
+    "si": "SiSupabase",
+    "iconColor": "#3ecf8e",
+    "level": 90,
+    "color": "from-emerald-500 to-emerald-500",
+    "category": "database"
   },
   {
-    "name": "Tailwind",
-    "icon": "./skills/tailwind.jpg",
-    "level": 85,
-    "color": "from-teal-500 to-teal-500"
+    "name": "Neon",
+    "icon": "./skills/neon.svg",
+    "level": 90,
+    "color": "from-[#00e599] to-[#00e599]",
+    "category": "database"
+  },
+  {
+    "name": "Firebase",
+    "si": "SiFirebase",
+    "iconColor": "#ffca28",
+    "level": 90,
+    "color": "from-yellow-500 to-yellow-500",
+    "category": "database"
+  },
+  {
+    "name": "React Native",
+    "si": "SiReact",
+    "iconColor": "#61dafb",
+    "level": 90,
+    "color": "from-cyan-400 to-cyan-400",
+    "category": "mobile"
+  },
+  {
+    "name": "Expo",
+    "si": "SiExpo",
+    "iconColor": "#ffffff",
+    "level": 90,
+    "color": "from-zinc-300 to-zinc-300",
+    "category": "mobile"
+  },
+  {
+    "name": "Flutter",
+    "si": "SiFlutter",
+    "iconColor": "#02569b",
+    "level": 70,
+    "color": "from-[#02569b] to-[#02569b]",
+    "category": "mobile"
+  },
+  {
+    "name": "Dart",
+    "si": "SiDart",
+    "iconColor": "#0175c2",
+    "level": 70,
+    "color": "from-[#0175c2] to-[#0175c2]",
+    "category": "mobile"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "./skills/javascript.jpg",
+    "level": 90,
+    "color": "from-violet-500 to-violet-500",
+    "category": "languages"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "./skills/typescript.svg",
+    "level": 90,
+    "color": "from-sky-500 to-sky-500",
+    "category": "languages"
+  },
+  {
+    "name": "Python",
+    "icon": "./skills/Python.jpg",
+    "level": 90,
+    "color": "from-[#a855f7] to-[#a855f7]",
+    "category": "languages"
+  },
+  {
+    "name": "Java",
+    "si": "FaJava",
+    "iconColor": "#f89820",
+    "level": 70,
+    "color": "from-[#f89820] to-[#f89820]",
+    "category": "languages"
+  },
+  {
+    "name": "C++",
+    "si": "SiCplusplus",
+    "iconColor": "#00599c",
+    "level": 75,
+    "color": "from-[#00599c] to-[#00599c]",
+    "category": "languages"
+  },
+  {
+    "name": "Git & GitHub",
+    "si": "SiGit",
+    "iconColor": "#f05032",
+    "level": 90,
+    "color": "from-orange-600 to-orange-600",
+    "category": "tools"
+  },
+  {
+    "name": "Vercel",
+    "si": "SiVercel",
+    "iconColor": "#ffffff",
+    "level": 90,
+    "color": "from-neutral-300 to-neutral-300",
+    "category": "tools"
+  },
+  {
+    "name": "Render",
+    "si": "SiRender",
+    "iconColor": "#ffffff",
+    "level": 90,
+    "color": "from-[#818cf8] to-[#818cf8]",
+    "category": "tools"
+  },
+  {
+    "name": "Railway",
+    "si": "SiRailway",
+    "iconColor": "#ffffff",
+    "level": 90,
+    "color": "from-fuchsia-500 to-fuchsia-500",
+    "category": "tools"
+  },
+  {
+    "name": "Docker",
+    "si": "SiDocker",
+    "iconColor": "#2496ed",
+    "level": 90,
+    "color": "from-blue-500 to-blue-500",
+    "category": "tools"
   },
   {
     "name": "Vite",
     "icon": "./skills/vite.png",
     "level": 90,
-    "color": "from-cyan-500 to-cyan-500"
+    "color": "from-cyan-500 to-cyan-500",
+    "category": "tools"
   },
   {
     "name": "Figma",
     "icon": "./skills/figma.png",
     "level": 92,
-    "color": "from-pink-500 to-pink-500"
+    "color": "from-[#ec4899] to-[#ec4899]",
+    "category": "tools"
   }
 ]

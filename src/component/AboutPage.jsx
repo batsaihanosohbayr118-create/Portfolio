@@ -4,7 +4,7 @@ import PortfolioImage from "../assets/portfolio.jpg";
 import projects from "../data/project.json";
 import skills from "../data/skill.json";
 import { useLanguage } from "../i18n/LanguageContext";
-import { assetPath } from "../utils/assetPath";
+import SkillIcon from "./SkillIcon";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -77,11 +77,7 @@ const AboutPage = () => {
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-3">
-                    <img
-                      src={assetPath(skill.icon)}
-                      alt={skill.name}
-                      className="w-8 h-8 object-contain"
-                    />
+                    <SkillIcon skill={skill} className="w-8 h-8" />
                     <span className="text-white font-semibold">{skill.name}</span>
                   </div>
                   <span className="text-pink-400 font-bold text-sm">

@@ -109,9 +109,9 @@ const IntroLoader = ({ onFinish }) => {
         <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="absolute inset-0 h-full w-full">
           <defs>
             <linearGradient id="intro-ring" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#ec4899" />
-              <stop offset="50%" stopColor="#a855f7" />
-              <stop offset="100%" stopColor="#6366f1" />
+              <stop offset="0%" style={{ stopColor: "var(--accent-1, #ec4899)" }} />
+              <stop offset="50%" style={{ stopColor: "var(--accent-2, #a855f7)" }} />
+              <stop offset="100%" style={{ stopColor: "var(--accent-3, #6366f1)" }} />
             </linearGradient>
             <filter id="intro-glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="4" result="blur" />
@@ -128,8 +128,7 @@ const IntroLoader = ({ onFinish }) => {
               {...t}
               strokeWidth={i % 6 === 0 ? 2 : 1.25}
               strokeLinecap="round"
-              stroke={i / TICK_COUNT < progress / 100 ? "#f472b6" : "rgba(255,255,255,0.12)"}
-              style={{ transition: "stroke 0.3s" }}
+              style={{ stroke: i / TICK_COUNT < progress / 100 ? "var(--accent-1-400, #f472b6)" : "rgba(255,255,255,0.12)", transition: "stroke 0.3s" }}
             />
           ))}
 
@@ -149,7 +148,7 @@ const IntroLoader = ({ onFinish }) => {
           />
           {progress > 0.5 && (
             <>
-              <circle cx={headX} cy={headY} r="9" fill="#f9a8d4" opacity="0.25" />
+              <circle cx={headX} cy={headY} r="9" style={{ fill: "var(--accent-1-300, #f9a8d4)" }} opacity="0.25" />
               <circle cx={headX} cy={headY} r="4.5" fill="#fff" filter="url(#intro-glow)" />
             </>
           )}
@@ -190,7 +189,7 @@ const IntroLoader = ({ onFinish }) => {
           />
         </Motion.svg>
 
-        <div className="absolute inset-[17%] rounded-full border border-white/10 bg-white/[0.03] shadow-[inset_0_0_40px_rgba(236,72,153,0.12)] backdrop-blur-sm" />
+        <div className="absolute inset-[17%] rounded-full border border-white/10 bg-white/[0.03] shadow-[inset_0_0_40px_color-mix(in_srgb,var(--accent-1,#ec4899)_12%,transparent)] backdrop-blur-sm" />
 
         <div className="relative flex flex-col items-center text-center">
           <Motion.span

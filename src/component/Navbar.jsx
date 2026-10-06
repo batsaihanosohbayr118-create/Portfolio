@@ -3,6 +3,8 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageContext";
+import { navControl } from "./navStyles";
+import ThemePicker from "./ThemePicker";
 
 const navIds = ["home", "about", "skills", "projects", "contact"];
 
@@ -21,12 +23,12 @@ const Navbar = () => {
       onClick={toggleLang}
       aria-label={t.nav.switchLang}
       title={t.nav.switchLang}
-      className="relative flex items-center rounded-full bg-gray-700 p-1 text-xs font-bold cursor-pointer"
+      className={`relative flex items-center p-1 text-xs font-bold ${navControl}`}
     >
       {["mn", "en"].map((code) => (
         <span
           key={code}
-          className={`relative z-10 px-2.5 py-1 uppercase transition-colors ${
+          className={`relative z-10 px-2.5 py-1 leading-none uppercase transition-colors ${
             lang === code ? "text-white" : "text-gray-400"
           }`}
         >
@@ -58,11 +60,11 @@ const Navbar = () => {
       <Motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full flex items-center justify-between bg-gradient-to-br from-gray-700 to-black backdrop-blur-lg px-6 lg:px-12 py-3 shadow-lg"
+        className="w-full flex items-center justify-between bg-gradient-to-br from-gray-700 to-black backdrop-blur-lg px-4 sm:px-6 lg:px-12 py-3 shadow-lg"
       >
         <Motion.div whileHover={{ scale: 1.05 }}>
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-white">
+            <span className="text-lg sm:text-xl font-bold text-white">
               {t.nav.logo}<span className="text-pink-500">.</span>
             </span>
           </Link>
@@ -98,7 +100,8 @@ const Navbar = () => {
           })}
         </div>
 
-        <div className="flex items-center space-x-2 lg:space-x-4">
+        <div className="flex items-center gap-2 lg:gap-4">
+          <ThemePicker />
           {langToggle}
 
           <Motion.button
@@ -110,13 +113,14 @@ const Navbar = () => {
 
           <Motion.button
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="lg:hidden p-2 rounded-lg bg-gray-700"
+            className={`lg:hidden flex items-center justify-center w-9 ${navControl}`}
             aria-label={t.nav.toggleMenu}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5" />
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <Menu className="w-5 h-5" />
             )}
           </Motion.button>
         </div>
@@ -129,7 +133,7 @@ const Navbar = () => {
             animate={{ opacity: 1, maxHeight: 500 }}
             exit={{ opacity: 0, maxHeight: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 right-0 mt-2 lg:hidden bg-gray-900/95 border-gray-700 backdrop-blur-lg rounded-xl shadow-lg border"
+            className="absolute top-full left-4 right-4 sm:left-6 sm:right-6 mt-2 lg:hidden bg-gray-900/95 border-gray-700 backdrop-blur-lg rounded-xl shadow-lg border"
           >
             <div className="px-4 py-3 space-y-2">
               {navItems.map((item) => {

@@ -154,7 +154,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isLoading}
-              style={{ background: "linear-gradient(to right, #ec4899, #8b5cf6)" }}
+              style={{ background: "linear-gradient(to right, var(--accent-1, #ec4899), var(--accent-2, #8b5cf6))" }}
               className="w-full py-2 sm:py-3 text-white font-semibold rounded-lg text-sm sm:text-base hover:shadow-lg hover:shadow-pink-500/25 hover:scale-[1.02] transition-all disabled:opacity-60"
             >
               {isLoading ? t.contact.sending : t.contact.send}

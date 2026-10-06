@@ -12,6 +12,15 @@ const translations = {
       toggleMenu: "Цэс нээх/хаах",
       switchLang: "Switch to English",
     },
+    theme: {
+      open: "Өнгө солих",
+      title: "Үндсэн өнгө",
+      custom: "Өөрийн өнгө",
+      first: "Эхний өнгө",
+      second: "Хоёр дахь өнгө",
+      reset: "Анхны өнгө рүү буцах",
+      presets: { default: "Ягаан", ocean: "Далай", emerald: "Маргад", sunset: "Нар жаргах", gold: "Алт", violet: "Нил ягаан" },
+    },
     hero: {
       title: "Сайн байна уу, Би Өсөхбаяр",
       body: "Намайг Өсөхбаяр гэдэг. Би хариуцлагатай, цагийг үнэлдэг бөгөөд тасралтгүй хөгжлийг эрхэмлэдэг хүн. Шинэ орчинд хурдан дасан зохицож, бие даан болон багаар үр дүнтэй ажиллах чадвартай.",
@@ -37,7 +46,19 @@ const translations = {
       cta: "Хамтарч ажиллах, эсвэл асуулт байвал холбогдоорой",
       contact: "Холбоо барих",
     },
-    skills: { titleA: "Миний", titleB: "Ур чадвар", level: "Чадамж" },
+    skills: {
+      titleA: "Миний",
+      titleB: "Ур чадвар",
+      level: "Чадамж",
+      categories: {
+        frontend: "Frontend",
+        backend: "Backend",
+        database: "Өгөгдлийн сан",
+        mobile: "Мобайл",
+        languages: "Програмчлалын хэл",
+        tools: "DevOps ба хэрэгслүүд",
+      },
+    },
     projects: {
       titleA: "Миний",
       titleB: "Төслүүд",
@@ -102,6 +123,15 @@ const translations = {
       toggleMenu: "Toggle navigation menu",
       switchLang: "Монгол хэл рүү шилжих",
     },
+    theme: {
+      open: "Change colors",
+      title: "Accent color",
+      custom: "Custom colors",
+      first: "First color",
+      second: "Second color",
+      reset: "Reset to default",
+      presets: { default: "Pink", ocean: "Ocean", emerald: "Emerald", sunset: "Sunset", gold: "Gold", violet: "Violet" },
+    },
     hero: {
       title: "Hi, I'm Usukhbayar",
       body: "My name is Usukhbayar. I'm a responsible, punctual person who values continuous growth. I adapt quickly to new environments and work effectively both independently and in a team.",
@@ -127,7 +157,19 @@ const translations = {
       cta: "Get in touch to work together or ask a question",
       contact: "Contact me",
     },
-    skills: { titleA: "My", titleB: "Skills", level: "Proficiency" },
+    skills: {
+      titleA: "My",
+      titleB: "Skills",
+      level: "Proficiency",
+      categories: {
+        frontend: "Frontend",
+        backend: "Backend",
+        database: "Databases",
+        mobile: "Mobile",
+        languages: "Programming languages",
+        tools: "DevOps & tools",
+      },
+    },
     projects: {
       titleA: "My",
       titleB: "Projects",

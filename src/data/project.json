@@ -147,43 +147,335 @@
     "id": 3,
     "title": "Ангижрал",
     "titleEn": "Angijral",
-    "description": "Бариа заслын сургалтын төвийн танилцуулга вебсайт — үйлчилгээ, бариачдын мэдээлэл болон цаг захиалгын боломжтой",
-    "descriptionEn": "Website for a massage therapy training center — services, therapist profiles and online appointment booking.",
+    "description": "Бариа засал, бясалгал, хоол зүй, сэтгэл зүйн сургалтын төвд зориулсан бүтэн систем. Үйлчлүүлэгч онлайнаар цаг захиалж, админ контент, захиалга, хэрэглэгч, купоноо нэг самбараас удирдана.",
+    "descriptionEn": "A complete system for a massage therapy, meditation, nutrition and psychology training center. Clients book appointments online, and the admin manages content, bookings, users and coupons from one dashboard.",
+    "overview": "«АНГИЖРАЛ» бол бариа засал, байгууллагын бясалгал, хоол зүй, сэтгэл зүйн сургалт явуулдаг төв. Би төвд зориулж бүтэн систем хийсэн. Үйлчлүүлэгчид үйлчилгээ, бариачдын мэдээлэлтэй танилцаж, онлайнаар цаг захиална. Админ нь контент, захиалга, хэрэглэгч, купоноо нэг самбараас удирдана. Next.js 16 App Router дээр frontend болон 19 API route нэг кодын санд байрладаг ба нийт ~12,500 мөр TypeScript/CSS код.",
+    "overviewEn": "ANGIJRAL is a center offering massage therapy, corporate meditation, nutrition and psychology training. I built a complete system for it. Clients browse services and therapist profiles and book appointments online, while the admin manages content, bookings, users and coupons from one dashboard. The frontend and 19 API routes live in a single Next.js 16 App Router codebase, about 12,500 lines of TypeScript and CSS.",
+    "role": "Full-stack хөгжүүлэлтийг дангаараа хийсэн: дизайн, frontend, API, өгөгдлийн сан, нэвтрэлт, имэйл мэдэгдэл, deploy.",
+    "roleEn": "Solo full-stack developer: design, frontend, API, database, authentication, email notifications and deployment.",
+    "problem": "Өмнө нь цаг захиалга утсаар явагддаг байсан ба бүртгэл гараар хөтлөгддөг байв. Үйлчилгээ, багш, зураг өөрчлөхөд програмист хэрэгтэй байсан.",
+    "problemEn": "Bookings used to be taken by phone and records were kept by hand. Changing services, teachers or images required a developer.",
+    "solution": "Үйлчлүүлэгч 24/7 онлайнаар цаг захиалдаг болсон. Шинэ захиалга орж ирэхэд төвийн имэйл рүү мэдэгдэл автоматаар очдог. Үйлчилгээ, багш, зураг, хямдралын купоноо админ өөрөө програмистгүйгээр шинэчилдэг болсон.",
+    "solutionEn": "Clients now book online 24/7, and every new booking automatically sends a notification to the center's email. The admin updates services, teachers, images and discount coupons without a developer.",
     "features": [
-      "Үйлчилгээний танилцуулга",
-      "Бариачдын мэдээлэл",
-      "Цаг захиалга"
+      {
+        "title": "Нүүр хуудас",
+        "body": "Typewriter эффект, scroll reveal анимаци, үйлчилгээ, бариачид, статистик, сэтгэгдлүүд",
+        "points": [
+          "Typewriter эффект болон IntersectionObserver ашигласан scroll reveal анимаци",
+          "Үйлчилгээ, бариачид, статистик, сэтгэгдлийн хэсгүүд",
+          "Үйлчилгээ бүрд тусдаа дэлгэрэнгүй хуудас, бүрэн responsive дизайн"
+        ]
+      },
+      {
+        "title": "Цаг захиалга (5 алхам)",
+        "body": "Үйлчилгээ → бариач → огноо ба цаг → хувийн мэдээлэл → баталгаажуулалт",
+        "points": [
+          "Явцыг stepper-ээр харуулж, алхам бүр дээр validation хийдэг",
+          "Бариачийн жагсаалт сонгосон үйлчилгээгээр шүүгдэнэ",
+          "Огноо сонгогч болон dropdown-уудыг бэлэн сангүйгээр өөрөө хийсэн",
+          "Купон код: хувиар эсвэл тогтмол дүнгээр хямдрал. Хугацаа, ашиглах хязгаар, идэвхтэй эсэхийг серверт шалгадаг"
+        ]
+      },
+      {
+        "title": "Хэрэглэгчийн бүртгэл ба харилцаа",
+        "body": "Утас/имэйл болон Google нэвтрэлт, буцаж залгах хүсэлт, сэтгэгдэл",
+        "points": [
+          "Утас эсвэл имэйл + нууц үгээр, мөн Google-ээр нэвтэрнэ. Нууц үг сэргээх боломжтой",
+          "Буцаж залгах хүсэлт: хэрэглэгч утасны дугаараа үлдээхэд төвд имэйл очно",
+          "Үнэлгээ (rating) өгч сэтгэгдэл бичнэ"
+        ]
+      },
+      {
+        "title": "Админ самбар (7 таб)",
+        "body": "Тойм, хэрэглэгч, захиалга, бариач, үйлчилгээ, купон, гадаад байдал",
+        "points": [
+          "Тойм: нийт захиалга, хэрэглэгч зэрэг үзүүлэлтүүд",
+          "Хэрэглэгчид: хайлт, жагсаалт",
+          "Захиалгууд: төлөвөөр шүүх (хүлээгдэж буй / баталгаажсан / цуцлагдсан), админ гараар захиалга нэмэх",
+          "Бариачид, үйлчилгээ: бүрэн CRUD, үйлчилгээ болгонд бариач оноох",
+          "Купон: үүсгэх, хугацаа болон ашиглах хязгаар тохируулах",
+          "Гадаад байдал: hero зургийг солих. Pinterest зэрэг хуудасны линк оруулахад og:image-ийг нь автоматаар татаж авдаг"
+        ]
+      }
     ],
     "featuresEn": [
-      "Services overview",
-      "Therapist profiles",
-      "Appointment booking"
+      {
+        "title": "Home page",
+        "body": "Typewriter effect, scroll-reveal animations, services, therapists, stats and testimonials",
+        "points": [
+          "Typewriter effect and scroll-reveal animations built with IntersectionObserver",
+          "Sections for services, therapists, stats and testimonials",
+          "A detail page for every service, fully responsive"
+        ]
+      },
+      {
+        "title": "Booking (5 steps)",
+        "body": "Service → therapist → date and time → personal details → confirmation",
+        "points": [
+          "A stepper shows progress, with validation at every step",
+          "The therapist list is filtered by the selected service",
+          "Date picker and dropdowns built from scratch, with no UI library",
+          "Coupon codes: percentage or fixed-amount discounts, with expiry, usage limit and active status checked on the server"
+        ]
+      },
+      {
+        "title": "Accounts and contact",
+        "body": "Phone/email and Google sign-in, callback requests and reviews",
+        "points": [
+          "Sign in with phone or email + password, or with Google; password reset included",
+          "Callback requests: when a visitor leaves a phone number, the center gets an email",
+          "Reviews with star ratings"
+        ]
+      },
+      {
+        "title": "Admin dashboard (7 tabs)",
+        "body": "Overview, users, bookings, therapists, services, coupons and appearance",
+        "points": [
+          "Overview: totals for bookings, users and more",
+          "Users: search and list",
+          "Bookings: filter by status (pending / confirmed / cancelled) and add bookings manually",
+          "Therapists and services: full CRUD, with therapists assigned to each service",
+          "Coupons: create them and set expiry dates and usage limits",
+          "Appearance: change the hero image. Paste a page link such as Pinterest and its og:image is fetched automatically"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Өгөгдлийн сан",
+        "body": "Neon serverless PostgreSQL дээр 7 хүснэгт (users, bookings, services, teachers, coupons, testimonials, settings). Анх ачаалахад хүснэгтүүд автоматаар үүсч, seed өгөгдөл ордог."
+      },
+      {
+        "title": "Аюулгүй байдал",
+        "body": "Нууц үгийг scrypt + salt-аар hash хийж, timingSafeEqual-аар харьцуулдаг. Google ID token-ийг сервер талд шалгадаг (audience болон email verified)."
+      },
+      {
+        "title": "Имэйл мэдэгдэл",
+        "body": "Nodemailer + Gmail App Password ашигладаг. Имэйл явуулж чадаагүй ч захиалга алдаа заахгүй, зөвхөн лог бичигддэг (graceful failure)."
+      },
+      {
+        "title": "Image resolver API",
+        "body": "Өгсөн URL-ээс og:image-ийг ялгаж авна. 6 секундийн timeout болон protocol шалгалттай."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "Database",
+        "body": "7 tables on Neon serverless PostgreSQL (users, bookings, services, teachers, coupons, testimonials, settings). Tables are created and seeded automatically on first load."
+      },
+      {
+        "title": "Security",
+        "body": "Passwords are hashed with scrypt + salt and compared with timingSafeEqual. Google ID tokens are verified on the server (audience and email verified)."
+      },
+      {
+        "title": "Email notifications",
+        "body": "Nodemailer with a Gmail App Password. If an email fails to send, the booking still succeeds and the error is only logged (graceful failure)."
+      },
+      {
+        "title": "Image resolver API",
+        "body": "Extracts the og:image from a given URL, with a 6-second timeout and a protocol check."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Олон алхамтай form",
+        "body": "5 алхамтай захиалгын form-ийн state-ийг удирдаж, алхам бүр дээр validation хийж сурсан."
+      },
+      {
+        "title": "Serverless PostgreSQL",
+        "body": "Serverless орчинд Neon PostgreSQL-тэй ажиллаж, хүснэгтийг автоматаар үүсгэж seed хийдэг болгосон."
+      },
+      {
+        "title": "OAuth токен шалгалт",
+        "body": "Google ID token-ийг клиентэд итгэлгүйгээр сервер талд найдвартай шалгадаг болгосон."
+      },
+      {
+        "title": "Бодит хэрэгцээнд суурилсан админ самбар",
+        "body": "Захиалагчийн өдөр тутмын ажилд тулгуурлан админ самбарыг зохиосон."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Multi-step forms",
+        "body": "Learned to manage state across a 5-step booking form, with validation at every step."
+      },
+      {
+        "title": "Serverless PostgreSQL",
+        "body": "Worked with Neon PostgreSQL in a serverless environment, with tables created and seeded automatically."
+      },
+      {
+        "title": "OAuth token verification",
+        "body": "Google ID tokens are verified on the server instead of trusting the client."
+      },
+      {
+        "title": "An admin dashboard built around real needs",
+        "body": "Designed the admin dashboard around the client's day-to-day work."
+      }
     ],
     "image": "./images/project3.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/Angijarl",
     "demoUrl": "https://angijarl.vercel.app/",
     "tags": [
-      "Next.js",
-      "Tailwind CSS",
-      "CSS",
-      "Neon PostgreSQL"
+      "Next.js 16 (App Router)",
+      "React 19",
+      "TypeScript",
+      "Neon PostgreSQL",
+      "Nodemailer",
+      "Google OAuth",
+      "CSS Modules",
+      "Vercel"
     ]
   },
   {
     "id": 4,
     "title": "NovaShop",
     "titleEn": "NovaShop",
-    "description": "Технологийн бүтээгдэхүүн худалдаалдаг онлайн дэлгүүрийн вебсайт — HTML, CSS, JavaScript ашиглан хийсэн",
-    "descriptionEn": "An online store for tech products, built with HTML, CSS and JavaScript.",
+    "description": "Электрон бараа болон пүүз зардаг онлайн дэлгүүрийн frontend вэбсайт. Framework ашиглаагүй, цэвэр HTML, CSS, JavaScript-ээр бүтээсэн.",
+    "descriptionEn": "A frontend website for an online store selling electronics and sneakers, built without a framework in plain HTML, CSS and JavaScript.",
+    "overview": "NovaShop бол электрон бараа болон пүүз зардаг онлайн дэлгүүрийн frontend вэбсайт. Framework ашиглаагүй, цэвэр HTML, CSS, JavaScript-ээр бүтээсэн. Сагс, хүслийн жагсаалт, шүүлтүүр, хайлт, захиалга хийх зэрэг онлайн дэлгүүрийн үндсэн боломжуудыг бүрэн хэрэгжүүлсэн. Нийт ~6,300 мөр код (6 HTML, 13 JS модуль, 15 CSS файл).",
+    "overviewEn": "NovaShop is a frontend website for an online store selling electronics and sneakers. It is built without a framework, in plain HTML, CSS and JavaScript, and fully implements the core features of an online store: cart, wishlist, filters, search and checkout. About 6,300 lines of code in total (6 HTML pages, 13 JS modules, 15 CSS files).",
     "features": [
-      "Бүтээгдэхүүний каталог",
-      "Сагс",
-      "Цэвэр HTML, CSS, JavaScript"
+      {
+        "title": "Хуудсууд (6)",
+        "body": "Нүүр, дэлгүүр, барааны дэлгэрэнгүй, сагс, checkout, хүслийн жагсаалт.",
+        "points": [
+          "Нүүр: hero хэсэг, онцлох бараа, ангилал, newsletter",
+          "Дэлгүүр: бүх бараа, шүүлтүүр, эрэмбэлэлт",
+          "Барааны дэлгэрэнгүй: тоо ширхэг сонгох, ижил төстэй бараа",
+          "Сагс, checkout, хүслийн жагсаалт"
+        ]
+      },
+      {
+        "title": "Каталог ба хайлт",
+        "body": "46 бүтээгдэхүүн, 5 ангилал: утас, зөөврийн компьютер, чихэвч, ухаалаг цаг, пүүз.",
+        "points": [
+          "Шууд хайлт: overlay цонхонд бичих бүрт үр дүн шинэчлэгдэнэ, Esc дарж хаана",
+          "Ангиллаар (олныг зэрэг сонгож болно), үнийн range slider-аар шүүнэ",
+          "Үнэ болон нэрээр эрэмбэлнэ"
+        ]
+      },
+      {
+        "title": "Сагс ба промо код",
+        "body": "Нэмэх, тоо өөрчлөх, устгах. Navbar дээрх badge шууд шинэчлэгдэнэ.",
+        "points": [
+          "$10 хүргэлтийн төлбөр нэмэгдэнэ",
+          "Промо код: SAVE10 (10%), SAVE20 (20%) хөнгөлөлт"
+        ]
+      },
+      {
+        "title": "Хүслийн жагсаалт",
+        "body": "Бүх хуудсанд синк хийгдэнэ, тоолуур badge-тэй."
+      },
+      {
+        "title": "Checkout",
+        "body": "Хүргэлтийн мэдээлэл, төлбөрийн арга, захиалга.",
+        "points": [
+          "Формын validation",
+          "Карт эсвэл бусад төлбөрийн аргаар солигдоно",
+          "Захиалсны дараа сагс цэвэрлэгдэнэ"
+        ]
+      },
+      {
+        "title": "UI ба UX",
+        "body": "Dark mode, toast мэдэгдэл, анимаци, бүрэн responsive.",
+        "points": [
+          "Dark mode: системийн тохиргоог автоматаар таньж, сонголтыг санана",
+          "alert()-ын оронд slide-in toast мэдэгдэл",
+          "Картууд дараалан (stagger) гарч ирнэ, scroll reveal",
+          "5 breakpoint (1024 / 900 / 768 / 480 / 380px), гар утсанд hamburger цэс",
+          "Native <select>-ийн оронд өөрөө загварчилсан custom dropdown"
+        ]
+      }
     ],
     "featuresEn": [
-      "Product catalog",
-      "Shopping cart",
-      "Plain HTML, CSS and JavaScript"
+      {
+        "title": "Pages (6)",
+        "body": "Home, shop, product details, cart, checkout and wishlist.",
+        "points": [
+          "Home: hero section, featured products, categories, newsletter",
+          "Shop: all products with filters and sorting",
+          "Product details: quantity picker and similar products",
+          "Cart, checkout and wishlist"
+        ]
+      },
+      {
+        "title": "Catalog & search",
+        "body": "46 products in 5 categories: phones, laptops, headphones, smartwatches and sneakers.",
+        "points": [
+          "Live search: results update in an overlay as you type, Esc closes it",
+          "Filter by category (multi-select) and by a price range slider",
+          "Sort by price or name"
+        ]
+      },
+      {
+        "title": "Cart & promo codes",
+        "body": "Add, change quantity and remove items. The navbar badge updates instantly.",
+        "points": [
+          "Adds a $10 shipping fee",
+          "Promo codes: SAVE10 (10%) and SAVE20 (20%) off"
+        ]
+      },
+      {
+        "title": "Wishlist",
+        "body": "Synced across every page, with a counter badge."
+      },
+      {
+        "title": "Checkout",
+        "body": "Shipping details, payment method and order placement.",
+        "points": [
+          "Form validation",
+          "Switches between card and other payment methods",
+          "Clears the cart after an order is placed"
+        ]
+      },
+      {
+        "title": "UI & UX",
+        "body": "Dark mode, toast notifications, animations and a fully responsive layout.",
+        "points": [
+          "Dark mode: detects the system setting and remembers the user's choice",
+          "Slide-in toast notifications instead of alert()",
+          "Staggered card entrance and scroll reveal animations",
+          "5 breakpoints (1024 / 900 / 768 / 480 / 380px) with a hamburger menu on mobile",
+          "A custom-styled dropdown instead of the native <select>"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Framework-гүй",
+        "body": "HTML5, CSS3 (CSS Variables, Flexbox, Grid, keyframe animation), Vanilla JavaScript (ES6+). 13 JS модуль, 15 CSS файлд хуваасан."
+      },
+      {
+        "title": "localStorage",
+        "body": "Сагс, хүслийн жагсаалт, dark mode тохиргоог хадгалдаг тул хуудас хооронд шилжихэд болон дахин нээхэд мэдээлэл алдагдахгүй."
+      },
+      {
+        "title": "IntersectionObserver",
+        "body": "Scroll хийхэд элементүүд гарч ирэх (reveal) анимацийг гүйцэтгэнэ."
+      },
+      {
+        "title": "MutationObserver",
+        "body": "Бүтээгдэхүүн дахин зурагдах бүрт зүрхэн icon-уудыг хүслийн жагсаалттай синк хийнэ."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "No framework",
+        "body": "HTML5, CSS3 (CSS Variables, Flexbox, Grid, keyframe animations) and Vanilla JavaScript (ES6+), split into 13 JS modules and 15 CSS files."
+      },
+      {
+        "title": "localStorage",
+        "body": "Stores the cart, wishlist and dark mode preference, so nothing is lost when moving between pages or reopening the site."
+      },
+      {
+        "title": "IntersectionObserver",
+        "body": "Drives the reveal animations as elements scroll into view."
+      },
+      {
+        "title": "MutationObserver",
+        "body": "Keeps the heart icons in sync with the wishlist every time products are re-rendered."
+      }
     ],
     "image": "./images/project4.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/novashop",
@@ -191,35 +483,220 @@
     "tags": [
       "HTML",
       "CSS",
-      "JavaScript"
+      "JavaScript",
+      "localStorage",
+      "Remix Icon"
     ]
   },
   {
     "id": 7,
     "title": "AI-Powered Hotel Booking & Management Platform",
     "titleEn": "AI-Powered Hotel Booking & Management Platform",
-    "description": "Зочдод зориулсан хайлт-захиалгаас эхлээд admin/owner-д зориулсан бүрэн удирдлага хүртэлх AI-тай зочид буудлын платформ. QPay төлбөр, AI туслах, дүрд суурилсан эрхийн систем.",
-    "descriptionEn": "An AI-powered hotel platform covering everything from guest search and booking to full management for admins and owners. QPay payments, an AI assistant and role-based access control.",
+    "description": "Next.js, PostgreSQL дээр бүтээсэн зочид буудал захиалах full-stack платформ. QPay төлбөр, Gemini AI туслах, газрын зураг, админ самбартай.",
+    "descriptionEn": "A full-stack hotel booking platform built on Next.js and PostgreSQL, with QPay payments, a Gemini AI assistant, maps and an admin dashboard.",
+    "overview": "Монгол хэрэглэгчдэд зориулсан full-stack платформ. Хэрэглэгч буудал, өрөө хайж, газрын зураг дээр байршлыг нь харж, захиалга хийгээд QPay-ээр төлдөг. Админ буудал, өрөө, захиалга, буцаан олголтоо нэг самбараас удирддаг. AI туслах хэрэглэгчийн төсөв, хүсэлтэд тохирох өрөөг санал болгодог. Нийт ~267 commit.",
+    "overviewEn": "A full-stack platform for Mongolian users. Guests search hotels and rooms, see their locations on a map, book and pay with QPay. Admins manage hotels, rooms, bookings and refunds from one dashboard. An AI assistant recommends rooms that fit the guest's budget and needs. About 267 commits in total.",
+    "role": "Бие даасан төсөл: дизайн, frontend, backend, өгөгдлийн сан, төлбөрийн интеграц, AI, deploy бүгдийг дангаараа хийсэн.",
+    "roleEn": "Solo project: design, frontend, backend, database, payment integration, AI and deployment.",
     "features": [
-      "Буудал хайх, захиалах",
-      "QPay төлбөр",
-      "AI туслах",
-      "Admin/owner-д зориулсан удирдлага, дүрд суурилсан эрх"
+      {
+        "title": "Хайлт ба захиалга",
+        "body": "Шүүлтүүртэй хайлт, газрын зураг, бүлгийн захиалга, купон",
+        "points": [
+          "Буудал, өрөөг байршил, үнэ, өрөөний төрөл (Standard / Deluxe / Suite), тохилог байдлаар шүүж хайна",
+          "Leaflet газрын зураг дээр буудлын байршлыг харуулна",
+          "Өрөөний дэлгэрэнгүй хуудас, зургийн галерей (carousel)",
+          "Огноо сонгож захиалах, купон код ашиглах",
+          "Бүлгийн захиалга: нэг дор олон өрөө захиална"
+        ]
+      },
+      {
+        "title": "Төлбөр ба захиалгын удирдлага",
+        "body": "QPay QR, бусад төлбөрийн сонголт, цуцлалт, буцаан олголт",
+        "points": [
+          "QPay QR төлбөр (webhook-оор баталгаажуулна), мөн дансаар шилжүүлэх, StorePay, LendMN сонголттой",
+          "\"Миний захиалгууд\" хуудаснаас захиалга цуцлах, буцаан олголт хүсэх",
+          "Захиалгын төлөв өөрчлөгдөхөд апп доторх мэдэгдэл ирнэ"
+        ]
+      },
+      {
+        "title": "AI туслах",
+        "body": "Gemini 2.5 Flash дээр ажилладаг чат, олон агентын санал болгох систем",
+        "points": [
+          "Google Gemini 2.5 Flash дээр ажилладаг чат туслах. Үндсэн загвар ажиллахгүй бол нөөц загвар руу шилждэг",
+          "Хүсэлтийг 5 үе шаттай агент дамжуулан боловсруулна: Хүсэлт таних → Хайлт хийх → Нөхцөл шалгах → Эрэмбэлэх → Зөвлөх",
+          "Хэрэглэгч оноо болон шалтгаантай саналуудыг харна"
+        ]
+      },
+      {
+        "title": "Админ самбар",
+        "body": "Буудал, өрөөний CRUD, захиалга, буцаан олголт, 3 түвшний эрх",
+        "points": [
+          "Буудал, өрөөг нэмэх, засах, устгах (CRUD), зураг оруулах",
+          "Бүх захиалгыг удирдах, буцаан олголтын хүсэлт шийдвэрлэх",
+          "Хэрэглэгчийн эрх 3 түвшинтэй: Owner / Admin / User"
+        ]
+      },
+      {
+        "title": "Хэрэглэгчийн туршлага",
+        "body": "Хоёр хэл, offline анхааруулга, responsive дизайн",
+        "points": [
+          "Монгол / Англи хэл солих",
+          "Интернэтгүй үед \"Offline\" анхааруулга харуулна",
+          "Бүх төхөөрөмжид тохирох responsive дизайн"
+        ]
+      }
     ],
     "featuresEn": [
-      "Hotel search and booking",
-      "QPay payments",
-      "AI assistant",
-      "Admin/owner management with role-based access"
+      {
+        "title": "Search and booking",
+        "body": "Filtered search, maps, group bookings and coupons",
+        "points": [
+          "Search hotels and rooms by location, price, room type (Standard / Deluxe / Suite) and amenities",
+          "Hotel locations shown on a Leaflet map",
+          "Room detail pages with an image gallery (carousel)",
+          "Pick dates, book and apply a coupon code",
+          "Group bookings: reserve several rooms at once"
+        ]
+      },
+      {
+        "title": "Payments and booking management",
+        "body": "QPay QR, other payment options, cancellations and refunds",
+        "points": [
+          "QPay QR payments confirmed by webhook, plus bank transfer, StorePay and LendMN options",
+          "Cancel bookings and request refunds from the \"My bookings\" page",
+          "In-app notifications when a booking's status changes"
+        ]
+      },
+      {
+        "title": "AI assistant",
+        "body": "A chat assistant on Gemini 2.5 Flash and a multi-agent recommendation system",
+        "points": [
+          "Chat assistant powered by Google Gemini 2.5 Flash, falling back to a backup model if the main one fails",
+          "Requests pass through a 5-stage agent pipeline: understand the request → search → check constraints → rank → advise",
+          "Guests see recommendations with scores and reasons"
+        ]
+      },
+      {
+        "title": "Admin dashboard",
+        "body": "Hotel and room CRUD, bookings, refunds and three permission levels",
+        "points": [
+          "Add, edit and delete hotels and rooms (CRUD), with image upload",
+          "Manage all bookings and handle refund requests",
+          "Three permission levels: Owner / Admin / User"
+        ]
+      },
+      {
+        "title": "User experience",
+        "body": "Two languages, an offline notice and a responsive design",
+        "points": [
+          "Switch between Mongolian and English",
+          "An \"Offline\" notice when there is no internet connection",
+          "Responsive design for every device"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Framework ашиглаагүй backend",
+        "body": "Node.js-ийн цэвэр http сервер дээр REST API бичсэн. Routing, auth middleware, file upload-ыг Express-гүйгээр өөрөө хийсэн. ~35 API endpoint бий."
+      },
+      {
+        "title": "Нэг codebase, хоёр орчин",
+        "body": "Vercel дээр pages/api/[...path].js catch-all route нь backend руу хүсэлт дамжуулна. Docker Compose дээр web, api, db гурван тусдаа контейнерт ажиллана."
+      },
+      {
+        "title": "Төлбөрийн урсгал",
+        "body": "QPay access token-ыг кэшлэж, нэхэмжлэх үүсгэн QR код гаргаж, webhook ирэхэд захиалгыг баталгаажуулдаг."
+      },
+      {
+        "title": "Өгөгдлийн сан",
+        "body": "PostgreSQL дээр 9 хүснэгт: users, hotels, rooms, bookings, group_bookings, payments, notifications, sessions, newsletter."
+      },
+      {
+        "title": "Нэвтрэлт ба state",
+        "body": "JWT, bcrypt нууц үг хэшлэлт, Google OAuth. Frontend дээр Redux Toolkit, TanStack Query, React Hook Form + Zod ашигласан."
+      },
+      {
+        "title": "Mock API горим ба тест",
+        "body": "Backend-гүйгээр frontend-ийг demo хэлбэрээр ажиллуулах боломжтой. Vitest болон Testing Library-аар тест бичсэн."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "Framework-free backend",
+        "body": "A REST API written on Node.js's plain http server. Routing, auth middleware and file uploads are hand-written without Express, across about 35 endpoints."
+      },
+      {
+        "title": "One codebase, two environments",
+        "body": "On Vercel, a pages/api/[...path].js catch-all route forwards requests to the backend. With Docker Compose, web, api and db run in three separate containers."
+      },
+      {
+        "title": "Payment flow",
+        "body": "The QPay access token is cached, an invoice is created with a QR code, and the booking is confirmed when the webhook arrives."
+      },
+      {
+        "title": "Database",
+        "body": "9 PostgreSQL tables: users, hotels, rooms, bookings, group_bookings, payments, notifications, sessions and newsletter."
+      },
+      {
+        "title": "Auth and state",
+        "body": "JWT, bcrypt password hashing and Google OAuth. The frontend uses Redux Toolkit, TanStack Query and React Hook Form + Zod."
+      },
+      {
+        "title": "Mock API mode and tests",
+        "body": "The frontend can run as a demo without the backend. Tests are written with Vitest and Testing Library."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Serverless орчинд зураг хадгалах",
+        "body": "Vercel-ийн serverless орчинд диск рүү бичих боломжгүй байсан. Production дээр зургийг Vercel Blob руу, локал дээр диск рүү автоматаар хадгалдаг болгосон."
+      },
+      {
+        "title": "Давхар захиалга",
+        "body": "Нэг өрөөг давхар захиалахаас сэргийлэхийн тулд захиалга үүсгэхээс өмнө огнооны давхцлыг шалгадаг болгосон."
+      },
+      {
+        "title": "AI-ийн найдвартай байдал",
+        "body": "Gemini API заримдаа ажиллахгүй болдог тул нөөц загвар руу шилжих fallback механизм нэмсэн."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Image storage on serverless",
+        "body": "Vercel's serverless environment can't write to disk. Images now go to Vercel Blob in production and to local disk in development, automatically."
+      },
+      {
+        "title": "Double bookings",
+        "body": "To stop the same room being booked twice, date overlaps are checked before a booking is created."
+      },
+      {
+        "title": "AI reliability",
+        "body": "The Gemini API sometimes fails, so I added a fallback to a backup model."
+      }
     ],
     "image": "./images/project7.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/hotel-system",
     "demoUrl": "https://cyber-nexus-hub-pied.vercel.app/",
     "tags": [
-      "Next.js",
-      "PostgreSQL",
+      "Next.js 14",
+      "React 18",
+      "TypeScript",
       "Tailwind CSS",
+      "shadcn/ui",
+      "Redux Toolkit",
+      "TanStack Query",
+      "Node.js",
+      "PostgreSQL",
+      "JWT Auth",
+      "Google OAuth",
+      "QPay API",
+      "Google Gemini API",
+      "Leaflet",
+      "Vercel Blob",
       "Docker",
+      "Vitest",
       "Vercel"
     ]
   },
@@ -229,19 +706,199 @@
     "titleEn": "Hospital Management System",
     "description": "Эмч/өвчтөн/админ гурван эрхтэй, онлайн цаг захиалга, дижитал жор, үзлэгийн бичлэгийг нэг платформ дээр удирддаг веб систем.",
     "descriptionEn": "A web system with doctor, patient and admin roles that manages online appointments, digital prescriptions and examination records on one platform.",
+    "overview": "Өвчтөн, эмч, админ гэсэн гурван төрлийн хэрэглэгч нэг систем дотор өөр өөрийн эрхээр ажилладаг full-stack эмнэлгийн систем. Frontend нь React 19, CSS Modules, Axios дээр хийгдэж Vercel дээр, backend нь Node.js, Express 5 дээр REST API болон GraphQL endpoint-той Render дээр байршсан. Өгөгдлийн сангаар MySQL, Prisma ORM ашигласан.",
+    "overviewEn": "A full-stack hospital system where three types of users (patients, doctors and admins) work in one system, each with their own permissions. The frontend is built with React 19, CSS Modules and Axios and deployed on Vercel; the backend runs on Node.js and Express 5 with a REST API and a GraphQL endpoint, deployed on Render. The database is MySQL with Prisma ORM.",
+    "problem": "Эмнэлэгт цаг захиалга, жор, үзлэгийн бичлэг ихэвчлэн цаасан дээр эсвэл тусдаа системүүдэд хадгалагддаг. Ингэхээр давхар цаг захиалагдах, өвчтөн жороо алдах, мэдээлэл тарамдах асуудал гардаг.",
+    "problemEn": "Hospitals often keep appointments, prescriptions and examination records on paper or in separate systems. This leads to double-booked appointments, patients losing their prescriptions and information scattered across places.",
+    "solution": "Нэг систем дотор гурван төрлийн хэрэглэгч өөр өөрийн эрхээр ажилладаг (role-based access). Цаг захиалга, жор, үзлэгийн бичлэг нэг дор хадгалагдаж, давхар захиалгыг frontend болон backend аль алинд нь хориглодог.",
+    "solutionEn": "One system where three types of users each work with their own permissions (role-based access). Appointments, prescriptions and examination records live in one place, and double bookings are blocked on both the frontend and the backend.",
     "features": [
-      "Эмч / өвчтөн / админ гэсэн 3 эрх",
-      "Онлайн цаг захиалга",
-      "Дижитал жор",
-      "Үзлэгийн бичлэг",
-      "JWT болон Google OAuth нэвтрэлт"
+      {
+        "title": "Өвчтөн",
+        "body": "Цаг захиалж, өөрийн жор болон профайлаа удирдана.",
+        "points": [
+          "Тасаг → эмч → цаг гэсэн алхмаар цаг захиална",
+          "Өөрийн жорыг харж, хэвлэж, PDF-ээр хадгална",
+          "Профайлаа засаж, зураг оруулна"
+        ]
+      },
+      {
+        "title": "Эмч",
+        "body": "Цагийн хуваарь, үзлэг, жороо нэг дороос удирдана.",
+        "points": [
+          "Өөрийн цагийн хуваарийг харна",
+          "Үзлэгийн бичлэг оруулж, жор бичнэ",
+          "Өрөө, ажлын өдөр, туршлагаа профайлдаа засна"
+        ]
+      },
+      {
+        "title": "Админ",
+        "body": "Статистик dashboard-оос эмнэлгийн үйл ажиллагааг хянана.",
+        "points": [
+          "Нийт өвчтөн, эмч, өнөөдрийн болон хүлээгдэж буй цаг, сүүлийн жоруудыг харна",
+          "Эмч нэмж, засаж, устгана",
+          "Өвчтөний мэдээллийг удирдана"
+        ]
+      },
+      {
+        "title": "Нэвтрэлт",
+        "body": "Имэйл эсвэл нэвтрэх нэр + нууц үгээр, мөн Google OAuth-ээр нэвтэрнэ.",
+        "points": [
+          "JWT authentication",
+          "bcrypt-ээр нууц үг hash хийсэн",
+          "Passport.js (Google OAuth 2.0)"
+        ]
+      },
+      {
+        "title": "Алхамчилсан цаг захиалга",
+        "body": "Тасаг сонгох → эмч сонгох → цаг сонгох гэсэн урсгалтай.",
+        "points": [
+          "Эмчийн завгүй цаг сонгох боломжгүй (disabled) харагдана",
+          "Давхардсан цагийг backend талд шалгаж, 409 Conflict хариу буцаана"
+        ]
+      },
+      {
+        "title": "Жор хэвлэх, PDF",
+        "body": "Өвчтөн жороо хэвлэх болон Save as PDF хийж хадгална.",
+        "points": [
+          "Утсан дээр ч зөв харагдах responsive дизайн",
+          "Landing болон About хуудас"
+        ]
+      }
     ],
     "featuresEn": [
-      "Three roles: doctor / patient / admin",
-      "Online appointments",
-      "Digital prescriptions",
-      "Examination records",
-      "JWT and Google OAuth sign-in"
+      {
+        "title": "Patient",
+        "body": "Books appointments and manages their own prescriptions and profile.",
+        "points": [
+          "Books an appointment step by step: department → doctor → time slot",
+          "Views, prints and saves their prescriptions as PDF",
+          "Edits their profile and uploads a photo"
+        ]
+      },
+      {
+        "title": "Doctor",
+        "body": "Manages their schedule, examinations and prescriptions in one place.",
+        "points": [
+          "Sees their own appointment schedule",
+          "Adds examination records and writes prescriptions",
+          "Edits room, working days and experience on their profile"
+        ]
+      },
+      {
+        "title": "Admin",
+        "body": "Oversees hospital activity from a statistics dashboard.",
+        "points": [
+          "Sees total patients and doctors, today's and pending appointments, and recent prescriptions",
+          "Adds, edits and deletes doctors",
+          "Manages patient information"
+        ]
+      },
+      {
+        "title": "Sign-in",
+        "body": "Sign in with email or username + password, or with Google OAuth.",
+        "points": [
+          "JWT authentication",
+          "Passwords hashed with bcrypt",
+          "Passport.js (Google OAuth 2.0)"
+        ]
+      },
+      {
+        "title": "Step-by-step booking",
+        "body": "A flow of choosing a department → a doctor → a time slot.",
+        "points": [
+          "A doctor's busy slots are shown as disabled and can't be selected",
+          "Double bookings are checked on the backend and return 409 Conflict"
+        ]
+      },
+      {
+        "title": "Print & PDF prescriptions",
+        "body": "Patients can print their prescriptions or use Save as PDF.",
+        "points": [
+          "Responsive design that works on phones too",
+          "Landing and About pages"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Role-based эрх",
+        "body": "REST route болон GraphQL resolver аль алинд нь authorize(...roles) middleware-ээр эрхийн шалгалт хийдэг. Жишээ нь өвчтөн зөвхөн өөрийн жор, цагийг (/me endpoint-ууд) харна."
+      },
+      {
+        "title": "Давхар захиалгаас хамгаалалт",
+        "body": "Цаг хадгалахаас өмнө тухайн эмчийн тэр цаг завтай эсэхийг шалгадаг. Frontend талд завгүй цагуудыг урьдчилан disabled болгодог."
+      },
+      {
+        "title": "Өгөгдлийн сан",
+        "body": "MySQL, Prisma ORM (schema, migration). Үндсэн 6 model: User, Patient, Doctor, Appointment, Prescription, MedicalRecord."
+      },
+      {
+        "title": "Тусдаа deploy",
+        "body": "Frontend (Vercel) болон backend (Render) тусдаа байршсан. Хооронд нь CORS болон OAuth callback URL-ийн тохиргоогоор холбосон."
+      },
+      {
+        "title": "Responsive UI",
+        "body": "CSS Grid/Flexbox ашигласан. Урт нэр, хаяг зэрэг текст картаас халихгүйгээр мөр шилждэг."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "Role-based access",
+        "body": "Both REST routes and GraphQL resolvers check permissions with an authorize(...roles) middleware. For example, a patient can only see their own prescriptions and appointments (the /me endpoints)."
+      },
+      {
+        "title": "Double-booking protection",
+        "body": "Before an appointment is saved, the backend checks that the doctor is free at that time. On the frontend, busy slots are disabled in advance."
+      },
+      {
+        "title": "Database",
+        "body": "MySQL with Prisma ORM (schema, migrations). Six core models: User, Patient, Doctor, Appointment, Prescription, MedicalRecord."
+      },
+      {
+        "title": "Separate deploys",
+        "body": "The frontend (Vercel) and backend (Render) are deployed separately and connected through CORS and OAuth callback URL configuration."
+      },
+      {
+        "title": "Responsive UI",
+        "body": "Built with CSS Grid/Flexbox. Long text such as names and addresses wraps instead of overflowing its card."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Эрхийн хяналт",
+        "body": "Олон төрлийн хэрэглэгчтэй системд эрхийн хяналтыг route болгон дээр хэрэгжүүлж сурсан."
+      },
+      {
+        "title": "Production OAuth",
+        "body": "OAuth-ийг production орчинд тохируулсан: redirect URI, frontend болон backend тусдаа домэйнтэй үед."
+      },
+      {
+        "title": "Prisma ба relational загвар",
+        "body": "Prisma-аар relational өгөгдлийн загвар зохиож, migration хийж сурсан."
+      },
+      {
+        "title": "Олон платформын deploy",
+        "body": "Frontend, backend-ийг өөр өөр платформ дээр deploy хийж холбож сурсан."
+      }
+    ],
+    "challengesEn": [
+      {
+        "title": "Access control",
+        "body": "Learned to enforce permissions on every route in a system with several types of users."
+      },
+      {
+        "title": "Production OAuth",
+        "body": "Configured OAuth for production: redirect URIs when the frontend and backend live on separate domains."
+      },
+      {
+        "title": "Prisma & relational modeling",
+        "body": "Learned to design a relational data model and run migrations with Prisma."
+      },
+      {
+        "title": "Multi-platform deploys",
+        "body": "Deployed the frontend and backend on different platforms and connected them."
+      }
     ],
     "image": "./images/project8.png",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/hospital_biy_daalt",
@@ -256,7 +913,9 @@
       "Render",
       "Prisma ORM",
       "JWT Auth",
-      "Google OAuth"
+      "Google OAuth",
+      "GraphQL",
+      "Passport.js"
     ]
   },
   {

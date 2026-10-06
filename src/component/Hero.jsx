@@ -92,7 +92,7 @@ const Hero = () => {
             >
               <button
                 onClick={handleViewCV}
-                className="inline-flex items-center justify-center text-white bg-gradient-to-r from-pink-500 to-purple-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)]"
+                className="inline-flex items-center justify-center text-white bg-gradient-to-r from-pink-500 to-purple-500 py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--accent-1,#ec4899)_70%,transparent)]"
               >
                 <Eye className="w-5 h-5 mr-2" />
                 {t.hero.viewCv}
@@ -100,7 +100,7 @@ const Hero = () => {
 
               <button
                 onClick={handleScrollToContact}
-                className="inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)] text-white border-2 border-pink-500 hover:bg-pink-600"
+                className="inline-flex items-center justify-center py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--accent-1,#ec4899)_70%,transparent)] text-white border-2 border-pink-500 hover:bg-pink-600"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 {t.hero.contact}

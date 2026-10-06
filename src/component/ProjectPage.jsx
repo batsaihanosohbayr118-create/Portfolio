@@ -1,5 +1,5 @@
 import { motion as Motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { FaApple, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import projects from "../data/project.json";
@@ -158,7 +158,7 @@ const ProjectPage = () => {
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 transition-all hover:shadow-[0_0_25px_rgb(236,72,153,0.5)]"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 transition-all hover:shadow-[0_0_25px_color-mix(in_srgb,var(--accent-1,#ec4899)_50%,transparent)]"
                   >
                     {t.projectPage.demo}
                     <FaExternalLinkAlt className="w-3 h-3" />
@@ -303,10 +303,18 @@ const ProjectPage = () => {
                 {items.map(({ title: heading, body }) => (
                   <li
                     key={heading}
-                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 pl-6 border-l-2 border-l-pink-500/70 transition-colors hover:bg-white/[0.05]"
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 pl-6 transition-all duration-300 md:hover:translate-x-1 md:hover:border-pink-500/40 md:hover:shadow-[0_8px_30px_-12px_color-mix(in_srgb,var(--accent-1,#ec4899)_45%,transparent)]"
                   >
-                    <h3 className="font-semibold text-white mb-1">{heading}</h3>
-                    <p className="text-sm text-gray-300 leading-relaxed">{body}</p>
+                    {/* Accent bar: thin at rest, widens and brightens on hover */}
+                    <span className="absolute inset-y-0 left-0 w-0.5 bg-gradient-to-b from-pink-500/70 to-purple-500/70 transition-all duration-300 md:group-hover:w-1 md:group-hover:from-pink-500 md:group-hover:to-purple-500" />
+                    {/* Soft pink wash sweeping in from the accent side */}
+                    <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-pink-500/10 via-purple-500/5 to-transparent opacity-0 transition-opacity duration-300 md:group-hover:opacity-100" />
+                    <h3 className="relative font-semibold text-white mb-1 transition-colors duration-300 md:group-hover:text-pink-300">
+                      {heading}
+                    </h3>
+                    <p className="relative text-sm text-gray-300 leading-relaxed transition-colors duration-300 md:group-hover:text-gray-200">
+                      {body}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -315,7 +323,7 @@ const ProjectPage = () => {
         </Motion.div>
 
         {/* Prev / next */}
-        <nav className="mt-20 pt-10 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <nav className="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-white/10 grid grid-cols-2">
           {[
             { project: prev, label: t.projectPage.prev, isNext: false },
             { project: next, label: t.projectPage.next, isNext: true },
@@ -323,25 +331,17 @@ const ProjectPage = () => {
             <Link
               key={label}
               to={`/projects/${target.id}`}
-              className={`group relative overflow-hidden rounded-2xl border border-white/10 p-6 min-h-36 flex flex-col justify-end transition-colors hover:border-pink-500/50 ${
-                isNext ? "sm:items-end sm:text-right" : ""
+              aria-label={`${label}: ${localized(target, "title", lang)}`}
+              title={localized(target, "title", lang)}
+              className={`group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 bg-white/[0.03] text-gray-300 transition-colors hover:border-pink-500/50 hover:bg-white/[0.05] hover:text-pink-400 ${
+                isNext ? "justify-self-end" : ""
               }`}
             >
-              <img
-                src={assetPath(target.image)}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover opacity-20 transition-all duration-500 group-hover:opacity-35 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-gray-900/30" />
-              <span className="relative flex items-center gap-2 text-xs uppercase tracking-wider text-gray-400 mb-1">
-                {!isNext && <ArrowLeft className="w-3.5 h-3.5" />}
-                {label}
-                {isNext && <ArrowRight className="w-3.5 h-3.5" />}
-              </span>
-              <span className="relative inline-flex items-center gap-1 text-xl font-bold text-white group-hover:text-pink-400 transition-colors">
-                {localized(target, "title", lang)}
-                <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
-              </span>
+              {isNext ? (
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5" />
+              ) : (
+                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5" />
+              )}
             </Link>
           ))}
         </nav>

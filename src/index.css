@@ -9,6 +9,28 @@ body {
   color-scheme: dark;
 }
 
+/* Visitor-chosen accent (see src/theme/accent.js). Unlayered, so it overrides
+   Tailwind's theme variables; every pink/purple/indigo utility follows. */
+html[data-accent] {
+  --color-pink-200: color-mix(in oklch, var(--accent-1), white 70%);
+  --color-pink-300: color-mix(in oklch, var(--accent-1), white 50%);
+  --color-pink-400: color-mix(in oklch, var(--accent-1), white 25%);
+  --color-pink-500: var(--accent-1);
+  --color-pink-600: color-mix(in oklch, var(--accent-1), black 15%);
+  --color-pink-900: color-mix(in oklch, var(--accent-1), black 65%);
+  --color-purple-400: color-mix(in oklch, var(--accent-2), white 25%);
+  --color-purple-500: var(--accent-2);
+  --color-purple-600: color-mix(in oklch, var(--accent-2), black 15%);
+  --color-indigo-400: color-mix(in oklch, var(--accent-2), white 15%);
+  --color-indigo-500: color-mix(in oklch, var(--accent-2), black 10%);
+  --color-indigo-600: color-mix(in oklch, var(--accent-2), black 25%);
+  --color-fuchsia-300: color-mix(in oklch, color-mix(in oklch, var(--accent-1), var(--accent-2)), white 50%);
+  /* Helpers for inline styles/SVG that used fixed hex values */
+  --accent-1-300: var(--color-pink-300);
+  --accent-1-400: var(--color-pink-400);
+  --accent-3: var(--color-indigo-500);
+}
+
 html {
   scroll-behavior: smooth;
 }

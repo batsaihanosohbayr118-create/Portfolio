@@ -104,7 +104,7 @@ const About = () => {
 
           <Link
             to="/about"
-            className="w-full sm:w-auto border-2 border-pink-500 inline-flex items-center justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgb(236,72,153,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform text-white bg-pink-500/10"
+            className="w-full sm:w-auto border-2 border-pink-500 inline-flex items-center justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--accent-1,#ec4899)_70%,transparent)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform text-white bg-pink-500/10"
             data-aos="fade-up"
             data-aos-delay="800"
           >

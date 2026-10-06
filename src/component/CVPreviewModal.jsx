@@ -108,7 +108,7 @@ const CVPreviewModal = ({ isOpen, onClose, cvUrl, fileName = "CV.pdf" }) => {
                 <a
                   href={cvUrl}
                   download={fileName}
-                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 hover:shadow-[0_0_20px_rgb(236,72,153,0.5)] transition-all"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--accent-1,#ec4899)_50%,transparent)] transition-all"
                 >
                   <Download className="w-4 h-4" />
                   <span className="hidden sm:inline">{t.cv.download}</span>
