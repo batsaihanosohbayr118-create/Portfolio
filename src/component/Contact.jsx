@@ -1,20 +1,21 @@
 import emailjs from "@emailjs/browser";
+import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import contactImg from "../assets/about.webp";
 import { useLanguage } from "../i18n/LanguageContext";
+import SubjectSelect from "./SubjectSelect";
+
+const serif = { fontFamily: '"Cormorant Garamond", "Times New Roman", serif' };
+
+const labelClass = "block mb-2 text-sm text-[#1d1b18]/70";
 
 const inputBaseClass =
-  "w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all";
-
-const fieldStyles = {
-  backgroundColor: "#374151",
-  borderColor: "#4b5563",
-  color: "white",
-};
+  "w-full bg-transparent border-0 border-b border-[#1d1b18]/20 px-0 py-2.5 text-base text-[#1d1b18] placeholder:text-[#1d1b18]/45 outline-none transition-colors focus:border-[#a8875a]";
 
 const Contact = () => {
   const form = useRef(null);
   const [status, setStatus] = useState("idle");
+  const [subject, setSubject] = useState("");
   const { t } = useLanguage();
 
   const isLoading = status === "loading";
@@ -30,6 +31,7 @@ const Contact = () => {
     if (form.current?.elements.namedItem("website")?.value) {
       setStatus("success");
       form.current.reset();
+      setSubject("");
       resetStatusAfterDelay();
       return;
     }
@@ -45,6 +47,7 @@ const Contact = () => {
         () => {
           setStatus("success");
           form.current?.reset();
+          setSubject("");
           resetStatusAfterDelay();
         },
         (error) => {
@@ -58,40 +61,54 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      style={{ backgroundColor: "#111827" }}
-      className="pt-20 sm:pt-24 pb-12 sm:pb-16 md:pb-20 lg:pb-24 overflow-hidden scroll-mt-24"
+      data-nav-tone="light"
+      className="relative overflow-hidden bg-[#f3ece3] text-[#1d1b18] px-5 sm:px-10 lg:px-14 py-20 lg:py-28 scroll-mt-16"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:items-stretch">
-          <div className="flex justify-center order-2 lg:order-1" data-aos="fade-right">
-            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-[3/4] lg:aspect-auto lg:h-full">
-              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-70 blur-md" />
-              <img
-                src={contactImg}
-                alt={t.contact.imageAlt}
-                className="absolute inset-0 w-full h-full object-cover rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-pink-500/40"
-              />
+      <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center lg:items-start">
+        <figure className="lg:col-span-5 flex flex-col items-center order-2 lg:order-1" data-aos="fade-up">
+          <div className="relative w-64 sm:w-72 lg:w-full max-w-sm aspect-[4/5]">
+            <div className="arch-drift absolute inset-0 -translate-x-4 translate-y-4 rounded-t-full border border-[#a8875a]/70" />
+            <div className="arch-light arch-glow absolute -inset-2 rounded-t-full blur-2xl" aria-hidden="true" />
+            <div className="arch-light relative h-full w-full rounded-t-full p-[2px]">
+              <div className="h-full w-full overflow-hidden rounded-t-full">
+                <img
+                  src={contactImg}
+                  alt={t.contact.imageAlt}
+                  className="arch-zoom w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
+          <figcaption className="mt-12 text-center">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-[#a8875a]">
+              {t.contact.captionA}
+            </p>
+            <p className="mt-3 text-lg text-[#3d3934]" style={serif}>
+              {t.contact.captionB}
+            </p>
+          </figcaption>
+        </figure>
 
-          <form
-            ref={form}
-            onSubmit={handleSubmit}
-            style={{
-              background: "linear-gradient(to right, #1f2937, #111827)",
-              borderColor: "#374151",
-            }}
-            className="rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 border shadow-lg order-1 lg:order-2"
-            data-aos="fade-left"
-          >
+        <div className="lg:col-span-7 order-1 lg:order-2" data-aos="fade-up" data-aos-delay="150">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-medium leading-none" style={serif}>
+            {t.contact.title}
+          </h2>
+          <span className="mt-5 mb-4 block h-px w-14 bg-[#a8875a]" />
+          <p className="mb-6 text-lg sm:text-xl leading-snug text-[#3d3934]" style={serif}>
+            {t.contact.subtitleA}
+            <br />
+            {t.contact.subtitleB}
+          </p>
+
+          <form ref={form} onSubmit={handleSubmit} className="relative">
             {status === "success" && (
-              <div className="mb-4 p-3 rounded-lg bg-green-100 border border-green-400 text-green-700 text-sm sm:text-base">
+              <div role="status" className="mb-6 border-l-2 border-[#5b7a4a] bg-[#5b7a4a]/10 px-4 py-3 text-sm text-[#3f5733]">
                 {t.contact.success}
               </div>
             )}
 
             {status === "error" && (
-              <div className="mb-4 p-3 rounded-lg bg-red-100 border border-red-400 text-red-700 text-sm sm:text-base">
+              <div role="alert" className="mb-6 border-l-2 border-[#a3412f] bg-[#a3412f]/10 px-4 py-3 text-sm text-[#86321f]">
                 {t.contact.error}
               </div>
             )}
@@ -105,12 +122,12 @@ const Contact = () => {
               className="absolute -left-[9999px] h-0 w-0 opacity-0"
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 mb-2">
               <input
                 type="text"
                 name="from_name"
                 placeholder={t.contact.firstName}
-                style={fieldStyles}
+                aria-label={t.contact.firstName}
                 className={inputBaseClass}
                 required
               />
@@ -119,45 +136,62 @@ const Contact = () => {
                 type="text"
                 name="last_name"
                 placeholder={t.contact.lastName}
-                style={fieldStyles}
+                aria-label={t.contact.lastName}
                 className={inputBaseClass}
                 required
               />
             </div>
 
-            <input
-              type="email"
-              name="email"
-              placeholder={t.contact.email}
-              style={fieldStyles}
-              className={`${inputBaseClass} mb-3 sm:mb-4`}
-              required
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 mb-5">
+              <input
+                type="email"
+                name="email"
+                placeholder={t.contact.email}
+                aria-label={t.contact.email}
+                className={inputBaseClass}
+                required
+              />
 
-            <input
-              type="tel"
-              name="phone"
-              placeholder={t.contact.phone}
-              style={fieldStyles}
-              className={`${inputBaseClass} mb-3 sm:mb-4`}
-              required
-            />
+              <input
+                type="tel"
+                name="phone"
+                placeholder={t.contact.phone}
+                aria-label={t.contact.phone}
+                className={inputBaseClass}
+                required
+              />
+            </div>
 
-            <textarea
-              name="message"
-              placeholder={t.contact.message}
-              style={fieldStyles}
-              className={`${inputBaseClass} mb-3 sm:mb-6 resize-none`}
-              required
-            />
+            <div className="mb-5">
+              <SubjectSelect
+                name="subject"
+                label={t.contact.subject}
+                labelClassName={labelClass}
+                placeholder={t.contact.subjectPlaceholder}
+                options={t.contact.subjects}
+                value={subject}
+                onChange={setSubject}
+              />
+            </div>
+
+            <label className="block mb-7">
+              <span className={labelClass}>{t.contact.messageLabel}</span>
+              <textarea
+                name="message"
+                placeholder={t.contact.message}
+                rows={2}
+                className={`${inputBaseClass} resize-none min-h-[4.5rem] max-h-60 [field-sizing:content] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
+                required
+              />
+            </label>
 
             <button
               type="submit"
               disabled={isLoading}
-              style={{ background: "linear-gradient(to right, var(--accent-1, #ec4899), var(--accent-2, #8b5cf6))" }}
-              className="w-full py-2 sm:py-3 text-white font-semibold rounded-lg text-sm sm:text-base hover:shadow-lg hover:shadow-pink-500/25 hover:scale-[1.02] transition-all disabled:opacity-60"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#1d1b18] px-9 py-4 text-xs sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#f3ece3] btn-slide disabled:opacity-60 cursor-pointer"
             >
               {isLoading ? t.contact.sending : t.contact.send}
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </form>
         </div>

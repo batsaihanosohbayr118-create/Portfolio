@@ -61,7 +61,7 @@ const App = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-900 via-[#0d182e] to-gray-900">
+    <div className="min-h-screen bg-[#161412]">
       <AnimatePresence>
         {!isIntroDone && <IntroLoader key="intro" onFinish={handleIntroFinish} />}
       </AnimatePresence>

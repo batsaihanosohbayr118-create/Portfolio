@@ -1,10 +1,16 @@
 import { motion as Motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { FaApple, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { FaApple, FaGithub } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import projects from "../data/project.json";
 import { localized, useLanguage } from "../i18n/LanguageContext";
 import { assetPath } from "../utils/assetPath";
+
+const serif = { fontFamily: '"Cormorant Garamond", "Times New Roman", serif' };
+
+const label = "text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.2em]";
+const sectionTitle = "text-4xl sm:text-5xl font-medium leading-none";
+const darkOutlineButton = `group inline-flex items-center gap-2 rounded-full border border-[#a8875a]/60 px-6 py-3 ${label} tracking-[0.14em] text-[#f3ece3]/85 transition-colors hover:border-[#a8875a] hover:text-[#c9a46e]`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -13,6 +19,13 @@ const fadeUp = {
     y: 0,
     transition: { duration: 0.6, delay, ease: "easeOut" },
   }),
+};
+
+const inView = {
+  initial: "hidden",
+  whileInView: "show",
+  viewport: { once: true, amount: 0.15 },
+  variants: fadeUp,
 };
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -24,6 +37,15 @@ const hostOf = (url) => {
     return null;
   }
 };
+
+const SectionHeading = ({ children }) => (
+  <div className="mb-10">
+    <h2 className={sectionTitle} style={serif}>
+      {children}
+    </h2>
+    <span className="mt-6 block h-px w-14 bg-[#a8875a]" />
+  </div>
+);
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -37,11 +59,13 @@ const ProjectPage = () => {
 
   if (!project) {
     return (
-      <section className="min-h-[60vh] pt-32 pb-20 px-4 text-center">
-        <p className="text-gray-300 mb-6">{t.projectPage.notFound}</p>
+      <section data-nav-tone="light" className="min-h-[70vh] bg-[#f3ece3] text-[#1d1b18] pt-36 pb-20 px-5 text-center">
+        <p className="text-3xl font-medium mb-8" style={serif}>
+          {t.projectPage.notFound}
+        </p>
         <button
           onClick={backToProjects}
-          className="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 cursor-pointer"
+          className={`inline-flex items-center gap-2 ${label} text-[#a8875a] hover:text-[#1d1b18] cursor-pointer`}
         >
           <ArrowLeft className="w-4 h-4" />
           {t.projectPage.back}
@@ -53,8 +77,9 @@ const ProjectPage = () => {
   const prev = projects[(index - 1 + projects.length) % projects.length];
   const next = projects[(index + 1) % projects.length];
   const title = localized(project, "title", lang);
+  const description = localized(project, "description", lang);
+  const overview = localized(project, "overview", lang);
   const features = localized(project, "features", lang) ?? [];
-  const hasPoints = features.some((feature) => feature.points?.length);
   const notes = [
     { label: t.projectPage.highlights, items: localized(project, "highlights", lang) ?? [] },
     { label: t.projectPage.challenges, items: localized(project, "challenges", lang) ?? [] },
@@ -69,34 +94,63 @@ const ProjectPage = () => {
   const problem = localized(project, "problem", lang);
   const solution = localized(project, "solution", lang);
   const host = hostOf(project.demoUrl) ?? hostOf(project.codeUrl);
+  // Each half of the marquee must be wider than the screen for a seamless loop.
+  const tagLoop = Array.from({ length: Math.ceil(16 / project.tags.length) }, () => project.tags).flat();
+  const meta = [
+    { term: t.projectPage.role, value: role },
+    { term: t.projectPage.timeline, value: timeline },
+  ].filter(({ value }) => value);
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-24 px-4 sm:px-6 lg:px-8">
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-pink-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-[40%] -right-40 w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-3xl" />
+    <article key={project.id}>
+      {/* Dark hero */}
+      <header className="relative overflow-hidden bg-[#161412] text-[#f3ece3] pt-28 sm:pt-32 pb-16 lg:pb-20 px-5 sm:px-10 lg:px-14">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-40 left-1/2 h-[36rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(168,135,90,0.22),transparent)]"
+        />
 
-      <div className="relative max-w-6xl mx-auto">
-        <button
-          onClick={backToProjects}
-          className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 backdrop-blur hover:border-pink-500/50 hover:text-white transition-colors mb-10 cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
-          {t.projectPage.back}
-        </button>
+        <Motion.div initial="hidden" animate="show" className="relative max-w-6xl mx-auto">
+          <button
+            onClick={backToProjects}
+            className={`group inline-flex items-center gap-2 ${label} text-[#f3ece3]/55 hover:text-[#c9a46e] transition-colors mb-12 sm:mb-16 cursor-pointer`}
+          >
+            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+            {t.projectPage.back}
+          </button>
 
-        <Motion.div key={project.id} initial="hidden" animate="show">
-          {/* Preview (left) + info (right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-14 items-center mb-16">
-            <Motion.div variants={fadeUp} custom={0.1} className="relative order-2 lg:order-1">
-              <div className="absolute -inset-4 rounded-[28px] bg-gradient-to-br from-pink-500/25 via-purple-500/15 to-indigo-500/25 blur-2xl" />
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gray-900/80 shadow-2xl">
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[0.03]">
-                  <span className="w-3 h-3 rounded-full bg-red-400/80" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400/80" />
-                  <span className="w-3 h-3 rounded-full bg-green-400/80" />
+          <Motion.div variants={fadeUp} className="flex items-center gap-4 mb-6">
+            <span className="text-2xl lining-nums text-[#c9a46e]" style={serif}>
+              {pad(index + 1)} <span className="text-[#f3ece3]/30">/ {pad(projects.length)}</span>
+            </span>
+            <span className="h-px w-16 bg-[#a8875a]/60" />
+          </Motion.div>
+
+          <Motion.h1
+            variants={fadeUp}
+            custom={0.05}
+            className="text-6xl sm:text-7xl lg:text-8xl font-medium leading-[0.95]"
+            style={serif}
+          >
+            {title}
+            <span className="text-[#c9a46e]">.</span>
+          </Motion.h1>
+
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Preview */}
+            <Motion.div
+              variants={fadeUp}
+              custom={0.1}
+              className="group lg:col-span-5 [perspective:1400px]"
+            >
+              {/* Spins a full turn around its vertical axis on hover (and back on leave) */}
+              <div className="overflow-hidden rounded-xl border border-[#a8875a]/50 bg-[#1d1a17] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8),0_0_50px_-20px_rgba(201,164,110,0.45)] transition-transform duration-[1200ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:[transform:rotateY(360deg)] motion-reduce:transition-none">
+                <div className="flex items-center gap-2 px-3 py-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#f3ece3]/25" />
+                  <span className="w-2 h-2 rounded-full bg-[#f3ece3]/25" />
+                  <span className="w-2 h-2 rounded-full bg-[#f3ece3]/25" />
                   {host && (
-                    <span className="mx-auto max-w-[60%] truncate rounded-md bg-white/5 px-4 py-1 text-xs font-mono text-gray-400">
+                    <span className="mx-auto max-w-[60%] truncate rounded-full bg-[#f3ece3]/[0.06] px-3 py-0.5 text-[0.65rem] tracking-wider text-[#f3ece3]/55">
                       {host}
                     </span>
                   )}
@@ -104,113 +158,149 @@ const ProjectPage = () => {
                 <img
                   src={assetPath(project.image)}
                   alt={title}
-                  className="block w-full object-cover object-top aspect-video bg-gray-800"
+                  className="block w-full h-auto bg-[#1d1b18]"
                 />
               </div>
             </Motion.div>
 
-            <Motion.div variants={fadeUp} className="order-1 lg:order-2">
-              <span className="inline-flex items-center gap-3 text-xs font-mono text-pink-400 mb-3">
-                <span className="h-px w-8 bg-gradient-to-r from-pink-500 to-purple-500" />
-                {pad(index + 1)} / {pad(projects.length)}
-              </span>
-              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight mb-4">
-                {title}
-                <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">.</span>
-              </h1>
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-                {localized(project, "overview", lang) ?? localized(project, "description", lang)}
-              </p>
+            <div className="lg:col-span-7">
+              <Motion.p
+                variants={fadeUp}
+                custom={0.15}
+                className="text-lg sm:text-xl leading-relaxed text-[#f3ece3]/70"
+                style={serif}
+              >
+                {description}
+              </Motion.p>
 
-              {(role || timeline) && (
-                <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-6">
-                  {[
-                    { label: t.projectPage.role, value: role },
-                    { label: t.projectPage.timeline, value: timeline },
-                  ]
-                    .filter(({ value }) => value)
-                    .map(({ label, value }) => (
-                      <div key={label}>
-                        <dt className="inline text-gray-400">{label}: </dt>
-                        <dd className="inline text-gray-200">{value}</dd>
-                      </div>
-                    ))}
-                </dl>
-              )}
-
-              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3">
-                {t.projectPage.stack}
-              </h2>
-              <div className="flex flex-wrap gap-2 mb-7">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs rounded-full font-medium text-pink-200 border border-pink-500/30 bg-pink-500/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-3">
+              <Motion.div variants={fadeUp} custom={0.2} className="mt-8 flex flex-wrap gap-3">
                 {project.demoUrl && (
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-500 transition-all hover:shadow-[0_0_25px_color-mix(in_srgb,var(--accent-1,#ec4899)_50%,transparent)]"
+                    className={`group inline-flex items-center gap-2 rounded-full bg-[#c9a46e] px-6 py-3 ${label} tracking-[0.14em] text-[#161412] transition-colors hover:bg-[#d9b97f]`}
                   >
                     {t.projectPage.demo}
-                    <FaExternalLinkAlt className="w-3 h-3" />
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
                   </a>
                 )}
                 {project.appStoreUrl && (
-                  <a
-                    href={project.appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full font-semibold text-white border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-colors"
-                  >
-                    <FaApple className="w-4 h-4" />
+                  <a href={project.appStoreUrl} target="_blank" rel="noopener noreferrer" className={darkOutlineButton}>
+                    <FaApple className="w-4 h-4 text-[#c9a46e]" />
                     {t.projectPage.appStore}
                   </a>
                 )}
                 {project.codeUrl && (
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full font-semibold text-white border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-colors"
-                  >
-                    <FaGithub />
+                  <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className={darkOutlineButton}>
+                    <FaGithub className="w-4 h-4 text-[#c9a46e]" />
                     {t.projectPage.code}
                   </a>
                 )}
-              </div>
-            </Motion.div>
+              </Motion.div>
+            </div>
           </div>
+
+          {/* Stack marquee: flows right to left, pauses on hover */}
+          <Motion.div
+            variants={fadeUp}
+            custom={0.25}
+            className="mt-12 border-t border-[#f3ece3]/10 pt-6 project-carousel-mask overflow-hidden motion-reduce:overflow-x-auto"
+          >
+            <div
+              className="animate-skills-flow flex w-max"
+              style={{ "--skills-flow-duration": `${tagLoop.length * 3}s` }}
+            >
+              {[false, true].map((isCopy) => (
+                <ul
+                  key={String(isCopy)}
+                  aria-label={isCopy ? undefined : t.projectPage.stack}
+                  aria-hidden={isCopy || undefined}
+                  className="flex shrink-0 items-center gap-2 pr-2"
+                >
+                  {tagLoop.map((tag, i) => (
+                    <li
+                      key={`${tag}-${i}`}
+                      className="shrink-0 whitespace-nowrap rounded-full border border-[#a8875a]/35 bg-[#a8875a]/[0.06] px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#f3ece3]/75 transition-colors hover:border-[#a8875a] hover:text-[#c9a46e]"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </Motion.div>
+        </Motion.div>
+      </header>
+
+      <div data-nav-tone="light" className="bg-[#f3ece3] text-[#1d1b18] px-5 sm:px-10 lg:px-14 pt-20 lg:pt-28 pb-20 lg:pb-28">
+        {/* First section sits flush with the top padding whichever one it is */}
+        <div className="max-w-6xl mx-auto [&>*:first-child]:mt-0">
+          {/* Overview + meta (only when the project has an overview) */}
+          {overview && (
+            <Motion.section {...inView} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <div className="lg:col-span-4">
+                <SectionHeading>{t.projectPage.overview}</SectionHeading>
+                {meta.length > 0 && (
+                  <dl className="border-t border-[#1d1b18]/10">
+                    {meta.map(({ term, value }) => (
+                      <div key={term} className="border-b border-[#1d1b18]/10 py-4">
+                        <dt className={`${label} text-[#1d1b18]/45 mb-1.5`}>{term}</dt>
+                        <dd className="text-sm leading-relaxed">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
+              <p className="lg:col-span-8 text-xl sm:text-2xl leading-relaxed text-[#1d1b18]/80" style={serif}>
+                {overview}
+              </p>
+            </Motion.section>
+          )}
 
           {/* Problem / solution */}
           {(problem || solution) && (
-            <Motion.div
-              variants={fadeUp}
-              custom={0.25}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16"
-            >
+            <Motion.div {...inView} className="mt-20 lg:mt-28 grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { label: t.projectPage.problem, text: problem },
-                { label: t.projectPage.solution, text: solution },
+                { heading: t.projectPage.problem, text: problem, dark: false },
+                { heading: t.projectPage.solution, text: solution, dark: true },
               ]
                 .filter(({ text }) => text)
-                .map(({ label, text }) => (
+                .map(({ heading, text, dark }) => (
                   <div
-                    key={label}
-                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                    key={heading}
+                    className={`group relative overflow-hidden rounded-2xl border p-8 sm:p-10 transition-all duration-500 ease-out hover:-translate-y-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
+                      dark
+                        ? "border-transparent bg-[#161412] text-[#f3ece3] shadow-[0_0_50px_-20px_rgba(201,164,110,0.5)] hover:border-[#a8875a]/70 hover:shadow-[0_30px_60px_-20px_rgba(201,164,110,0.65)]"
+                        : "border-[#1d1b18]/10 bg-[#efe6da] hover:border-[#a8875a]/60 hover:bg-[#f5ede2] hover:shadow-[0_30px_60px_-25px_rgba(168,135,90,0.55)]"
+                    }`}
                   >
-                    <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-400 mb-3">
-                      {label}
+                    {/* Gold top line draws in from the left */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d9b97f] to-[#a8875a] transition-transform duration-700 ease-out group-hover:scale-x-100"
+                    />
+                    {/* Light sheen sweeps across once */}
+                    <span
+                      aria-hidden="true"
+                      className={`pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent to-transparent opacity-0 transition-all duration-1000 ease-out group-hover:left-[120%] group-hover:opacity-100 ${
+                        dark ? "via-[#c9a46e]/15" : "via-white/60"
+                      }`}
+                    />
+                    {/* Soft corner glow */}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,rgba(201,164,110,0.35),transparent)] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                    />
+
+                    <h2
+                      className={`relative ${label} ${dark ? "text-[#c9a46e]" : "text-[#a8875a]"} mb-5 transition-[letter-spacing] duration-500 group-hover:tracking-[0.32em]`}
+                    >
+                      {heading}
                     </h2>
-                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed">{text}</p>
+                    <p className={`relative text-base sm:text-lg leading-relaxed ${dark ? "text-[#f3ece3]/80" : "text-[#1d1b18]/80"}`}>
+                      {text}
+                    </p>
                   </div>
                 ))}
             </Motion.div>
@@ -218,13 +308,9 @@ const ProjectPage = () => {
 
           {/* Features */}
           {features.length > 0 && (
-            <Motion.div variants={fadeUp} custom={0.3}>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-5">
-                {t.projectPage.features}
-              </h2>
-              <ul
-                className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${hasPoints ? "" : "lg:grid-cols-3"}`}
-              >
+            <Motion.section {...inView} className="mt-20 lg:mt-28">
+              <SectionHeading>{t.projectPage.features}</SectionHeading>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {features.map((feature, i) => {
                   // A feature is either a plain string or a { title, body, points? } object.
                   const heading = typeof feature === "string" ? null : feature.title;
@@ -233,18 +319,26 @@ const ProjectPage = () => {
                   return (
                     <li
                       key={heading ?? body}
-                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:border-pink-500/40 hover:bg-white/[0.05]"
+                      className="group relative overflow-hidden rounded-2xl border border-[#1d1b18]/10 bg-[#f8f3ec] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-[#a8875a]/60 hover:shadow-[0_25px_50px_-25px_rgba(168,135,90,0.55)]"
                     >
-                      <span className="block font-mono text-sm font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text mb-2">
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d9b97f] to-[#a8875a] transition-transform duration-500 group-hover:scale-x-100"
+                      />
+                      <span className="block text-3xl leading-none lining-nums text-[#a8875a]" style={serif}>
                         {pad(i + 1)}
                       </span>
-                      {heading && <h3 className="font-semibold text-white mb-1">{heading}</h3>}
-                      <p className="text-sm text-gray-200 leading-relaxed">{body}</p>
+                      {heading && (
+                        <h3 className="mt-5 text-2xl font-medium leading-tight" style={serif}>
+                          {heading}
+                        </h3>
+                      )}
+                      <p className="mt-3 text-sm leading-relaxed text-[#1d1b18]/70">{body}</p>
                       {points.length > 0 && (
-                        <ul className="mt-4 pt-4 border-t border-white/10 space-y-2">
+                        <ul className="mt-4 space-y-2">
                           {points.map((point) => (
-                            <li key={point} className="flex gap-2 text-sm text-gray-400 leading-relaxed">
-                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-pink-400" />
+                            <li key={point} className="flex gap-3 text-sm leading-relaxed text-[#1d1b18]/60">
+                              <span className="mt-2.5 h-px w-3 shrink-0 bg-[#a8875a]" />
                               {point}
                             </li>
                           ))}
@@ -254,99 +348,116 @@ const ProjectPage = () => {
                   );
                 })}
               </ul>
-            </Motion.div>
+            </Motion.section>
           )}
 
           {/* Mobile screenshots */}
           {media.length > 0 && (
-            <Motion.div variants={fadeUp} custom={0.35} className="mt-16">
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">
-                {t.projectPage.screenshots}
-              </h2>
-              <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+            <Motion.section {...inView} className="mt-20 lg:mt-28">
+              <SectionHeading>{t.projectPage.screenshots}</SectionHeading>
+              <div className="flex flex-wrap justify-center gap-6 sm:gap-10 rounded-3xl bg-[#161412] px-6 py-12 sm:py-16">
                 {media.map(({ type, src }, i) => (
-                  <div key={src} className="relative w-[46%] sm:w-[30%] max-w-[260px]">
-                    <div className="absolute -inset-3 rounded-[40px] bg-gradient-to-br from-pink-500/20 via-purple-500/10 to-indigo-500/20 blur-2xl" />
-                    <div className="relative overflow-hidden rounded-[32px] border-[6px] border-gray-800 bg-gray-900 shadow-2xl ring-1 ring-white/10">
-                      {type === "video" ? (
-                        <video
-                          src={assetPath(src)}
-                          controls
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="block w-full aspect-[591/1280] object-cover bg-black"
-                        />
-                      ) : (
-                        <img
-                          src={assetPath(src)}
-                          alt={`${title} — ${t.projectPage.screenshots} ${i + 1}`}
-                          loading="lazy"
-                          className="block w-full aspect-[591/1280] object-cover"
-                        />
-                      )}
-                    </div>
+                  <div
+                    key={src}
+                    className="w-[46%] sm:w-[30%] max-w-[260px] overflow-hidden rounded-[32px] border-[6px] border-[#2a251f] bg-[#161412] shadow-[0_0_50px_-15px_rgba(201,164,110,0.45)]"
+                  >
+                    {type === "video" ? (
+                      <video
+                        src={assetPath(src)}
+                        controls
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="block w-full aspect-[591/1280] object-cover bg-black"
+                      />
+                    ) : (
+                      <img
+                        src={assetPath(src)}
+                        alt={`${title} — ${t.projectPage.screenshots} ${i + 1}`}
+                        loading="lazy"
+                        className="block w-full aspect-[591/1280] object-cover"
+                      />
+                    )}
                   </div>
                 ))}
               </div>
-            </Motion.div>
+            </Motion.section>
           )}
 
           {/* Technical highlights, challenges & solutions */}
-          {notes.map(({ label, items }) => (
-            <Motion.div key={label} variants={fadeUp} custom={0.4} className="mt-16">
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-5">
-                {label}
-              </h2>
-              <ul className="space-y-4">
-                {items.map(({ title: heading, body }) => (
+          {notes.map(({ label: heading, items }) => (
+            <Motion.section key={heading} {...inView} className="mt-20 lg:mt-28">
+              <SectionHeading>{heading}</SectionHeading>
+              <ul className="border-t border-[#1d1b18]/10">
+                {items.map(({ title: itemTitle, body }, i) => (
                   <li
-                    key={heading}
-                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 pl-6 transition-all duration-300 md:hover:translate-x-1 md:hover:border-pink-500/40 md:hover:shadow-[0_8px_30px_-12px_color-mix(in_srgb,var(--accent-1,#ec4899)_45%,transparent)]"
+                    key={itemTitle}
+                    className="group relative grid grid-cols-[2.5rem_minmax(0,1fr)] md:grid-cols-[3rem_4fr_8fr] gap-x-4 md:gap-x-10 gap-y-2 border-b border-[#1d1b18]/10 px-3 sm:px-5 py-7"
                   >
-                    {/* Accent bar: thin at rest, widens and brightens on hover */}
-                    <span className="absolute inset-y-0 left-0 w-0.5 bg-gradient-to-b from-pink-500/70 to-purple-500/70 transition-all duration-300 md:group-hover:w-1 md:group-hover:from-pink-500 md:group-hover:to-purple-500" />
-                    {/* Soft pink wash sweeping in from the accent side */}
-                    <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-pink-500/10 via-purple-500/5 to-transparent opacity-0 transition-opacity duration-300 md:group-hover:opacity-100" />
-                    <h3 className="relative font-semibold text-white mb-1 transition-colors duration-300 md:group-hover:text-pink-300">
-                      {heading}
+                    {/* Gold wash fills in from the left, gold underline draws over the border */}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 origin-left scale-x-0 bg-gradient-to-r from-[#a8875a]/15 via-[#a8875a]/[0.06] to-transparent transition-transform duration-500 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 -bottom-px h-px origin-left scale-x-0 bg-gradient-to-r from-[#a8875a] to-[#d9b97f] transition-transform duration-700 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute left-0 top-1/2 h-0 w-0.5 -translate-y-1/2 bg-[#a8875a] transition-all duration-500 group-hover:h-2/3"
+                    />
+
+                    <span
+                      className="relative origin-left text-xl leading-none lining-nums text-[#a8875a] pt-1 transition-transform duration-500 group-hover:scale-125"
+                      style={serif}
+                    >
+                      {pad(i + 1)}
+                    </span>
+                    <h3
+                      className="relative text-2xl font-medium leading-tight transition-all duration-500 group-hover:translate-x-2 group-hover:text-[#8a6c40]"
+                      style={serif}
+                    >
+                      {itemTitle}
                     </h3>
-                    <p className="relative text-sm text-gray-300 leading-relaxed transition-colors duration-300 md:group-hover:text-gray-200">
+                    <p className="relative col-start-2 md:col-start-3 text-sm sm:text-base leading-relaxed text-[#1d1b18]/70 transition-colors duration-500 group-hover:text-[#1d1b18]/90">
                       {body}
                     </p>
                   </li>
                 ))}
               </ul>
-            </Motion.div>
+            </Motion.section>
           ))}
-        </Motion.div>
 
-        {/* Prev / next */}
-        <nav className="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-white/10 grid grid-cols-2">
-          {[
-            { project: prev, label: t.projectPage.prev, isNext: false },
-            { project: next, label: t.projectPage.next, isNext: true },
-          ].map(({ project: target, label, isNext }) => (
-            <Link
-              key={label}
-              to={`/projects/${target.id}`}
-              aria-label={`${label}: ${localized(target, "title", lang)}`}
-              title={localized(target, "title", lang)}
-              className={`group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 bg-white/[0.03] text-gray-300 transition-colors hover:border-pink-500/50 hover:bg-white/[0.05] hover:text-pink-400 ${
-                isNext ? "justify-self-end" : ""
-              }`}
-            >
-              {isNext ? (
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5" />
-              ) : (
-                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5" />
-              )}
-            </Link>
-          ))}
-        </nav>
+          {/* Prev / next */}
+          <nav className="mt-24 lg:mt-32 flex items-center justify-between gap-6 border-t border-[#1d1b18]/15 pt-8">
+            {[
+              { project: prev, direction: t.projectPage.prev, isNext: false },
+              { project: next, direction: t.projectPage.next, isNext: true },
+            ].map(({ project: target, direction, isNext }) => (
+              <Link
+                key={direction}
+                to={`/projects/${target.id}`}
+                aria-label={`${direction}: ${localized(target, "title", lang)}`}
+                className={`group inline-flex items-center gap-4 ${isNext ? "flex-row-reverse" : ""}`}
+              >
+                <span className="flex w-11 h-11 sm:w-12 sm:h-12 shrink-0 items-center justify-center rounded-full border border-[#a8875a]/60 text-[#a8875a] transition-colors duration-300 group-hover:bg-[#a8875a] group-hover:text-[#f3ece3]">
+                  {isNext ? (
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  ) : (
+                    <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+                  )}
+                </span>
+                <span className={`${label} text-[#1d1b18]/70 transition-colors group-hover:text-[#a8875a]`}>
+                  {direction}
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
-    </section>
+    </article>
   );
 };
 

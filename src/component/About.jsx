@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
@@ -5,6 +6,8 @@ import about from "../assets/contact.webp";
 import projects from "../data/project.json";
 import skills from "../data/skill.json";
 import { useLanguage } from "../i18n/LanguageContext";
+
+const serif = { fontFamily: '"Cormorant Garamond", "Times New Roman", serif' };
 
 const stats = [
   { end: 2, duration: 2 },
@@ -39,37 +42,39 @@ const About = () => {
   return (
     <section
       id="about"
-      className="overflow-hidden flex items-center justify-center px-4 sm:px-6 py-16 lg:py-20 scroll-mt-24"
+      className="relative overflow-hidden bg-[#161412] text-[#f3ece3] px-5 sm:px-10 lg:px-14 py-20 lg:py-28 scroll-mt-16"
     >
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-        <figure className="flex justify-center relative order-2 lg:order-1">
-          <div className="relative w-75 h-75 lg:w-96 lg:h-96">
-            <div
-              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 opacity-80 blur-md"
-              data-aos="zoom-in"
-              data-aos-delay="600"
-            />
-            <img
-              src={about}
-              alt="about"
-              className="relative w-full h-full object-cover object-bottom rounded-[1.75rem] ring-4 ring-white/90 shadow-2xl shadow-pink-500/40 transition-all duration-300"
-              data-aos="zoom-in"
-              data-aos-delay="400"
-            />
+      <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
+        <figure className="lg:col-span-5 flex justify-center" data-aos="fade-up" data-aos-delay="300">
+          <div className="relative w-64 sm:w-72 lg:w-full max-w-sm aspect-[4/5]">
+            <div className="arch-drift absolute inset-0 translate-x-4 translate-y-4 rounded-t-full border border-[#a8875a]/70" />
+            <div className="arch-light arch-glow absolute -inset-2 rounded-t-full blur-2xl" aria-hidden="true" />
+            <div className="arch-light relative h-full w-full rounded-t-full p-[2px]">
+              <div className="h-full w-full overflow-hidden rounded-t-full">
+                <img
+                  src={about}
+                  alt="about"
+                  className="arch-zoom w-full h-full object-cover object-bottom"
+                />
+              </div>
+            </div>
           </div>
         </figure>
 
-        <article className="text-center lg:text-left relative order-1 lg:order-2">
-          <h1
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-pink-500 to-purple-600 text-transparent bg-clip-text"
+        <article className="lg:col-span-7 text-center lg:text-left">
+          <h2
+            className="text-5xl sm:text-6xl lg:text-7xl font-medium leading-none"
+            style={serif}
             data-aos="fade-up"
             data-aos-delay="400"
           >
             {t.about.title}
-          </h1>
+          </h2>
+
+          <span className="mx-auto lg:mx-0 my-7 block h-px w-14 bg-[#a8875a]" />
 
           <p
-            className="text-sm sm:text-base lg:text-lg xl:text-xl mb-6 sm:mb-8 leading-relaxed p-4 sm:p-6 rounded-xl sm:rounded-2xl backdrop-blur-sm text-gray-300 bg-pink-900/10"
+            className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg leading-relaxed text-[#f3ece3]/70"
             data-aos="fade-up"
             data-aos-delay="500"
           >
@@ -78,24 +83,16 @@ const About = () => {
 
           <div
             ref={statsRef}
-            className="grid grid-cols-3 gap-4 w-full max-w-md mb-6 sm:mb-8"
+            className="mx-auto lg:mx-0 mt-10 grid grid-cols-3 max-w-lg border-y border-[#f3ece3]/10 divide-x divide-[#f3ece3]/10"
+            data-aos="fade-up"
+            data-aos-delay="600"
           >
             {stats.map((stat, i) => (
-              <div
-                key={i}
-                className="text-center flex flex-col items-center"
-                data-aos="zoom-in"
-                data-aos-delay="600"
-              >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-pink-400">
-                  {animateStats ? (
-                    <CountUp start={0} end={stat.end} duration={stat.duration} />
-                  ) : (
-                    0
-                  )}
-                  +
+              <div key={i} className="py-6 flex flex-col items-center">
+                <div className="text-4xl sm:text-5xl font-medium leading-none lining-nums text-[#c9a46e]" style={serif}>
+                  {animateStats ? <CountUp start={0} end={stat.end} duration={stat.duration} /> : 0}+
                 </div>
-                <div className="whitespace-nowrap text-gray-300">
+                <div className="mt-3 whitespace-nowrap text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#f3ece3]/55">
                   {t.about.stats[i]}
                 </div>
               </div>
@@ -104,11 +101,12 @@ const About = () => {
 
           <Link
             to="/about"
-            className="w-full sm:w-auto border-2 border-pink-500 inline-flex items-center justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--accent-1,#ec4899)_70%,transparent)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform text-white bg-pink-500/10"
+            className="mt-10 inline-flex items-center justify-center gap-3 rounded-full border border-[#a8875a] px-7 py-3 text-xs sm:text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#c9a46e] btn-slide [--slide-fg:#161412]"
             data-aos="fade-up"
             data-aos-delay="800"
           >
             {t.about.more}
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </article>
       </div>
