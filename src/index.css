@@ -11,6 +11,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /* framer-motion's useScroll measures page scroll against a positioned root */
+  position: relative;
 }
 
 /* Buttons: a fill slides in from the left on hover. Set --slide-bg / --slide-fg per button. */

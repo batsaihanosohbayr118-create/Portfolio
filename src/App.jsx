@@ -58,7 +58,7 @@ const RouteView = ({ location }) => {
       window.scrollTo({ top: 0, behavior: "instant" });
     }
     AOS.refresh();
-  }, [location.pathname]);
+  }, [location.pathname, location.state?.scrollTo]);
 
   return (
     <Suspense fallback={<div className="min-h-svh" />}>
