@@ -12,4 +12,15 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        // Libraries change rarely, so they get their own long-cached chunks
+        manualChunks: {
+          react: ["react", "react-dom", "react-dom/client", "react-router-dom"],
+          motion: ["framer-motion"],
+        },
+      },
+    },
+  },
 });

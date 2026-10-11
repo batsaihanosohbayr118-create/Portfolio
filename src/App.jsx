@@ -1,18 +1,20 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AnimatePresence } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import About from "./component/About";
-import AboutPage from "./component/AboutPage";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
 import Hero from "./component/Hero";
 import IntroLoader from "./component/IntroLoader";
 import Navbar from "./component/Navbar";
-import ProjectPage from "./component/ProjectPage";
 import Projects from "./component/Projects";
 import Skills from "./component/Skills";
+
+// Sub-pages load on demand so the home page ships less JavaScript
+const AboutPage = lazy(() => import("./component/AboutPage"));
+const ProjectPage = lazy(() => import("./component/ProjectPage"));
 
 const Home = () => {
   const location = useLocation();
@@ -69,11 +71,13 @@ const App = () => {
       <Navbar />
 
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects/:id" element={<ProjectPage />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-svh" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects/:id" element={<ProjectPage />} />
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer />

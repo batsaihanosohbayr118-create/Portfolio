@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import contactImg from "../assets/about.webp";
@@ -39,11 +38,14 @@ const Contact = () => {
 
     setStatus("loading");
 
-    emailjs
-      .sendForm("service_g4ebu8c", "template_4yrsjae", form.current, {
-        publicKey: "La2k8Z4wLXYaTyNhk",
-        limitRate: { id: "portfolio-contact", throttle: 10000 },
-      })
+    // EmailJS only loads once someone actually sends a message
+    import("@emailjs/browser")
+      .then(({ default: emailjs }) =>
+        emailjs.sendForm("service_g4ebu8c", "template_4yrsjae", form.current, {
+          publicKey: "La2k8Z4wLXYaTyNhk",
+          limitRate: { id: "portfolio-contact", throttle: 10000 },
+        })
+      )
       .then(
         () => {
           setStatus("success");
