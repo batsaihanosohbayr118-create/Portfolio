@@ -55,7 +55,7 @@ const SkillIcon = ({ skill, className = "w-full h-full" }) => {
   if (Brand) {
     return <Brand role="img" aria-label={skill.name} className={className} style={{ color: skill.iconColor }} />;
   }
-  return <img src={assetPath(skill.icon)} alt={skill.name} className={`${className} object-contain`} />;
+  return <img src={assetPath(skill.icon)} alt={skill.name} loading="lazy" decoding="async" className={`${className} object-contain`} />;
 };
 
 export default SkillIcon;

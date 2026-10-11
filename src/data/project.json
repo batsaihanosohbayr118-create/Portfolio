@@ -127,7 +127,7 @@
         "body": "Every page is rendered with getServerSideProps."
       }
     ],
-    "image": "./images/project1.png",
+    "image": "./images/project1.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/sonor.mn",
     "demoUrl": "https://www.sonornews.mn/",
     "tags": [
@@ -313,7 +313,7 @@
         "body": "Designed the admin dashboard around the client's day-to-day work."
       }
     ],
-    "image": "./images/project3.png",
+    "image": "./images/project3.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/Angijarl",
     "demoUrl": "https://angijarl.vercel.app/",
     "tags": [
@@ -477,7 +477,7 @@
         "body": "Keeps the heart icons in sync with the wishlist every time products are re-rendered."
       }
     ],
-    "image": "./images/project4.png",
+    "image": "./images/project4.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/novashop",
     "demoUrl": "https://batsaihanosohbayr118-create.github.io/novashop/index.html",
     "tags": [
@@ -676,7 +676,7 @@
         "body": "The Gemini API sometimes fails, so I added a fallback to a backup model."
       }
     ],
-    "image": "./images/project7.png",
+    "image": "./images/project7.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/hotel-system",
     "demoUrl": "https://cyber-nexus-hub-pied.vercel.app/",
     "tags": [
@@ -900,7 +900,7 @@
         "body": "Deployed the frontend and backend on different platforms and connected them."
       }
     ],
-    "image": "./images/project8.png",
+    "image": "./images/project8.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/hospital_biy_daalt",
     "demoUrl": "https://hospitalbiydaalt.vercel.app/",
     "tags": [
@@ -992,7 +992,7 @@
         "body": "Fixed production schema drift with safe migrations and no data loss."
       }
     ],
-    "image": "./images/project9.png",
+    "image": "./images/project9.webp",
     "screenshots": [
       "./mobile/mobile.jpg",
       "./mobile/mobile2.jpg"
@@ -1145,7 +1145,7 @@
         "body": "Added indexes on price, rating, province and status in the Prisma schema to speed up search."
       }
     ],
-    "image": "./images/project10.png",
+    "image": "./images/project10.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/Amralt",
     "demoUrl": "https://amralt.vercel.app/",
     "tags": [
@@ -1215,7 +1215,7 @@
         "body": "Secured an API that allowed the gallery to be changed without signing in."
       }
     ],
-    "image": "./images/project11.png",
+    "image": "./images/project11.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/Eyewear",
     "demoUrl": "https://eyewear-five.vercel.app/",
     "tags": [
@@ -1365,7 +1365,7 @@
         "body": "Cormorant Garamond and Karla fonts, a luxurious gold-accented style, fully responsive."
       }
     ],
-    "image": "./images/project12.png",
+    "image": "./images/project12.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/restaurant",
     "demoUrl": "https://vayora-five.vercel.app/",
     "tags": [
@@ -1484,7 +1484,7 @@
         "body": "Fixed-width columns now share the available space, and horizontal scrolling is kept only for phones."
       }
     ],
-    "image": "./images/project13.png",
+    "image": "./images/project13.webp",
     "codeUrl": "https://github.com/batsaihanosohbayr118-create/super-cars",
     "demoUrl": "https://super-cars-omega.vercel.app/",
     "tags": [

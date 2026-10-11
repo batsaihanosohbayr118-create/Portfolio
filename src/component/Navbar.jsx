@@ -48,7 +48,6 @@ const Navbar = () => {
   const langToggle = (
     <button
       onClick={toggleLang}
-      aria-label={t.nav.switchLang}
       title={t.nav.switchLang}
       className={`flex h-9 items-center rounded-full p-1 text-sm cursor-pointer transition-colors duration-300 ${
         isLight ? "bg-[#1d1b18]/[0.06]" : "bg-[#f3ece3]/10"
@@ -75,6 +74,8 @@ const Navbar = () => {
           <span className="relative">{code}</span>
         </span>
       ))}
+      {/* Spoken name keeps the visible "MN EN" (WCAG label-in-name) */}
+      <span className="sr-only">{t.nav.switchLang}</span>
     </button>
   );
 

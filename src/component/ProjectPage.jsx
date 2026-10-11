@@ -202,7 +202,14 @@ const ProjectPage = () => {
                         </span>
                       )}
                     </div>
-                    <img src={assetPath(project.image)} alt={title} className="block w-full h-auto bg-[#1d1b18]" />
+                    <img
+                      src={assetPath(project.image)}
+                      alt={title}
+                      width="1600"
+                      height="776"
+                      fetchPriority="high"
+                      className="block w-full h-auto bg-[#1d1b18]"
+                    />
                   </div>
                 </Motion.div>
 

@@ -75,6 +75,8 @@ const Contact = () => {
             <div className="arch-light relative h-full w-full rounded-t-full p-[2px]">
               <div className="h-full w-full overflow-hidden rounded-t-full">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={contactImg}
                   alt={t.contact.imageAlt}
                   className="arch-zoom w-full h-full object-cover"

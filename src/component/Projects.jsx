@@ -79,8 +79,12 @@ const Projects = () => {
                   </span>
 
                   <img
-                    src={assetPath(project.image)}
+                    src={assetPath(project.image.replace(".webp", "-thumb.webp"))}
                     alt=""
+                    width="80"
+                    height="60"
+                    loading="lazy"
+                    decoding="async"
                     className="sm:hidden w-20 aspect-[4/3] rounded-md object-cover object-top"
                   />
 

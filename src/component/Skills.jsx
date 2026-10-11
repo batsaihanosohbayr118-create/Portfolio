@@ -30,7 +30,7 @@ const SkillItem = ({ skill }) => (
     </span>
     <span className="whitespace-nowrap text-3xl sm:text-5xl font-medium leading-none" style={serif}>
       {skill.name}
-      <sup className="ml-1.5 align-super font-sans text-[0.65rem] sm:text-xs font-semibold tracking-wider text-[#a8875a]">
+      <sup className="ml-1.5 align-super font-sans text-[0.65rem] sm:text-xs font-semibold tracking-wider text-[#806339]">
         {skill.level}%
       </sup>
     </span>
@@ -67,8 +67,8 @@ const Skills = () => {
             key={id}
             className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-0 border-b border-[#1d1b18]/10 py-6 lg:py-8"
           >
-            <h3 className="shrink-0 px-5 sm:px-10 lg:px-14 lg:w-80 text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#1d1b18]/60">
-              <span className="mr-3 text-[#a8875a]">{String(items.length).padStart(2, "0")}</span>
+            <h3 className="shrink-0 px-5 sm:px-10 lg:px-14 lg:w-80 text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#1d1b18]/70">
+              <span className="mr-3 text-[#806339]">{String(items.length).padStart(2, "0")}</span>
               {t.skills.categories[id]}
             </h3>
 

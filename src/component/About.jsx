@@ -52,6 +52,8 @@ const About = () => {
             <div className="arch-light relative h-full w-full rounded-t-full p-[2px]">
               <div className="h-full w-full overflow-hidden rounded-t-full">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={about}
                   alt="about"
                   className="arch-zoom w-full h-full object-cover object-bottom"
