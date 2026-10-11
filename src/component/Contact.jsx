@@ -9,8 +9,9 @@ const serif = { fontFamily: '"Cormorant Garamond", "Times New Roman", serif' };
 
 const labelClass = "block mb-2 text-sm text-[#1d1b18]/70";
 
+// On focus a gold underline draws in from the left over the faint border and the placeholder fades back.
 const inputBaseClass =
-  "w-full bg-transparent border-0 border-b border-[#1d1b18]/20 px-0 py-2.5 text-base text-[#1d1b18] placeholder:text-[#1d1b18]/45 outline-none transition-colors focus:border-[#a8875a]";
+  "w-full bg-transparent border-0 border-b border-[#1d1b18]/20 px-0 py-2.5 text-base text-[#1d1b18] placeholder:text-[#1d1b18]/45 placeholder:transition-colors placeholder:duration-300 outline-none bg-[linear-gradient(#a8875a,#a8875a)] bg-no-repeat bg-[position:0_100%] bg-[length:0%_2px] transition-[background-size,border-color] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] hover:border-[#1d1b18]/35 focus:bg-[length:100%_2px] focus:border-[#a8875a]/40 focus:placeholder:text-[#1d1b18]/25";
 
 const Contact = () => {
   const form = useRef(null);

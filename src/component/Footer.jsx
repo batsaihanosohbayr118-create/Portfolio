@@ -7,6 +7,11 @@ import LogoMark from "./LogoMark";
 const serif = { fontFamily: '"Cormorant Garamond", "Times New Roman", serif' };
 
 const footerNavIds = ["home", "about", "projects", "contact"];
+// Each half of the mobile marquee must be wider than the screen for a seamless loop.
+const mobileNavLoop = [...footerNavIds, ...footerNavIds];
+
+const footerLink =
+  "text-[0.68rem] sm:text-[0.72rem] uppercase tracking-[0.2em] text-[#f3ece3]/90 transition-colors hover:text-[#c9a46e] cursor-pointer";
 
 const socialLinks = [
   {
@@ -60,15 +65,34 @@ const Footer = () => {
             </p>
           </div>
 
-          <nav aria-label="Footer">
-            <ul className="flex flex-wrap justify-center gap-x-7 sm:gap-x-10 gap-y-3">
+          <nav aria-label="Footer" className="min-w-0">
+            {/* Mobile: links flow right to left, pausing on hover */}
+            <div className="sm:hidden project-carousel-mask overflow-hidden motion-reduce:overflow-x-auto">
+              <div className="animate-skills-flow flex w-max" style={{ "--skills-flow-duration": "18s" }}>
+                {[false, true].map((isCopy) => (
+                  <ul key={String(isCopy)} aria-hidden={isCopy || undefined} className="flex shrink-0 items-center">
+                    {mobileNavLoop.map((id, i) => (
+                      <li key={`${id}-${i}`} className="flex shrink-0 items-center">
+                        <button
+                          type="button"
+                          tabIndex={isCopy || i >= footerNavIds.length ? -1 : undefined}
+                          onClick={() => handleNavClick(id)}
+                          className={`${footerLink} whitespace-nowrap py-1`}
+                        >
+                          {t.nav[id]}
+                        </button>
+                        <span aria-hidden="true" className="mx-5 h-1 w-1 rotate-45 bg-[#a8875a]/70" />
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+              </div>
+            </div>
+
+            <ul className="hidden sm:flex flex-wrap justify-center gap-x-10 gap-y-3">
               {footerNavIds.map((id) => (
                 <li key={id}>
-                  <button
-                    type="button"
-                    onClick={() => handleNavClick(id)}
-                    className="text-[0.68rem] sm:text-[0.72rem] uppercase tracking-[0.2em] text-[#f3ece3]/90 transition-colors hover:text-[#c9a46e] cursor-pointer"
-                  >
+                  <button type="button" onClick={() => handleNavClick(id)} className={footerLink}>
                     {t.nav[id]}
                   </button>
                 </li>

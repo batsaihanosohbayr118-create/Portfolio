@@ -1,12 +1,9 @@
 import { useReducedMotion } from "framer-motion";
-import { Eye, Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { lazy, Suspense, useState } from "react";
-import CV from "../assets/CV.pdf";
+import { useEffect, useRef } from "react";
 import HeroImage from "../assets/hero-portrait.webp";
 import { useLanguage } from "../i18n/LanguageContext";
-
-const CVPreviewModal = lazy(() => import("./CVPreviewModal"));
 
 const socialIcons = [
   {
@@ -50,22 +47,98 @@ const Badge = () => (
   </div>
 );
 
+const NAME_BASELINE = 141;
+const TOSS_SPEED = 380; // upward launch speed, SVG units/s
+const GRAVITY = 1800;
+const BOUNCE = 0.35; // share of speed kept on each landing
+
+// Hovered letters of the wordmark get tossed up and bounce back onto the baseline.
+// Animates the <text> y/rotate lists so the whole name stays one gradient-filled text.
+const useLetterToss = (textRef, enabled) => {
+  const letters = useRef([]);
+  const frame = useRef(0);
+  const hovered = useRef(-1);
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+
+  const step = (last) => (now) => {
+    const text = textRef.current;
+    if (!text) return;
+    const dt = Math.min((now - last) / 1000, 1 / 30);
+    let moving = false;
+    for (const l of letters.current) {
+      l.vy += GRAVITY * dt;
+      l.y += l.vy * dt;
+      if (l.y >= 0 && l.vy > 0) {
+        l.y = 0;
+        l.vy = Math.abs(l.vy) < 60 ? 0 : -l.vy * BOUNCE;
+      }
+      // Rotation springs back to upright
+      l.vr += (-140 * l.r - 12 * l.vr) * dt;
+      l.r += l.vr * dt;
+      if (l.vy !== 0 || l.y !== 0 || Math.abs(l.r) > 0.05 || Math.abs(l.vr) > 0.5) moving = true;
+      else l.r = l.vr = 0;
+    }
+    if (moving) {
+      text.setAttribute("y", letters.current.map((l) => (NAME_BASELINE + l.y).toFixed(2)).join(" "));
+      text.setAttribute("rotate", letters.current.map((l) => l.r.toFixed(2)).join(" "));
+      frame.current = requestAnimationFrame(step(now));
+    } else {
+      text.setAttribute("y", NAME_BASELINE);
+      text.removeAttribute("rotate");
+      frame.current = 0;
+    }
+  };
+
+  const toss = (index) => {
+    const l = letters.current[index];
+    if (l.y < -8) return; // still in the air
+    l.vy = -TOSS_SPEED * (0.85 + Math.random() * 0.3);
+    l.vr = (Math.random() < 0.5 ? -1 : 1) * (160 + Math.random() * 120);
+    if (!frame.current) frame.current = requestAnimationFrame(step(performance.now()));
+  };
+
+  const onPointer = (e) => {
+    const text = textRef.current;
+    if (!enabled || !text) return;
+    const count = text.getNumberOfChars();
+    if (letters.current.length !== count) {
+      letters.current = Array.from({ length: count }, () => ({ y: 0, vy: 0, r: 0, vr: 0 }));
+    }
+    const { x } = new DOMPoint(e.clientX, e.clientY).matrixTransform(text.ownerSVGElement.getScreenCTM().inverse());
+    let index = -1;
+    for (let i = 0; i < count; i++) {
+      const box = text.getExtentOfChar(i);
+      if (x >= box.x && x < box.x + box.width) {
+        index = i;
+        break;
+      }
+    }
+    // Toss once per letter entered (a tap always tosses)
+    if (index === hovered.current && e.type === "pointermove") return;
+    hovered.current = index;
+    if (index >= 0) toss(index);
+  };
+
+  return {
+    onPointerMove: onPointer,
+    onPointerDown: onPointer,
+    onPointerLeave: () => (hovered.current = -1),
+  };
+};
+
 const Hero = () => {
-  const [isCvOpen, setIsCvOpen] = useState(false);
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
+  const nameRef = useRef(null);
+  const letterToss = useLetterToss(nameRef, !reduceMotion);
 
   const handleScrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleViewCV = () => {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    if (isMobile) {
-      window.open(CV, "_blank", "noopener,noreferrer");
-      return;
-    }
-    setIsCvOpen(true);
+  const handleScrollToProjects = () => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -86,9 +159,15 @@ const Hero = () => {
         >
           {/* Wordmark */}
           <div className="relative z-0 px-3 sm:px-8 lg:px-12 mt-6 sm:mt-8">
-            <svg viewBox="0 0 1000 150" className="relative block w-full mx-auto max-w-[175svh]" aria-hidden="true">
+            <svg
+              viewBox="0 0 1000 150"
+              className="relative block w-full mx-auto max-w-[175svh] overflow-visible"
+              aria-hidden="true"
+              {...letterToss}
+            >
+              {/* Clips the rise-in reveal at the bottom; open above so tossed letters can fly */}
               <clipPath id="hero-name-clip">
-                <rect width="1000" height="150" />
+                <rect y="-150" width="1000" height="300" />
               </clipPath>
               {/* Ink fill with a gold band that sweeps across the name, then rests */}
               <linearGradient
@@ -123,9 +202,10 @@ const Hero = () => {
               </linearGradient>
               <g clipPath="url(#hero-name-clip)">
                 <text
+                  ref={nameRef}
                   className="hero-name"
                   x="0"
-                  y="141"
+                  y={NAME_BASELINE}
                   textLength="1000"
                   lengthAdjust="spacingAndGlyphs"
                   fontSize="214"
@@ -194,11 +274,11 @@ const Hero = () => {
               data-aos-delay="700"
             >
               <button
-                onClick={handleViewCV}
-                className="inline-flex items-center justify-center rounded-full bg-[#1d1b18] px-5 py-3 text-xs sm:text-[0.8rem] font-semibold uppercase tracking-[0.1em] text-[#f3ece3] btn-slide"
+                onClick={handleScrollToProjects}
+                className="group inline-flex items-center justify-center rounded-full bg-[#1d1b18] px-5 py-3 text-xs sm:text-[0.8rem] font-semibold uppercase tracking-[0.1em] text-[#f3ece3] btn-slide"
               >
-                <Eye className="w-4 h-4 mr-2" />
-                {t.hero.viewCv}
+                {t.hero.viewProjects}
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
 
               <button
@@ -217,16 +297,6 @@ const Hero = () => {
         </div>
       </section>
 
-      {isCvOpen && (
-        <Suspense fallback={null}>
-          <CVPreviewModal
-            isOpen={isCvOpen}
-            onClose={() => setIsCvOpen(false)}
-            cvUrl={CV}
-            fileName="Osohbayr-CV.pdf"
-          />
-        </Suspense>
-      )}
     </div>
   );
 };

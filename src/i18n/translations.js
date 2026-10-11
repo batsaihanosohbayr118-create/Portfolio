@@ -15,7 +15,7 @@ const translations = {
     hero: {
       title: "Сайн байна уу, Би Өсөхбаяр",
       body: "Би хариуцлагатай, цагийг үнэлдэг бөгөөд тасралтгүй хөгжлийг эрхэмлэдэг хүн. Шинэ орчинд хурдан дасан зохицож, бие даан болон багаар үр дүнтэй ажиллах чадвартай.",
-      viewCv: "CV харах",
+      viewProjects: "Төслүүд харах",
       contact: "Холбоо барих",
     },
     about: {
@@ -125,7 +125,7 @@ const translations = {
     hero: {
       title: "Hi, I'm Usukhbayar",
       body: "I'm a responsible, punctual person who values continuous growth. I adapt quickly to new environments and work effectively both independently and in a team.",
-      viewCv: "View CV",
+      viewProjects: "View projects",
       contact: "Contact me",
     },
     about: {
