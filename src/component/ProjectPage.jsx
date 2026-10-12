@@ -1,6 +1,6 @@
 import { motion as Motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useLayoutEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from "lucide-react";
 import { FaApple, FaGithub } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import projects from "../data/project.json";
@@ -246,6 +246,17 @@ const ProjectPage = () => {
                         {t.projectPage.appStore}
                       </a>
                     )}
+                    {project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={darkOutlineButton}
+                      >
+                        <Play className="w-4 h-4 fill-[#c9a46e] text-[#c9a46e]" />
+                        {t.projectPage.playStore}
+                      </a>
+                    )}
                     {project.codeUrl && (
                       <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className={darkOutlineButton}>
                         <FaGithub className="w-4 h-4 text-[#c9a46e]" />
@@ -420,11 +431,11 @@ const ProjectPage = () => {
             {media.length > 0 && (
               <Motion.section {...inView} className="mt-20 lg:mt-28">
                 <SectionHeading>{t.projectPage.screenshots}</SectionHeading>
-                <div className="flex flex-wrap justify-center gap-6 sm:gap-10 rounded-3xl bg-[#161412] px-6 py-12 sm:py-16">
+                <div className="flex flex-nowrap justify-start lg:justify-center gap-4 sm:gap-5 overflow-x-auto rounded-3xl bg-[#161412] px-6 py-12 sm:py-16">
                   {media.map(({ type, src }, i) => (
                     <div
                       key={src}
-                      className="w-[46%] sm:w-[30%] max-w-[260px] overflow-hidden rounded-[32px] border-[6px] border-[#2a251f] bg-[#161412] shadow-[0_0_50px_-15px_rgba(201,164,110,0.45)]"
+                      className="w-[68vw] min-w-[180px] max-w-[220px] shrink-0 overflow-hidden rounded-[32px] border-[6px] border-[#2a251f] bg-[#161412] shadow-[0_0_50px_-15px_rgba(201,164,110,0.45)] sm:w-[200px] lg:w-[190px] xl:w-[200px]"
                     >
                       {type === "video" ? (
                         <video

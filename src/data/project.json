@@ -995,11 +995,14 @@
     "image": "./images/project9.webp",
     "screenshots": [
       "./mobile/mobile.jpg",
-      "./mobile/mobile2.jpg"
+      "./mobile/mobile2.jpg",
+      "./mobile/mobile3.jpg",
+      "./mobile/mobile4.jpg"
     ],
-    "video": "./video/IMG_1820.MP4",
+    "video": "./video/IMG_1859.MP4",
     "demoUrl": "https://www.nova-edu.mn/",
     "appStoreUrl": "https://apps.apple.com/mn/app/nova-mind-academy/id6800562728",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=mn.aethertech.novamind",
     "tags": [
       "React Native",
       "Expo",
