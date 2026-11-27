@@ -147,170 +147,188 @@
     "id": 3,
     "title": "Ангижрал",
     "titleEn": "Angijral",
-    "description": "Бариа засал, бясалгал, хоол зүй, сэтгэл зүйн сургалтын төвд зориулсан бүтэн систем. Үйлчлүүлэгч онлайнаар цаг захиалж, админ контент, захиалга, хэрэглэгч, купоноо нэг самбараас удирдана.",
-    "descriptionEn": "A complete system for a massage therapy, meditation, nutrition and psychology training center. Clients book appointments online, and the admin manages content, bookings, users and coupons from one dashboard.",
-    "overview": "«АНГИЖРАЛ» бол бариа засал, байгууллагын бясалгал, хоол зүй, сэтгэл зүйн сургалт явуулдаг төв. Би төвд зориулж бүтэн систем хийсэн. Үйлчлүүлэгчид үйлчилгээ, бариачдын мэдээлэлтэй танилцаж, онлайнаар цаг захиална. Админ нь контент, захиалга, хэрэглэгч, купоноо нэг самбараас удирдана. Next.js 16 App Router дээр frontend болон 19 API route нэг кодын санд байрладаг ба нийт ~12,500 мөр TypeScript/CSS код.",
-    "overviewEn": "ANGIJRAL is a center offering massage therapy, corporate meditation, nutrition and psychology training. I built a complete system for it. Clients browse services and therapist profiles and book appointments online, while the admin manages content, bookings, users and coupons from one dashboard. The frontend and 19 API routes live in a single Next.js 16 App Router codebase, about 12,500 lines of TypeScript and CSS.",
-    "role": "Full-stack хөгжүүлэлтийг дангаараа хийсэн: дизайн, frontend, API, өгөгдлийн сан, нэвтрэлт, имэйл мэдэгдэл, deploy.",
-    "roleEn": "Solo full-stack developer: design, frontend, API, database, authentication, email notifications and deployment.",
+    "description": "Бариа засал, хоол зүй, бясалгал, сэтгэл зүйн сургалт явуулдаг төвд зориулсан full-stack веб апп. Үйлчлүүлэгч онлайнаар цаг захиалж, ажилтнууд захиалга, багш, үйлчилгээ, купон, сэтгэгдлээ админ самбараас удирдана.",
+    "descriptionEn": "A full-stack web app for a center offering massage therapy, nutrition, meditation and psychology training. Clients book appointments online, and staff manage bookings, teachers, services, coupons and reviews from an admin dashboard.",
+    "overview": "«АНГИЖРАЛ» бол бариа засал, хоол зүй, бясалгал, сэтгэл зүйн сургалт явуулдаг төв. Би төвд зориулж нүүр хуудас, цаг захиалга, админ самбартай full-stack веб апп хийсэн. Үйлчлүүлэгч үйлчилгээ, багш нартай танилцаж, онлайнаар цаг захиална. Төвийн ажилтнууд захиалга, багш, үйлчилгээ, купон, сэтгэгдлээ админ самбараас удирдана. Next.js 16 App Router дээр frontend болон 20 API route нэг кодын санд байрладаг ба нийт ~16,000 мөр TypeScript/CSS код.",
+    "overviewEn": "ANGIJRAL is a center offering massage therapy, nutrition, meditation and psychology training. I built a full-stack web app for it with a home page, online booking and an admin dashboard. Clients browse services and teachers and book appointments online, while staff manage bookings, teachers, services, coupons and reviews from the dashboard. The frontend and 20 API routes live in a single Next.js 16 App Router codebase, about 16,000 lines of TypeScript and CSS.",
+    "role": "Ганцаараа хийсэн: дизайн, frontend, backend, өгөгдлийн сан, нэвтрэлт, имэйл мэдэгдэл, deploy бүгдийг хариуцсан.",
+    "roleEn": "Built solo: design, frontend, backend, database, authentication, email notifications and deployment.",
     "problem": "Өмнө нь цаг захиалга утсаар явагддаг байсан ба бүртгэл гараар хөтлөгддөг байв. Үйлчилгээ, багш, зураг өөрчлөхөд програмист хэрэгтэй байсан.",
     "problemEn": "Bookings used to be taken by phone and records were kept by hand. Changing services, teachers or images required a developer.",
     "solution": "Үйлчлүүлэгч 24/7 онлайнаар цаг захиалдаг болсон. Шинэ захиалга орж ирэхэд төвийн имэйл рүү мэдэгдэл автоматаар очдог. Үйлчилгээ, багш, зураг, хямдралын купоноо админ өөрөө програмистгүйгээр шинэчилдэг болсон.",
     "solutionEn": "Clients now book online 24/7, and every new booking automatically sends a notification to the center's email. The admin updates services, teachers, images and discount coupons without a developer.",
     "features": [
       {
-        "title": "Нүүр хуудас",
-        "body": "Typewriter эффект, scroll reveal анимаци, үйлчилгээ, бариачид, статистик, сэтгэгдлүүд",
+        "title": "Нүүр хуудас ба үйлчилгээ",
+        "body": "4 үйлчилгээний тусдаа хуудас, анимэйшнтэй, бүх дэлгэцэд тохирсон дизайн",
         "points": [
-          "Typewriter эффект болон IntersectionObserver ашигласан scroll reveal анимаци",
-          "Үйлчилгээ, бариачид, статистик, сэтгэгдлийн хэсгүүд",
-          "Үйлчилгээ бүрд тусдаа дэлгэрэнгүй хуудас, бүрэн responsive дизайн"
+          "Оффис бариа засал, хоол зүй, бясалгал, сэтгэл зүйн тус тусдаа хуудас",
+          "Typewriter текст, scroll-reveal, count-up тоолуур, автомат carousel",
+          "Үйлчилгээ, багш нар, статистик, сэтгэгдлийн хэсгүүд",
+          "Бүх дэлгэцэд тохирсон (responsive) дизайн"
         ]
       },
       {
-        "title": "Цаг захиалга (5 алхам)",
-        "body": "Үйлчилгээ → бариач → огноо ба цаг → хувийн мэдээлэл → баталгаажуулалт",
+        "title": "Онлайн цаг захиалга",
+        "body": "Үйлчилгээ → багш → огноо ба цаг → хувийн мэдээлэл → баталгаажуулалт",
         "points": [
-          "Явцыг stepper-ээр харуулж, алхам бүр дээр validation хийдэг",
-          "Бариачийн жагсаалт сонгосон үйлчилгээгээр шүүгдэнэ",
-          "Огноо сонгогч болон dropdown-уудыг бэлэн сангүйгээр өөрөө хийсэн",
-          "Купон код: хувиар эсвэл тогтмол дүнгээр хямдрал. Хугацаа, ашиглах хязгаар, идэвхтэй эсэхийг серверт шалгадаг"
+          "Алхам бүр дээр validation хийдэг",
+          "Багшийн жагсаалт сонгосон үйлчилгээгээр шүүгдэнэ",
+          "Купон код: хувиар эсвэл тогтмол дүнгээр хямдрал. Хугацаа, ашиглах хязгаар, идэвхтэй эсэхийг серверт шалгадаг",
+          "Нэг багшийн нэг цагийг давхар захиалах боломжгүй"
         ]
       },
       {
         "title": "Хэрэглэгчийн бүртгэл ба харилцаа",
-        "body": "Утас/имэйл болон Google нэвтрэлт, буцаж залгах хүсэлт, сэтгэгдэл",
+        "body": "Утас/имэйл болон Google нэвтрэлт, нууц үг сэргээх, сэтгэгдэл, буцааж залгах хүсэлт",
         "points": [
-          "Утас эсвэл имэйл + нууц үгээр, мөн Google-ээр нэвтэрнэ. Нууц үг сэргээх боломжтой",
-          "Буцаж залгах хүсэлт: хэрэглэгч утасны дугаараа үлдээхэд төвд имэйл очно",
-          "Үнэлгээ (rating) өгч сэтгэгдэл бичнэ"
+          "Утас эсвэл имэйл + нууц үгээр, мөн Google-ээр нэвтэрнэ",
+          "Нууц үг сэргээх: имэйлээр 6 оронтой код ирнэ",
+          "Үнэлгээ өгч сэтгэгдэл үлдээнэ",
+          "\"Буцааж залгах\" хүсэлт илгээхэд ажилтанд имэйл очно"
         ]
       },
       {
         "title": "Админ самбар (7 таб)",
-        "body": "Тойм, хэрэглэгч, захиалга, бариач, үйлчилгээ, купон, гадаад байдал",
+        "body": "Тойм, хэрэглэгч, захиалга, багш, үйлчилгээ, купон, сэтгэгдэл",
         "points": [
-          "Тойм: нийт захиалга, хэрэглэгч зэрэг үзүүлэлтүүд",
-          "Хэрэглэгчид: хайлт, жагсаалт",
-          "Захиалгууд: төлөвөөр шүүх (хүлээгдэж буй / баталгаажсан / цуцлагдсан), админ гараар захиалга нэмэх",
-          "Бариачид, үйлчилгээ: бүрэн CRUD, үйлчилгээ болгонд бариач оноох",
-          "Купон: үүсгэх, хугацаа болон ашиглах хязгаар тохируулах",
-          "Гадаад байдал: hero зургийг солих. Pinterest зэрэг хуудасны линк оруулахад og:image-ийг нь автоматаар татаж авдаг"
+          "Тойм: ерөнхий статистик",
+          "Захиалга, хэрэглэгч, багш, үйлчилгээ, купон, сэтгэгдлийн CRUD удирдлага",
+          "Захиалгыг төлөвөөр шүүх, админ гараар захиалга нэмэх",
+          "DatePicker, TimePicker, Dropdown, баталгаажуулах цонхыг бэлэн сангүйгээр өөрөө хийсэн",
+          "Зураг оруулахдаа Pinterest зэрэг хуудасны линк өгөхөд og:image-ийг нь автоматаар татаж авна"
         ]
       }
     ],
     "featuresEn": [
       {
-        "title": "Home page",
-        "body": "Typewriter effect, scroll-reveal animations, services, therapists, stats and testimonials",
+        "title": "Home page and services",
+        "body": "A page for each of the 4 services, with animations and a fully responsive layout",
         "points": [
-          "Typewriter effect and scroll-reveal animations built with IntersectionObserver",
-          "Sections for services, therapists, stats and testimonials",
-          "A detail page for every service, fully responsive"
+          "Separate pages for office massage, nutrition, meditation and psychology",
+          "Typewriter text, scroll reveal, count-up counters and an auto-playing carousel",
+          "Sections for services, teachers, stats and reviews",
+          "Responsive on every screen size"
         ]
       },
       {
-        "title": "Booking (5 steps)",
-        "body": "Service → therapist → date and time → personal details → confirmation",
+        "title": "Online booking",
+        "body": "Service → teacher → date and time → personal details → confirmation",
         "points": [
-          "A stepper shows progress, with validation at every step",
-          "The therapist list is filtered by the selected service",
-          "Date picker and dropdowns built from scratch, with no UI library",
-          "Coupon codes: percentage or fixed-amount discounts, with expiry, usage limit and active status checked on the server"
+          "Validation at every step",
+          "The teacher list is filtered by the selected service",
+          "Coupon codes: percentage or fixed-amount discounts, with expiry, usage limit and active status checked on the server",
+          "The same teacher can't be booked twice for the same time slot"
         ]
       },
       {
         "title": "Accounts and contact",
-        "body": "Phone/email and Google sign-in, callback requests and reviews",
+        "body": "Phone/email and Google sign-in, password reset, reviews and callback requests",
         "points": [
-          "Sign in with phone or email + password, or with Google; password reset included",
-          "Callback requests: when a visitor leaves a phone number, the center gets an email",
-          "Reviews with star ratings"
+          "Sign in with phone or email + password, or with Google",
+          "Password reset with a 6-digit code sent by email",
+          "Reviews with star ratings",
+          "Callback requests are emailed to staff"
         ]
       },
       {
         "title": "Admin dashboard (7 tabs)",
-        "body": "Overview, users, bookings, therapists, services, coupons and appearance",
+        "body": "Overview, users, bookings, teachers, services, coupons and reviews",
         "points": [
-          "Overview: totals for bookings, users and more",
-          "Users: search and list",
-          "Bookings: filter by status (pending / confirmed / cancelled) and add bookings manually",
-          "Therapists and services: full CRUD, with therapists assigned to each service",
-          "Coupons: create them and set expiry dates and usage limits",
-          "Appearance: change the hero image. Paste a page link such as Pinterest and its og:image is fetched automatically"
+          "Overview: summary statistics",
+          "Full CRUD for bookings, users, teachers, services, coupons and reviews",
+          "Filter bookings by status and add bookings manually",
+          "DatePicker, TimePicker, Dropdown and confirmation dialog built from scratch, with no UI library",
+          "Paste a page link such as Pinterest for an image and its og:image is fetched automatically"
         ]
       }
     ],
     "highlights": [
       {
-        "title": "Өгөгдлийн сан",
-        "body": "Neon serverless PostgreSQL дээр 7 хүснэгт (users, bookings, services, teachers, coupons, testimonials, settings). Анх ачаалахад хүснэгтүүд автоматаар үүсч, seed өгөгдөл ордог."
+        "title": "Давхар захиалгаас хамгаалалт",
+        "body": "Нэг багшийн нэг цагийг хоёр хүн зэрэг захиалахаас PostgreSQL-ийн partial unique index хамгаална. Race condition-ийг өгөгдлийн сангийн түвшинд шийдсэн."
       },
       {
-        "title": "Аюулгүй байдал",
-        "body": "Нууц үгийг scrypt + salt-аар hash хийж, timingSafeEqual-аар харьцуулдаг. Google ID token-ийг сервер талд шалгадаг (audience болон email verified)."
+        "title": "Аюулгүй нэвтрэлт",
+        "body": "Нууц үгийг scrypt + salt-аар хэшилж, timing-safe аргаар харьцуулна. Session-д HMAC гарын үсэгтэй HttpOnly cookie ашиглана. Google ID token-ийг сервер талд шалгана."
       },
       {
-        "title": "Имэйл мэдэгдэл",
-        "body": "Nodemailer + Gmail App Password ашигладаг. Имэйл явуулж чадаагүй ч захиалга алдаа заахгүй, зөвхөн лог бичигддэг (graceful failure)."
+        "title": "Rate limiting",
+        "body": "Нэвтрэх, бүртгүүлэх, захиалах, нууц үг сэргээх хүсэлтийн тоог IP-аар хязгаарлана. Serverless орчинд санах ой хүсэлт хооронд хадгалагдахгүй тул тоолуурыг DB-д хадгалсан."
+      },
+      {
+        "title": "Бүртгэлийн мэдээлэл задруулахгүй",
+        "body": "Нууц үг сэргээх үед бүртгэл байгаа эсэхээс үл хамааран ижил хариу буцаана."
       },
       {
         "title": "Image resolver API",
-        "body": "Өгсөн URL-ээс og:image-ийг ялгаж авна. 6 секундийн timeout болон protocol шалгалттай."
+        "body": "Админ Pinterest мэт хуудасны линк оруулахад og:image-ийг нь олж жинхэнэ зургийг авна. Үр дүнг кэшлэнэ."
+      },
+      {
+        "title": "Өгөгдлийн сан",
+        "body": "Neon serverless PostgreSQL. Эхэндээ локал JSON файл ашиглаж байснаа Postgres руу шилжүүлсэн. Schema автоматаар үүсч, анхны өгөгдлөөр дүүрнэ."
       }
     ],
     "highlightsEn": [
       {
-        "title": "Database",
-        "body": "7 tables on Neon serverless PostgreSQL (users, bookings, services, teachers, coupons, testimonials, settings). Tables are created and seeded automatically on first load."
+        "title": "Double-booking protection",
+        "body": "A PostgreSQL partial unique index stops two people booking the same teacher at the same time. The race condition is solved at the database level."
       },
       {
-        "title": "Security",
-        "body": "Passwords are hashed with scrypt + salt and compared with timingSafeEqual. Google ID tokens are verified on the server (audience and email verified)."
+        "title": "Secure authentication",
+        "body": "Passwords are hashed with scrypt + salt and compared in a timing-safe way. Sessions use an HMAC-signed HttpOnly cookie. Google ID tokens are verified on the server."
       },
       {
-        "title": "Email notifications",
-        "body": "Nodemailer with a Gmail App Password. If an email fails to send, the booking still succeeds and the error is only logged (graceful failure)."
+        "title": "Rate limiting",
+        "body": "Login, registration, booking and password-reset requests are limited per IP. Memory doesn't persist between serverless requests, so the counters are stored in the database."
+      },
+      {
+        "title": "No account enumeration",
+        "body": "Password reset returns the same response whether or not the account exists."
       },
       {
         "title": "Image resolver API",
-        "body": "Extracts the og:image from a given URL, with a 6-second timeout and a protocol check."
+        "body": "When an admin pastes a page link such as Pinterest, the API finds its og:image and gets the real image. Results are cached."
+      },
+      {
+        "title": "Database",
+        "body": "Neon serverless PostgreSQL. The app started on local JSON files and was migrated to Postgres. The schema is created and seeded automatically."
       }
     ],
     "challenges": [
       {
-        "title": "Олон алхамтай form",
-        "body": "5 алхамтай захиалгын form-ийн state-ийг удирдаж, алхам бүр дээр validation хийж сурсан."
+        "title": "Зэрэг захиалга (race condition)",
+        "body": "Хоёр хүн нэг цагийг зэрэг захиалах асуудлыг кодоор биш, partial unique index ашиглан өгөгдлийн сангийн түвшинд шийдсэн."
       },
       {
-        "title": "Serverless PostgreSQL",
-        "body": "Serverless орчинд Neon PostgreSQL-тэй ажиллаж, хүснэгтийг автоматаар үүсгэж seed хийдэг болгосон."
+        "title": "Serverless орчинд rate limiting",
+        "body": "Serverless функцэд санах ой хадгалагдахгүй тул хүсэлтийн тоолуурыг PostgreSQL-д хадгалдаг болгосон."
       },
       {
-        "title": "OAuth токен шалгалт",
-        "body": "Google ID token-ийг клиентэд итгэлгүйгээр сервер талд найдвартай шалгадаг болгосон."
+        "title": "JSON-оос Postgres руу шилжүүлэлт",
+        "body": "Локал JSON файлаас Neon Postgres руу шилжүүлж, schema болон анхны өгөгдлийг автоматаар үүсгэдэг болгосон."
       },
       {
         "title": "Бодит хэрэгцээнд суурилсан админ самбар",
-        "body": "Захиалагчийн өдөр тутмын ажилд тулгуурлан админ самбарыг зохиосон."
+        "body": "Төвийн ажилтнуудын өдөр тутмын ажилд тулгуурлан админ самбарыг зохиосон."
       }
     ],
     "challengesEn": [
       {
-        "title": "Multi-step forms",
-        "body": "Learned to manage state across a 5-step booking form, with validation at every step."
+        "title": "Concurrent bookings (race condition)",
+        "body": "Two people booking the same slot at once is prevented at the database level with a partial unique index, not in application code."
       },
       {
-        "title": "Serverless PostgreSQL",
-        "body": "Worked with Neon PostgreSQL in a serverless environment, with tables created and seeded automatically."
+        "title": "Rate limiting on serverless",
+        "body": "Serverless functions don't keep memory between requests, so the request counters are stored in PostgreSQL."
       },
       {
-        "title": "OAuth token verification",
-        "body": "Google ID tokens are verified on the server instead of trusting the client."
+        "title": "Migrating from JSON to Postgres",
+        "body": "Moved from local JSON files to Neon Postgres, with the schema and seed data created automatically."
       },
       {
         "title": "An admin dashboard built around real needs",
-        "body": "Designed the admin dashboard around the client's day-to-day work."
+        "body": "Designed the admin dashboard around the staff's day-to-day work."
       }
     ],
     "image": "./images/project3.webp",
@@ -492,107 +510,145 @@
     "id": 7,
     "title": "AI-Powered Hotel Booking & Management Platform",
     "titleEn": "AI-Powered Hotel Booking & Management Platform",
-    "description": "Next.js, PostgreSQL дээр бүтээсэн зочид буудал захиалах full-stack платформ. QPay төлбөр, Gemini AI туслах, газрын зураг, админ самбартай.",
-    "descriptionEn": "A full-stack hotel booking platform built on Next.js and PostgreSQL, with QPay payments, a Gemini AI assistant, maps and an admin dashboard.",
-    "overview": "Монгол хэрэглэгчдэд зориулсан full-stack платформ. Хэрэглэгч буудал, өрөө хайж, газрын зураг дээр байршлыг нь харж, захиалга хийгээд QPay-ээр төлдөг. Админ буудал, өрөө, захиалга, буцаан олголтоо нэг самбараас удирддаг. AI туслах хэрэглэгчийн төсөв, хүсэлтэд тохирох өрөөг санал болгодог. Нийт ~267 commit.",
-    "overviewEn": "A full-stack platform for Mongolian users. Guests search hotels and rooms, see their locations on a map, book and pay with QPay. Admins manage hotels, rooms, bookings and refunds from one dashboard. An AI assistant recommends rooms that fit the guest's budget and needs. About 267 commits in total.",
-    "role": "Бие даасан төсөл: дизайн, frontend, backend, өгөгдлийн сан, төлбөрийн интеграц, AI, deploy бүгдийг дангаараа хийсэн.",
-    "roleEn": "Solo project: design, frontend, backend, database, payment integration, AI and deployment.",
+    "description": "Монголын зочид буудлуудыг газрын зураг дээр хайж, өрөө сонгоод QPay-ээр төлж захиалах full-stack платформ. Хэрэглэгч, буудлын эзэн, админ гэсэн 3 төрлийн хэрэглэгчтэй, үнийн таамаг гаргадаг AI туслахтай.",
+    "descriptionEn": "A full-stack platform for finding Mongolian hotels on a map, picking a room and paying with QPay. It has three user roles (guest, hotel owner, admin) and an AI assistant that forecasts prices.",
+    "overview": "Монголын зочид буудлуудыг газрын зураг дээр хайж, өрөө сонгоод QPay-ээр төлбөрөө хийж захиалах платформ. Хэрэглэгч, буудлын эзэн, админ гэсэн 3 төрлийн хэрэглэгчтэй. Буудлын эзэн Owner Studio-оос өөрийн хуудсаа тохируулна, админ бүх буудал, захиалга, буцаан олголтыг удирдана. Gemini-д суурилсан AI туслах асуултад хариулж, ирэх 30 хоногийн үнийг таамагладаг. Frontend-ээс backend, өгөгдлийн сангийн бүтэц хүртэл бүгдийг өөрөө зохиосон. Нийт ~270 commit.",
+    "overviewEn": "A platform for finding Mongolian hotels on a map, picking a room and paying with QPay. It has three user roles: guest, hotel owner and admin. Owners customize their hotel page in Owner Studio, and admins manage every hotel, booking and refund. A Gemini-based AI assistant answers questions and forecasts prices for the next 30 days. I designed everything myself, from the frontend and backend to the database schema. About 270 commits in total.",
+    "role": "Ганцаараа хийсэн: дизайн, frontend, backend, өгөгдлийн сангийн бүтэц, төлбөрийн интеграц, AI, Docker deploy бүгдийг хариуцсан.",
+    "roleEn": "Built solo: design, frontend, backend, database schema, payment integration, AI and Docker deployment.",
     "features": [
       {
-        "title": "Хайлт ба захиалга",
-        "body": "Шүүлтүүртэй хайлт, газрын зураг, бүлгийн захиалга, купон",
+        "title": "Хайлт ба газрын зураг",
+        "body": "Шүүлтүүртэй хайлт, Leaflet газрын зураг дээр радиусаар хайх",
         "points": [
-          "Буудал, өрөөг байршил, үнэ, өрөөний төрөл (Standard / Deluxe / Suite), тохилог байдлаар шүүж хайна",
-          "Leaflet газрын зураг дээр буудлын байршлыг харуулна",
-          "Өрөөний дэлгэрэнгүй хуудас, зургийн галерей (carousel)",
-          "Огноо сонгож захиалах, купон код ашиглах",
-          "Бүлгийн захиалга: нэг дор олон өрөө захиална"
+          "Огноо, зочдын тоо, үнэ, өрөөний төрөл (Standard / Deluxe / Suite), тохилог байдлаар шүүнэ",
+          "Leaflet газрын зураг дээр сонгосон цэгээс тодорхой радиус дотор буудал хайна",
+          "Өрөөний дэлгэрэнгүй хуудас, зургийн галерей (carousel)"
         ]
       },
       {
-        "title": "Төлбөр ба захиалгын удирдлага",
-        "body": "QPay QR, бусад төлбөрийн сонголт, цуцлалт, буцаан олголт",
+        "title": "Захиалга ба төлбөр",
+        "body": "QPay QR (EMV стандарт), webhook, купон, цуцлалт, буцаан олголт",
         "points": [
-          "QPay QR төлбөр (webhook-оор баталгаажуулна), мөн дансаар шилжүүлэх, StorePay, LendMN сонголттой",
-          "\"Миний захиалгууд\" хуудаснаас захиалга цуцлах, буцаан олголт хүсэх",
-          "Захиалгын төлөв өөрчлөгдөхөд апп доторх мэдэгдэл ирнэ"
+          "QPay QR кодоор төлнө. QR-ийг EMV стандартын дагуу CRC16 checksum-тай өөрөө үүсгэдэг",
+          "Төлбөрийг webhook-оор баталгаажуулна. Мөн дансаар шилжүүлэх, StorePay, LendMN сонголттой",
+          "Купон кодоор хөнгөлөлт авна",
+          "\"Миний захиалгууд\" хуудаснаас захиалга цуцлах, буцаан олголт хүсэх"
         ]
       },
       {
-        "title": "AI туслах",
-        "body": "Gemini 2.5 Flash дээр ажилладаг чат, олон агентын санал болгох систем",
+        "title": "Бүлгийн захиалга",
+        "body": "Урилгын кодоор найзуудаа нэгтгээд хамтдаа өрөө захиална",
+        "points": [
+          "Бүлэг үүсгээд урилгын код хуваалцана",
+          "Найзууд кодоор нэгдэж, хамтдаа өрөө захиална"
+        ]
+      },
+      {
+        "title": "AI туслах ба үнийн таамаг",
+        "body": "Gemini 2.5 Flash чат туслах, эрэлтэд суурилсан 30 хоногийн үнийн таамаг",
         "points": [
           "Google Gemini 2.5 Flash дээр ажилладаг чат туслах. Үндсэн загвар ажиллахгүй бол нөөц загвар руу шилждэг",
-          "Хүсэлтийг 5 үе шаттай агент дамжуулан боловсруулна: Хүсэлт таних → Хайлт хийх → Нөхцөл шалгах → Эрэмбэлэх → Зөвлөх",
-          "Хэрэглэгч оноо болон шалтгаантай саналуудыг харна"
+          "Захиалгын эрэлтээс хамааруулж ирэх 30 хоногийн үнийг таамаглана",
+          "Календарь дээр хямд, үнэтэй өдрүүдийг ялгаж харуулаад \"одоо захиал\" гэх мэт зөвлөмж өгнө",
+          "Хүсэлтийг 5 үе шаттай агент дамжуулан боловсруулна: Хүсэлт таних → Хайлт хийх → Нөхцөл шалгах → Эрэмбэлэх → Зөвлөх"
+        ]
+      },
+      {
+        "title": "Owner Studio",
+        "body": "Буудлын эзэн өөрийн хуудсаа өөрөө тохируулж, удирдана",
+        "points": [
+          "Буудлын хуудасны өнгө, загварыг тохируулж, үр дүнг шууд харна",
+          "Зургийн галерей болон өрөөнүүдээ удирдана"
         ]
       },
       {
         "title": "Админ самбар",
-        "body": "Буудал, өрөөний CRUD, захиалга, буцаан олголт, 3 түвшний эрх",
+        "body": "Статистик, буудал, өрөө, захиалга, буцаан олголт, 3 түвшний эрх",
         "points": [
+          "Ерөнхий статистик",
           "Буудал, өрөөг нэмэх, засах, устгах (CRUD), зураг оруулах",
           "Бүх захиалгыг удирдах, буцаан олголтын хүсэлт шийдвэрлэх",
-          "Хэрэглэгчийн эрх 3 түвшинтэй: Owner / Admin / User"
+          "Эрх бүхий 3 төрлийн хэрэглэгч (role-based access): Хэрэглэгч / Буудлын эзэн / Админ"
         ]
       },
       {
         "title": "Хэрэглэгчийн туршлага",
-        "body": "Хоёр хэл, offline анхааруулга, responsive дизайн",
+        "body": "Мэдэгдэл, хоёр хэл, offline анхааруулга, animation, responsive дизайн",
         "points": [
+          "Захиалгын төлөв өөрчлөгдөхөд апп доторх мэдэгдэл ирнэ",
           "Монгол / Англи хэл солих",
-          "Интернэтгүй үед \"Offline\" анхааруулга харуулна",
-          "Бүх төхөөрөмжид тохирох responsive дизайн"
+          "Интернэт тасрахад \"Offline\" анхааруулга харуулна",
+          "Хуудас солигдох болон scroll хийхэд animation гарна",
+          "Дэлгэцийн бүх хэмжээнд тохирно"
         ]
       }
     ],
     "featuresEn": [
       {
-        "title": "Search and booking",
-        "body": "Filtered search, maps, group bookings and coupons",
+        "title": "Search and map",
+        "body": "Filtered search and radius search on a Leaflet map",
         "points": [
-          "Search hotels and rooms by location, price, room type (Standard / Deluxe / Suite) and amenities",
-          "Hotel locations shown on a Leaflet map",
-          "Room detail pages with an image gallery (carousel)",
-          "Pick dates, book and apply a coupon code",
-          "Group bookings: reserve several rooms at once"
+          "Filter by dates, number of guests, price, room type (Standard / Deluxe / Suite) and amenities",
+          "Search for hotels within a set radius of any point picked on a Leaflet map",
+          "Room detail pages with an image gallery (carousel)"
         ]
       },
       {
-        "title": "Payments and booking management",
-        "body": "QPay QR, other payment options, cancellations and refunds",
+        "title": "Booking and payment",
+        "body": "QPay QR (EMV standard), webhooks, coupons, cancellations and refunds",
         "points": [
-          "QPay QR payments confirmed by webhook, plus bank transfer, StorePay and LendMN options",
-          "Cancel bookings and request refunds from the \"My bookings\" page",
-          "In-app notifications when a booking's status changes"
+          "Pay with a QPay QR code, generated in-house to the EMV standard with a CRC16 checksum",
+          "Payments are confirmed by webhook. Bank transfer, StorePay and LendMN are also offered",
+          "Coupon code discounts",
+          "Cancel bookings and request refunds from the \"My bookings\" page"
         ]
       },
       {
-        "title": "AI assistant",
-        "body": "A chat assistant on Gemini 2.5 Flash and a multi-agent recommendation system",
+        "title": "Group bookings",
+        "body": "Gather friends with an invite code and book rooms together",
+        "points": [
+          "Create a group and share its invite code",
+          "Friends join with the code and book rooms together"
+        ]
+      },
+      {
+        "title": "AI assistant and price forecast",
+        "body": "A Gemini 2.5 Flash chat assistant and a demand-based 30-day price forecast",
         "points": [
           "Chat assistant powered by Google Gemini 2.5 Flash, falling back to a backup model if the main one fails",
-          "Requests pass through a 5-stage agent pipeline: understand the request → search → check constraints → rank → advise",
-          "Guests see recommendations with scores and reasons"
+          "Forecasts prices for the next 30 days based on booking demand",
+          "A calendar highlights cheap and expensive days and gives advice such as \"book now\"",
+          "Requests pass through a 5-stage agent pipeline: understand the request → search → check constraints → rank → advise"
+        ]
+      },
+      {
+        "title": "Owner Studio",
+        "body": "Hotel owners customize and manage their own page",
+        "points": [
+          "Change the hotel page's colors and design with a live preview",
+          "Manage the photo gallery and rooms"
         ]
       },
       {
         "title": "Admin dashboard",
-        "body": "Hotel and room CRUD, bookings, refunds and three permission levels",
+        "body": "Stats, hotels, rooms, bookings, refunds and three permission levels",
         "points": [
+          "Summary statistics",
           "Add, edit and delete hotels and rooms (CRUD), with image upload",
           "Manage all bookings and handle refund requests",
-          "Three permission levels: Owner / Admin / User"
+          "Role-based access for three user types: Guest / Hotel owner / Admin"
         ]
       },
       {
         "title": "User experience",
-        "body": "Two languages, an offline notice and a responsive design",
+        "body": "Notifications, two languages, an offline notice, animations and a responsive design",
         "points": [
+          "In-app notifications when a booking's status changes",
           "Switch between Mongolian and English",
-          "An \"Offline\" notice when there is no internet connection",
-          "Responsive design for every device"
+          "An \"Offline\" notice when the connection drops",
+          "Animations on page transitions and scroll",
+          "Works on every screen size"
         ]
       }
     ],
@@ -603,15 +659,19 @@
       },
       {
         "title": "Нэг codebase, хоёр орчин",
-        "body": "Vercel дээр pages/api/[...path].js catch-all route нь backend руу хүсэлт дамжуулна. Docker Compose дээр web, api, db гурван тусдаа контейнерт ажиллана."
+        "body": "Vercel дээр pages/api/[...path].js catch-all route нь backend руу хүсэлт дамжуулна. Docker Compose дээр web, api, db гурван тусдаа контейнерт хувааж deploy хийхэд бэлэн болгосон."
       },
       {
         "title": "Төлбөрийн урсгал",
-        "body": "QPay access token-ыг кэшлэж, нэхэмжлэх үүсгэн QR код гаргаж, webhook ирэхэд захиалгыг баталгаажуулдаг."
+        "body": "QPay access token-ыг кэшлэж, нэхэмжлэх үүсгэнэ. Төлбөрийн QR-ийг EMV стандартын дагуу CRC16 checksum-тай өөрөө үүсгэж, webhook ирэхэд захиалгыг баталгаажуулдаг."
+      },
+      {
+        "title": "Эрэлтэд суурилсан үнийн таамаг",
+        "body": "Захиалгын эрэлтээс хамааруулж ирэх 30 хоногийн үнийг таамаглах логикийг өөрөө бичсэн. Хамгийн хямд, үнэтэй өдрийг олж, календарь дээр харуулна."
       },
       {
         "title": "Өгөгдлийн сан",
-        "body": "PostgreSQL дээр 9 хүснэгт: users, hotels, rooms, bookings, group_bookings, payments, notifications, sessions, newsletter."
+        "body": "PostgreSQL дээр 9 хүснэгт: users, hotels, rooms, bookings, group_bookings, payments, notifications, sessions, newsletter_subscribers."
       },
       {
         "title": "Нэвтрэлт ба state",
@@ -629,15 +689,19 @@
       },
       {
         "title": "One codebase, two environments",
-        "body": "On Vercel, a pages/api/[...path].js catch-all route forwards requests to the backend. With Docker Compose, web, api and db run in three separate containers."
+        "body": "On Vercel, a pages/api/[...path].js catch-all route forwards requests to the backend. With Docker Compose, the app is split into three deploy-ready containers: web, api and db."
       },
       {
         "title": "Payment flow",
-        "body": "The QPay access token is cached, an invoice is created with a QR code, and the booking is confirmed when the webhook arrives."
+        "body": "The QPay access token is cached and an invoice is created. The payment QR is generated in-house to the EMV standard with a CRC16 checksum, and the booking is confirmed when the webhook arrives."
+      },
+      {
+        "title": "Demand-based price forecast",
+        "body": "Hand-written logic forecasts prices for the next 30 days from booking demand, finds the cheapest and most expensive days and shows them on a calendar."
       },
       {
         "title": "Database",
-        "body": "9 PostgreSQL tables: users, hotels, rooms, bookings, group_bookings, payments, notifications, sessions and newsletter."
+        "body": "9 PostgreSQL tables: users, hotels, rooms, bookings, group_bookings, payments, notifications, sessions and newsletter_subscribers."
       },
       {
         "title": "Auth and state",
@@ -687,6 +751,8 @@
       "shadcn/ui",
       "Redux Toolkit",
       "TanStack Query",
+      "React Hook Form",
+      "Zod",
       "Node.js",
       "PostgreSQL",
       "JWT Auth",
@@ -704,31 +770,35 @@
     "id": 9,
     "title": "Nova Mind Academy",
     "titleEn": "Nova Mind Academy",
-    "description": "Сургуулийн удирдлагын бүрэн систем — вэб (Next.js) болон native мобайл апп (Expo/React Native, iOS & Android) хосолсон. Neon PostgreSQL өгөгдлийн сан, custom auth (scrypt нууц үгийн hash + HMAC гарын үсэгтэй token), Expo Push (APNs + FCM)-ээр push notification, 4 role (админ/багш/сурагч/эцэг эх)-д тохирсон эрхийн систем.",
-    "descriptionEn": "A complete school management system combining a web app (Next.js) and a native mobile app (Expo/React Native, iOS & Android). Neon PostgreSQL database, custom auth (scrypt password hashing + HMAC-signed tokens), push notifications via Expo Push (APNs + FCM) and permissions for 4 roles (admin/teacher/student/parent).",
-    "role": "Ганцаараа хөгжүүлсэн: дизайн, вэб, мобайл, backend, release",
-    "roleEn": "Solo developer: design, web, mobile, backend, release",
+    "description": "Сургуулийн өдөр тутмын үйл ажиллагааг (ирц, дүн, хичээлийн хуваарь, төлбөр, зарлал, хоол) нэг дор удирддаг систем. Админ, багш, сурагч, эцэг эх гэсэн 4 төрлийн хэрэглэгч тус бүр өөрийн хяналтын самбартай. Вэб апп болон iOS/Android гар утасны апп нь нэг backend-ийг хамтран ашигладаг.",
+    "descriptionEn": "A system that runs a school's daily operations in one place: attendance, grades, timetable, payments, announcements and lunch. Admins, teachers, students and parents each have their own dashboard. The web app and the iOS/Android mobile app share one backend.",
+    "role": "Full-stack хөгжүүлэгч. Вэбээс гар утасны апп хүртэл системийг бүхэлд нь ганцаараа зохион бүтээж, хөгжүүлж, байршуулсан.",
+    "roleEn": "Full-stack developer. Designed, built and shipped the whole system alone, from the web app to the mobile app.",
     "timeline": "2026 оны 5-р сар – 8-р сар",
     "timelineEn": "May – August 2026",
     "features": [
-      "Вэб dashboard болон native iOS/Android апп нэг API-г хуваалцдаг",
-      "Админ / багш / сурагч / эцэг эх гэсэн 4 эрх, хүн бүр зөвхөн өөрийн өгөгдлийг хардаг",
-      "Дүн, ирц, төлбөр, хичээлийн хуваарь, зарлал — нийт 12 resource",
+      "Вэб хяналтын самбар болон native iOS/Android апп нэг backend-ийг хуваалцдаг",
+      "Админ / Багш / Сурагч / Эцэг эх гэсэн 4 эрх. Хэн юу харахыг өгөгдлийн давхаргад (row-level) шалгадаг: сурагч зөвхөн өөрийн дүнг, эцэг эх зөвхөн хүүхдийнхээ мэдээллийг хардаг",
+      "Ирц, дүн, хичээлийн хуваарь, зарлал, хичээлийн материал удирдах модулиуд, Recharts дээрх статистик графикууд",
+      "Бүртгэл: сурагч шууд бүртгүүлнэ, эцэг эх хүүхдийнхээ бүртгэлээр холбогдоно, багш админ баталгаажуулсны дараа нэвтэрнэ",
+      "QPay төлбөрийн интеграц, сургуулийн хоолны бүртгэл",
+      "Англи хэлний түвшин тогтоох тест: гар утсан дээр өгөөд автоматаар үнэлэгддэг",
       "Багш ирц, дүнгээ утаснаасаа оруулдаг",
-      "Шинэ дүн, зарлал гарахад push notification (Expo Push)",
-      "Offline горим: интернетгүй үед апп cache-лсэн өгөгдлөө харуулдаг",
-      "Монгол, англи хэл; dark болон light горим",
-      "Бүртгэлийг зөвхөн админ үүсгэнэ, нээлттэй sign-up байхгүй"
+      "Шинэ дүн, зарлал гарахад push мэдэгдэл (Expo Notifications)",
+      "Offline горим: интернэтгүй үед апп кэшлэсэн өгөгдлөө харуулдаг",
+      "Монгол / Англи хэл, харанхуй болон гэрэл горим, glassmorphism загвар"
     ],
     "featuresEn": [
-      "Web dashboard + native iOS/Android app sharing one API",
-      "Four roles (admin / teacher / student / parent), each sees only their own data",
-      "Grades, attendance, payments, timetable, announcements, 12 resources in total",
+      "Web dashboard and native iOS/Android app sharing one backend",
+      "Four roles (Admin / Teacher / Student / Parent). Access is checked at the data layer (row-level): students see only their own grades, parents only their child's data",
+      "Modules for attendance, grades, timetable, announcements and course materials, with statistics charts in Recharts",
+      "Sign-up flow: students register directly, parents link through their child's account, teachers can sign in once an admin approves them",
+      "QPay payment integration and school lunch registration",
+      "English placement test taken on the phone and graded automatically",
       "Teachers enter attendance and grades from their phone",
-      "Push notifications on new grades and announcements (Expo Push)",
+      "Push notifications for new grades and announcements (Expo Notifications)",
       "Offline mode: the app shows cached data without internet",
-      "Mongolian and English, dark and light mode",
-      "Admin-only account creation, with no public sign-up"
+      "Mongolian and English, dark and light mode, glassmorphism design"
     ],
     "challenges": [
       {
@@ -788,14 +858,65 @@
     "tags": [
       "React Native",
       "Expo",
+      "Expo Router",
+      "EAS Update",
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
+      "Framer Motion",
+      "Recharts",
       "PostgreSQL",
       "Neon",
+      "QPay",
       "Expo Push",
       "Firebase",
+      "Vitest",
+      "Docker",
       "Vercel"
+    ],
+    "highlights": [
+      {
+        "title": "Monorepo архитектур",
+        "body": "npm workspaces дээр web, mobile хоёр shared/ санг хамтран ашигладаг (эрхийн дүрэм, дүнгийн тооцоо, бүртгэлийн шалгалт гэх мэт). Логик хоёр газар давхардахгүй."
+      },
+      {
+        "title": "Аюулгүй mobile API",
+        "body": "/api/mobile/* өөрийн SQL бичихгүй, вэбийн эрхийн шалгалтыг дахин ашигладаг. Ингэснээр нэг сурагч нөгөөгийнхөө дүнг харах мэтийн алдаа гарахгүй."
+      },
+      {
+        "title": "Өөрөө хийсэн нэвтрэлт",
+        "body": "Neon PostgreSQL дээр scrypt нууц үгийн hash, HMAC гарын үсэгтэй token ашигладаг."
+      },
+      {
+        "title": "Production-д найдвартай ажиллах",
+        "body": "Локал орчинд DB унавал JSON store руу шилждэг. Харин Vercel дээр энэ fallback унтарсан байдаг бөгөөд үүнийг тестээр баталгаажуулсан."
+      },
+      {
+        "title": "OTA шинэчлэл",
+        "body": "Гар утасны апп-ын шинэчлэлийг EAS Update-ээр, store-д дахин илгээлгүйгээр хүргэдэг."
+      }
+    ],
+    "highlightsEn": [
+      {
+        "title": "Monorepo architecture",
+        "body": "With npm workspaces, web and mobile share a shared/ library (permission rules, grade calculations, registration checks and more), so no logic is duplicated."
+      },
+      {
+        "title": "Secure mobile API",
+        "body": "/api/mobile/* writes no SQL of its own and reuses the web's authorization checks, so bugs like one student seeing another's grades can't happen."
+      },
+      {
+        "title": "Self-hosted auth",
+        "body": "scrypt password hashing and HMAC-signed tokens on Neon PostgreSQL."
+      },
+      {
+        "title": "Production reliability",
+        "body": "Locally, the app falls back to a JSON store if the database is down. On Vercel that fallback is switched off, and a test verifies it."
+      },
+      {
+        "title": "OTA updates",
+        "body": "Mobile app updates ship over the air with EAS Update, without resubmitting to the stores."
+      }
     ]
   },
   {
